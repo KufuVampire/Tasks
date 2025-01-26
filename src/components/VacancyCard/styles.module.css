@@ -1,0 +1,73 @@
+.item {
+	position: relative;
+	width: 100%;
+	padding: 32px;
+	border-radius: 16px;
+	background-color: var(--bg);
+	box-shadow: var(--shadow);
+	transition: box-shadow .3s ease;
+	cursor: pointer;
+}
+
+.item:hover {
+	box-shadow: var(--shadow-hover);
+}
+
+.item:hover .icon__eye {
+	opacity: 1;
+}
+
+.heading {
+	width: 80%;
+	margin-bottom: 4px;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 24px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.salary {
+	margin-bottom: 16px;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+.company {
+	margin-bottom: 8px;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 16px;
+}
+
+.city {
+	margin-bottom: 16px;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 16px;
+}
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	column-gap: 8px;
+}
+
+.experience {
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 16px;
+}
+
+.icon__eye {
+	position: absolute;
+	top: 32px;
+	right: 32px;
+	opacity: 0;
+	fill: var(--light-gray);
+	stroke: var(--light-gray);
+	transition: opacity .3s ease;
+	cursor: pointer;
+}

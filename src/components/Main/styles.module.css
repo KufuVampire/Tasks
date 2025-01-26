@@ -1,0 +1,12 @@
+.main {
+	min-height: calc(100vh - 80px * 2);
+}
+
+.section {
+	padding-top: 32px;
+	padding-bottom: 32px;
+}
+
+.search__section {
+	padding-top: 48px;
+}
