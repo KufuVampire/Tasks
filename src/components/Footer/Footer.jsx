@@ -5,7 +5,7 @@ export const Footer = () => {
 		<footer className={styles.footer}>
 			<div className={`container ${styles.footer__container}`}>
 				<p className={styles.footer__text}>
-					Проект выполнен в рамках стажировки <a className={styles.footer__link} href="https://preax.ru/">PREAX</a>
+					Проект выполнен в рамках стажировки <a href='https://preax.ru' target='_blank' className={styles.footer__link}>PREAX</a>
 				</p>
 			</div>
 		</footer>

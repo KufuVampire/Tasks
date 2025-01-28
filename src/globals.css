@@ -14,18 +14,19 @@ html {
 
 :root {
 	--max-width: 1120px;
+	--min-width: 1024px;
 
 	--main-bg: #f6f6f6;
 	--bg: #f9f9f9;
-	
+
 	--primary: #5C89CE;
 	--primary-light: #8CAEE0;
 	--light-gray: #C5C5C5;
 	--gray: #747474;
 	--text-color: #202020;
-	
+
 	--shadow: 0 3px 15px 0 rgba(0, 0, 0, .03);
-	--shadow-hover: 4px 4px 15px 0 rgba(0, 0, 0, 	.08)
+	--shadow-hover: 4px 4px 15px 0 rgba(0, 0, 0, .08)
 }
 
 a {
@@ -43,7 +44,9 @@ ul {
 	list-style-type: none;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
 	margin: 0;
 }
 
@@ -55,14 +58,16 @@ body {
 }
 
 .container {
+	min-width: var(--min-width);
 	max-width: var(--max-width);
 	width: 100%;
 	margin: 0 auto;
 }
 
 @media (max-width: 1024px) {
-	:root {
-		--max-width: 1024px;
+	
+	body {
+		overflow-x: scroll;
 	}
 
 	.container {
