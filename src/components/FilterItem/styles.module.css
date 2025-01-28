@@ -35,6 +35,7 @@
 	font-weight: 700;
 	line-height: 16px;
 	color: var(--gray);
+	background-color: transparent;
 }
 
 .input::placeholder {
