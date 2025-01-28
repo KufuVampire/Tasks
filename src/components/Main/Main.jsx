@@ -4,6 +4,7 @@ import styles from './styles.module.css'
 export const Main = () => {
 	return (
 		<main className={styles.main}>
+			<h1 style={{visibility: 'hidden'}}></h1>
 			<section className={`${styles.section} ${styles.search__section}`}>
 				<div className="container">
 					<FilterList />
