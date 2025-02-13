@@ -1,0 +1,79 @@
+.dropdown {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	border-radius: 16px;
+	background-color: var(--bg);
+	box-shadow: var(--shadow);
+	transition: box-shadow .3s ease, background-color .3s ease;
+}
+
+.dropdown:hover {
+	background-color: var(--hover-item);
+	box-shadow: var(--shadow-hover);
+}
+
+.btn {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	padding: 16px 24px;
+	border: 0;
+	outline: 0;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	column-gap: 16px;
+}
+
+.text {
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 16px;
+	color: var(--gray);
+}
+
+.icon {
+	fill: var(--gray);
+}
+
+.dropdown__list {
+	position: absolute;
+	top: 48px;
+	left: 0;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-height: 384px;
+	border-bottom-right-radius: 16px;
+	border-bottom-left-radius: 16px;
+	background-color: var(--bg);
+	box-shadow: var(--shadow);
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+.dropdown__list::-webkit-scrollbar {
+	width: 4px;
+}
+.dropdown__list::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+.dropdown__list::-webkit-scrollbar-thumb {
+	background-color: var(--primary);
+	border-radius: 7px;
+}
+
+.active {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	background-color: var(--hover-item);
+}

@@ -1,30 +1,24 @@
-import { Icon } from '@/components'
-import styles from './styles.module.css'
+import { useState } from 'react';
+import { Input } from './Input/Input';
 
-export const FilterItem = ({ iconName, text, isInput }) => {
+import { DropdownMany } from './DropdownMany/DropdownMany';
+import { DropdownSingle } from './DropdownSingle/DropdownSingle';
 
-	if (isInput) {
-		return (
-			<li className={styles.item}>
-				<form className={styles.form}>
-					<div className={styles.wrapper}>
-						<Icon name={iconName} className={styles.icon} />
-						<input className={styles.input} type="text" placeholder={text} />
-					</div>
-				</form>
-			</li>
-		)
+export const FilterItem = ({ iconName, text, type, additionalFilters }) => {
+	const [value, setValue] = useState('');
+
+	switch (type) {
+		case 'input':
+			return (
+				<Input iconName={iconName} text={text} value={value} setValue={setValue} />
+			)
+		case 'dropdown-single':
+			return (
+				<DropdownSingle iconName={iconName} text={text} filters={additionalFilters} />
+			)
+		case 'dropdown-many':
+			return (
+				<DropdownMany iconName={iconName} text={text} filters={additionalFilters} />
+			)
 	}
-
-	return (
-		<li className={styles.item}>
-			<form className={styles.form}>
-				<div className={styles.wrapper}>
-					<Icon name={iconName} className={styles.icon} />
-					<p className={styles.text}>{text}</p>
-				</div>
-				<Icon name='arrow-right' className={styles.icon} />
-			</form>
-		</li>
-	)
 }

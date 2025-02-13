@@ -1,29 +1,31 @@
 .item {
-	width: 100%;
-	border-radius: 16px;
-	background-color: var(--bg);
-	box-shadow: var(--shadow);
-	cursor: pointer;
-	transition: box-shadow .3s ease;
-}
-
-.item:hover {
-	box-shadow: var(--shadow-hover);
-}
-
-.form {
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
 	padding: 16px 24px;
+	border-radius: 16px;
+	background-color: var(--bg);
+	box-shadow: var(--shadow);
+	transition: box-shadow .3s ease, background-color .3s ease;
+	cursor: pointer;
+}
+
+.item:hover {
+	background-color: var(--hover-item);
+	box-shadow: var(--shadow-hover);
+}
+
+.active {
+	background-color: var(--hover-item);
 }
 
 .wrapper {
 	display: flex;
 	align-items: center;
-	width: 100%;
 	column-gap: 16px;
+	width: 100%;
 }
 
 .input {
@@ -34,7 +36,7 @@
 	font-size: 12px;
 	font-weight: 700;
 	line-height: 16px;
-	color: var(--gray);
+	color: var(--text-color);
 	background-color: transparent;
 }
 
@@ -54,4 +56,13 @@
 
 .icon {
 	fill: var(--gray);
+	transition: fill .3s ease;
+}
+
+.cross__icon {
+	cursor: pointer;
+}
+
+.cross__icon:hover {
+	fill: var(--primary);
 }

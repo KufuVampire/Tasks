@@ -25,8 +25,10 @@ html {
 	--gray: #747474;
 	--text-color: #202020;
 
+	--hover-item: #EBF1FA;
+
 	--shadow: 0 3px 15px 0 rgba(0, 0, 0, .03);
-	--shadow-hover: 4px 4px 15px 0 rgba(0, 0, 0, .08)
+	--shadow-hover: 4px 4px 15px 0 rgba(0, 0, 0, .08);
 }
 
 a {
