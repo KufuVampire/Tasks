@@ -24,19 +24,15 @@ export const DropdownSingle = ({ iconName, text, filters, className }) => {
 					<Icon name='arrow-right' className={styles.icon} />
 				}
 			</button>
-			{
-				isOpen && (
-					<ul className={styles.dropdown__list}>
-						{
-							filters.items.map((el, i) => (
-								<li key={i} className={styles.dropdown__item}>
-									<Checkbox text={el} />
-								</li>
-							))
-						}
-					</ul>
-				)
-			}
+			<ul className={`${styles.dropdown__list} ${isOpen ? styles.active__list : ''}`}>
+				{
+					filters.items.map((el, i) => (
+						<li key={i} className={styles.dropdown__item}>
+							<Checkbox text={el} />
+						</li>
+					))
+				}
+			</ul>
 		</li>
 	)
 }

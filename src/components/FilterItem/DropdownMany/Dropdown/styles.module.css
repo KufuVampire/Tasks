@@ -29,7 +29,7 @@
 }
 
 .dropdown__list {
-	display: flex;
+	display: none;
 	flex-direction: column;
 	width: 100%;
 	padding: 0 24px;
@@ -41,4 +41,8 @@
 .dropdown__item {
 	padding-top: 8px;
 	padding-bottom: 8px;
+}
+
+.active__list {
+	display: flex;
 }

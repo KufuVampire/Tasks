@@ -1,8 +1,16 @@
 .label {
+	position: relative;
 	display: flex;
 	align-items: center;
 	column-gap: 16px;
 	cursor: pointer;
+}
+
+.checkbox__input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	appearance: none;
 }
 
 .checkbox {
@@ -12,21 +20,12 @@
 	border: 1.5px solid var(--light-gray);
 	border-radius: 4px;
 	outline: 0;
-	appearance: none;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	transition: border-color .3s ease, background-color .3s ease;
+	transition: border-color .3s ease;
+	stroke: transparent;
+	transition: stroke .3s ease, border-color .3s ease;
 }
 
 .checkbox:hover {
-	border-color: var(--primary-light)
-}
-
-.checkbox:checked {
-	border-color: var(--primary);
-}
-
-.checkbox:checked:hover {
 	border-color: var(--primary-light);
 }
 
@@ -35,4 +34,13 @@
 	font-weight: 500;
 	line-height: 16px;
 	color: var(--text-color);
+}
+
+.active {
+	border-color: var(--primary);
+	stroke: var(--primary);
+}
+
+.active:hover {
+	stroke: var(--primary-light);
 }

@@ -25,17 +25,13 @@ export const DropdownMany = ({ iconName, text, filters, className }) => {
 					<Icon name='arrow-right' className={styles.icon} />
 				}
 			</button>
-			{
-				isOpen && (
-					<ul className={styles.dropdown__list}>
-						{
-							filters.map(({ iconName, text, type, items }, i) => (
-								<Dropdown key={i} iconName={iconName} text={text} filters={{ type, items }} />
-							))
-						}
-					</ul>
-				)
-			}
+			<ul className={`${styles.dropdown__list} ${isOpen ? styles.active__list : ''}`}>
+				{
+					filters.map(({ iconName, text, type, items }, i) => (
+						<Dropdown key={i} iconName={iconName} text={text} filters={{ type, items }} />
+					))
+				}
+			</ul>
 		</li>
 	)
 }

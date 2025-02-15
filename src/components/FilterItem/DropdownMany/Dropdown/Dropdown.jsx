@@ -21,21 +21,17 @@ export const Dropdown = ({ iconName, text, filters }) => {
 					<Icon name='arrow-right' className={styles.icon} />
 				}
 			</button>
-			{
-				isOpen && (
-					<ul className={styles.dropdown__list}>
-						{
-							items.map((el, i) => (
-								<li key={i} className={styles.dropdown__item}>
-									{
-										type === 'checkbox' || (i === items.length - 1 && type === 'mix') ? <Checkbox text={el} /> : <RadioButton text={el} name={text} />
-									}
-								</li>
-							))
-						}
-					</ul>
-				)
-			}
+			<ul className={`${styles.dropdown__list} ${isOpen ? styles.active__list : ''}`}>
+				{
+					items.map((el, i) => (
+						<li key={i} className={styles.dropdown__item}>
+							{
+								type === 'checkbox' || (i === items.length - 1 && type === 'mix') ? <Checkbox text={el} /> : <RadioButton text={el} name={text} />
+							}
+						</li>
+					))
+				}
+			</ul>
 		</li>
 	)
 }
