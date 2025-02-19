@@ -1,0 +1,16 @@
+.btn {
+	align-self: flex-end;
+	outline: 0;
+	border: 0;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 16px;
+	color: var(--primary);
+	background-color: transparent;
+	transition: color .3s ease;
+	cursor: pointer;
+}
+
+.btn:hover {
+	color: var(--primary-light);
+}

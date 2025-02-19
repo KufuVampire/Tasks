@@ -1,19 +1,16 @@
 import { FilterItem } from '../FilterItem/FilterItem'
-import styles from './styles.module.css'
 
-const FITLER_SETTINGS = [
-	{ iconName: 'location', text: 'Город', isInput: true },
-	{ iconName: 'briefcase', text: 'Тип занятости', isInput: false },
-	{ iconName: 'filter-solid', text: 'Дополнительные фильтры', isInput: false },
-]
+import { FITLER_SETTINGS } from '@/constants'
+
+import styles from './styles.module.css'
 
 export const FilterList = () => {
 
 	return (
 		<ul className={styles.list}>
 			{
-				FITLER_SETTINGS.map(({ iconName, text, isInput }, i) => (
-					<FilterItem key={i} text={text} iconName={iconName} isInput={isInput} />
+				FITLER_SETTINGS.map(({ iconName, text, type, additionalFilters }, i) => (
+					<FilterItem key={i} text={text} iconName={iconName} type={type} additionalFilters={additionalFilters} />
 				))
 			}
 		</ul>
