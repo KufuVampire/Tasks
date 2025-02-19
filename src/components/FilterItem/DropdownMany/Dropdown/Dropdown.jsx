@@ -10,16 +10,13 @@ export const Dropdown = ({ iconName, text, filters }) => {
 	const { type, items } = filters;
 
 	return (
-		<li ref={dropdownRef} className={styles.item}>
+		<li ref={dropdownRef} className={`${styles.item} ${isOpen ? styles.active : ''}`}>
 			<button className={styles.btn} onClick={() => setOpen(prev => !prev)}>
 				<div className={styles.wrapper}>
-					<Icon name={iconName} className={styles.icon} />
+					<Icon name={iconName} />
 					<p className={styles.text}>{text}</p>
 				</div>
-				{isOpen ?
-					<Icon name='arrow-down' className={styles.icon} /> :
-					<Icon name='arrow-right' className={styles.icon} />
-				}
+				<Icon name='arrow-right' className={styles.icon} />
 			</button>
 			<ul className={`${styles.dropdown__list} ${isOpen ? styles.active__list : ''}`}>
 				{

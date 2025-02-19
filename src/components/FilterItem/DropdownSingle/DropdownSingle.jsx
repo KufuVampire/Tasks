@@ -8,6 +8,8 @@ export const DropdownSingle = ({ iconName, text, filters, className }) => {
 	const [isOpen, setOpen] = useState(false);
 	const dropdownRef = useRef(null);
 
+	const { items } = filters;
+
 	const liClasses = [styles.dropdown, isOpen ? styles.active : '', className].join(' ');
 
 	useClickOutside(dropdownRef, setOpen);
@@ -16,17 +18,14 @@ export const DropdownSingle = ({ iconName, text, filters, className }) => {
 		<li ref={dropdownRef} className={liClasses}>
 			<button className={styles.btn} onClick={() => setOpen(prev => !prev)}>
 				<div className={styles.wrapper}>
-					<Icon name={iconName} className={styles.icon} />
+					<Icon name={iconName} />
 					<p className={styles.text}>{text}</p>
 				</div>
-				{isOpen ?
-					<Icon name='arrow-down' className={styles.icon} /> :
-					<Icon name='arrow-right' className={styles.icon} />
-				}
+				<Icon name='arrow-right' className={styles.icon} />
 			</button>
 			<ul className={`${styles.dropdown__list} ${isOpen ? styles.active__list : ''}`}>
 				{
-					filters.items.map((el, i) => (
+					items.map((el, i) => (
 						<li key={i} className={styles.dropdown__item}>
 							<Checkbox text={el} />
 						</li>

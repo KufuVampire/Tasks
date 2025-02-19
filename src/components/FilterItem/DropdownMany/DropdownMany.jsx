@@ -17,13 +17,10 @@ export const DropdownMany = ({ iconName, text, filters, className }) => {
 		<li ref={dropdownRef} className={liClasses}>
 			<button className={styles.btn} onClick={() => setOpen(prev => !prev)}>
 				<div className={styles.wrapper}>
-					<Icon name={iconName} className={styles.icon} />
+					<Icon name={iconName} />
 					<p className={styles.text}>{text}</p>
 				</div>
-				{isOpen ?
-					<Icon name='arrow-down' className={styles.icon} /> :
-					<Icon name='arrow-right' className={styles.icon} />
-				}
+				<Icon name='arrow-right' className={`${styles.icon} ${styles.arrow__icon}`} />
 			</button>
 			<ul className={`${styles.dropdown__list} ${isOpen ? styles.active__list : ''}`}>
 				{
