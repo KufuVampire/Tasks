@@ -1,0 +1,64 @@
+.item {
+	display: flex;
+	flex-direction: column;
+	padding: 32px;
+	border-radius: 16px;
+	background-color: var(--bg);
+	box-shadow: var(--shadow);
+}
+
+.heading {
+	width: 100%;
+	max-width: 225px;
+	min-height: 24px;
+	margin-bottom: 4px;
+	border-radius: 16px;
+	background-color: var(--skeleton-color);
+}
+
+.salary {
+	width: 100%;
+	max-width: 131px;
+	min-height: 24px;
+	margin-bottom: 16px;
+	border-radius: 16px;
+	background-color: var(--skeleton-color);
+}
+
+.company {
+	width: 100%;
+	max-width: 96px;
+	min-height: 16px;
+	margin-bottom: 8px;
+	border-radius: 16px;
+	background-color: var(--skeleton-color);
+}
+
+.city {
+	width: 100%;
+	max-width: 55px;
+	min-height: 16px;
+	margin-bottom: 16px;
+	border-radius: 16px;
+	background-color: var(--skeleton-color);
+}
+
+.wrapper {
+	display: flex;
+	column-gap: 8px;
+}
+
+.icon {
+	width: 16px;
+	height: 16px;
+	border-radius: 16px;
+	background-color: var(--skeleton-color);
+}
+
+.experience {
+	width: 100%;
+	max-width: 148px;
+	min-height: 16px;
+	border-radius: 16px;
+	background-color: var(--skeleton-color);
+}
