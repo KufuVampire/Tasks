@@ -7,6 +7,10 @@
 	padding-bottom: 32px;
 }
 
+.section:last-child {
+	padding-bottom: 0;
+}
+
 .search__section {
 	padding-top: 120px;
 }

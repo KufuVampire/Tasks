@@ -1,17 +1,21 @@
 import { useEffect, useState } from 'react';
 import { getVacancies } from '@/api';
 import { useVacancies } from '@/hooks'
-import { SkeletonBlock } from '@/components'
+import { SkeletonBlock, Pagination } from '@/components'
 import { VacancyBlock } from '../VacancyBlock/VacancyBlock'
 import styles from './styles.module.css'
 
 export const VacancyList = () => {
 	const [isLoading, setLoading] = useState(true);
+	const [page, setPage] = useState(1);
+	const [totalPages, setTotalPages] = useState(0);
 	const { city, vacancies, setVacancies } = useVacancies();
 
+
 	useEffect(() => {
+		setLoading(true);
 		(async () => {
-			const data = await getVacancies(city);
+			const data = await getVacancies(city, page);
 
 			const vacanciesArr = [];
 			data.items.map((item) => {
@@ -29,11 +33,12 @@ export const VacancyList = () => {
 				}
 			});
 
+			setTotalPages(data.pages - 1);
 			setVacancies(vacanciesArr);
 			setLoading(false);
 		})();
 
-	}, [getVacancies]);
+	}, [getVacancies, page, setPage]);
 
 	return (
 		<div className={styles.list}>
@@ -46,6 +51,9 @@ export const VacancyList = () => {
 					))
 				)
 			}
+			<div className={styles.pagination__wrapper}>
+				<Pagination totalPages={totalPages} currentPage={page} setPage={setPage} />
+			</div>
 		</div>
 	)
 }
