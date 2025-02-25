@@ -9,7 +9,7 @@
 	max-width: 256px;
 	min-height: 32px;
 	border-radius: 16px;
-	background-color: var(--skeleton-color);
+	background-color: var(--gray);
 }
 
 .list {

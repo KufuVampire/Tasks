@@ -1,3 +1,4 @@
+export { Container } from './Container/Container'
 export { FilterItem } from './FilterItem/FilterItem'
 export { FilterList } from './FilterList/FilterList'
 export { Footer } from './Footer/Footer'

@@ -13,7 +13,7 @@
 	min-height: 24px;
 	margin-bottom: 4px;
 	border-radius: 16px;
-	background-color: var(--skeleton-color);
+	background-color: var(--gray);
 }
 
 .salary {
@@ -22,7 +22,7 @@
 	min-height: 24px;
 	margin-bottom: 16px;
 	border-radius: 16px;
-	background-color: var(--skeleton-color);
+	background-color: var(--gray);
 }
 
 .company {
@@ -31,7 +31,7 @@
 	min-height: 16px;
 	margin-bottom: 8px;
 	border-radius: 16px;
-	background-color: var(--skeleton-color);
+	background-color: var(--gray);
 }
 
 .city {
@@ -40,7 +40,7 @@
 	min-height: 16px;
 	margin-bottom: 16px;
 	border-radius: 16px;
-	background-color: var(--skeleton-color);
+	background-color: var(--gray);
 }
 
 .wrapper {
@@ -52,7 +52,7 @@
 	width: 16px;
 	height: 16px;
 	border-radius: 16px;
-	background-color: var(--skeleton-color);
+	background-color: var(--gray);
 }
 
 .experience {
@@ -60,5 +60,5 @@
 	max-width: 148px;
 	min-height: 16px;
 	border-radius: 16px;
-	background-color: var(--skeleton-color);
+	background-color: var(--gray);
 }

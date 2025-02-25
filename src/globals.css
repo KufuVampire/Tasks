@@ -22,9 +22,9 @@ html {
 	--primary: #5C89CE;
 	--primary-light: #8CAEE0;
 	--light-gray: #C5C5C5;
-	--gray: #747474;
-	--text-color: #202020;
-	--skeleton-color: #E1E1E1;
+	--gray: #E1E1E1;
+	--dark-gray: #747474;
+	--black: #202020;
 
 	--hover-item: #EBF1FA;
 
@@ -55,26 +55,14 @@ h3 {
 
 body {
 	margin: 0;
-	color: var(--text-color);
+	color: var(--black);
 	font-family: "Montserrat", sans-serif;
 	background-color: var(--main-bg);
 }
 
-.container {
-	min-width: var(--min-width);
-	max-width: var(--max-width);
-	width: 100%;
-	margin: 0 auto;
-}
-
 @media (max-width: 1024px) {
-	
+
 	body {
 		overflow-x: scroll;
-	}
-
-	.container {
-		padding-left: 40px;
-		padding-right: 40px;
 	}
 }

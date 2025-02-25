@@ -36,7 +36,7 @@
 	font-size: 12px;
 	font-weight: 700;
 	line-height: 16px;
-	color: var(--text-color);
+	color: var(--black);
 	background-color: transparent;
 }
 
@@ -44,18 +44,18 @@
 	font-size: 12px;
 	font-weight: 700;
 	line-height: 16px;
-	color: var(--gray);
+	color: var(--dark-gray);
 }
 
 .text {
 	font-size: 12px;
 	font-weight: 700;
 	line-height: 16px;
-	color: var(--gray);
+	color: var(--dark-gray);
 }
 
 .icon {
-	fill: var(--gray);
+	fill: var(--dark-gray);
 	transition: fill .3s ease;
 }
 
