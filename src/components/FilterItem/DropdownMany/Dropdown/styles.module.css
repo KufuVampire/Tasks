@@ -35,12 +35,12 @@
 	font-size: 12px;
 	font-weight: 700;
 	line-height: 16px;
-	color: var(--gray);
+	color: var(--dark-gray);
 	transition: color .3s ease;
 }
 
 .icon {
-	fill: var(--gray);
+	fill: var(--dark-gray);
 	transition: fill .3s ease, transform .3s ease;
 }
 
@@ -68,10 +68,10 @@
 }
 
 .active .text {
-	color: var(--text-color);
+	color: var(--black);
 }
 
 .active .icon {
-	fill: var(--text-color);
+	fill: var(--black);
 	transform: rotate(90deg);
 }

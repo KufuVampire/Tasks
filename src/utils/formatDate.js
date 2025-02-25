@@ -1,14 +1,17 @@
 export function formatDate(date) {
 	const currentDate = new Date();
-	const currentMonth = currentDate.getMonth();
-	const currentDay = currentDate.getDate();
-
 	const unFormattedDate = new Date(date);
-	const formattedDate = unFormattedDate.toLocaleString('default', { month: 'long', day: 'numeric' })
+	const formattedDate = unFormattedDate.toLocaleString('ru', { month: 'long', day: 'numeric' });
 
-	if (unFormattedDate.getMonth() === currentMonth && unFormattedDate.getDate() === currentDay) {
-		return `Сегодня, ${formattedDate}`
+	console.log(formattedDate)
+
+	if (currentDate.toDateString() === unFormattedDate.toDateString()) {
+		return `Сегодня, ${formattedDate}`;
+	}
+	// const formatter = new Intl.DateTimeFormat()
+	if (currentDate.getFullYear() === unFormattedDate.getFullYear() && currentDate.getDate() != unFormattedDate.getDate()) {
+		return formattedDate;
 	}
 
-	return formattedDate;
+	return `${unFormattedDate.getFullYear()}, ${formattedDate}`;
 }

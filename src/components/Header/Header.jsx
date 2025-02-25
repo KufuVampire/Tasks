@@ -1,10 +1,10 @@
-import { Icon } from '@/components'
+import { Icon, Container } from '@/components'
 import styles from './styles.module.css'
 
 export const Header = () => {
 	return (
 		<header className={styles.header}>
-			<div className={`container ${styles.header__container}`}>
+			<Container className={styles.header__container}>
 				<a className={styles.header__link} href="/">
 					<Icon name='logo' />
 				</a>
@@ -22,7 +22,7 @@ export const Header = () => {
 						</li>
 					</ul>
 				</nav>
-			</div>
+			</Container>
 		</header>
 	)
 }
