@@ -1,5 +1,3 @@
-import { useEffect } from "react"
-
 import styles from './styles.module.css'
 
 function range(start, end, step = 1) {
@@ -46,28 +44,18 @@ export const Pagination = (props) => {
 		currentPage,
 		setPage,
 		disabled = false,
-		defaultPage = 1,
 		siblings = 1,
 	} = props;
 
 	const pagination = returnPaginationRange(totalPages, currentPage, siblings);
 
 	const changePage = (e) => {
-		if (!(e.target instanceof HTMLElement)) return;
-
 		const btn = e.target.closest('button');
-
-		if (!btn) return;
-		if (!(btn instanceof HTMLButtonElement)) return;
 
 		const isPage = btn.dataset.page !== '...';
 		const pageNumber = isPage ? Number(btn.dataset.page) : currentPage;
 		setPage(pageNumber);
 	}
-
-	useEffect(() => {
-		setPage(defaultPage)
-	}, [defaultPage, setPage])
 
 	if (totalPages <= 1) return null;
 

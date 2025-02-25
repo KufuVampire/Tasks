@@ -7,7 +7,7 @@ import styles from './styles.module.css'
 
 export const VacancyList = () => {
 	const [isLoading, setLoading] = useState(true);
-	const [page, setPage] = useState(1);
+	const [page, setPage] = useState(0);
 	const [totalPages, setTotalPages] = useState(0);
 	const { city, vacancies, setVacancies } = useVacancies();
 
@@ -15,7 +15,7 @@ export const VacancyList = () => {
 	useEffect(() => {
 		setLoading(true);
 		(async () => {
-			const data = await getVacancies(city, page);
+			const data = await getVacancies(city, page - 1);
 
 			const vacanciesArr = [];
 			data.items.map((item) => {
@@ -33,7 +33,7 @@ export const VacancyList = () => {
 				}
 			});
 
-			setTotalPages(data.pages - 1);
+			setTotalPages(data.pages);
 			setVacancies(vacanciesArr);
 			setLoading(false);
 		})();
