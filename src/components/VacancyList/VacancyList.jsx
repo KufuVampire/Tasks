@@ -7,7 +7,8 @@ import styles from './styles.module.css'
 
 export const VacancyList = () => {
 	const [isLoading, setLoading] = useState(true);
-	const [page, setPage] = useState(0);
+	const [error, setError] = useState('');
+	const [page, setPage] = useState(1);
 	const [totalPages, setTotalPages] = useState(0);
 	const { city, vacancies, setVacancies } = useVacancies();
 
@@ -15,30 +16,43 @@ export const VacancyList = () => {
 	useEffect(() => {
 		setLoading(true);
 		(async () => {
-			const data = await getVacancies(city, page - 1);
+			try {
+				const data = await getVacancies(city, page - 1);
 
-			const vacanciesArr = [];
-			data.items.map((item) => {
-				const date = new Date(item.published_at).toISOString().slice(0, 10);
+				const vacanciesArr = [];
+				data.items.map((item) => {
+					const date = new Date(item.published_at).toISOString().slice(0, 10);
 
-				const obj = vacanciesArr.find((el) => Object.keys(el)[0] === date);
-				if (obj) {
-					const index = vacanciesArr.indexOf(obj);
-					vacanciesArr[index][date].push(item);
-				} else {
-					const newObj = {
-						[date]: [item]
+					const vacancyObj = vacanciesArr.find((el) => Object.keys(el)[0] === date);
+					if (vacancyObj) {
+						const index = vacanciesArr.indexOf(vacancyObj);
+						vacanciesArr[index][date].push(item);
+					} else {
+						const newVacancyObj = {
+							[date]: [item]
+						}
+						vacanciesArr.push(newVacancyObj);
 					}
-					vacanciesArr.push(newObj);
-				}
-			});
+				});
 
-			setTotalPages(data.pages);
-			setVacancies(vacanciesArr);
-			setLoading(false);
+				setTotalPages(data.pages);
+				setVacancies(vacanciesArr);
+				setLoading(false);
+			} catch (error) {
+				console.error(error)
+				setError('Не удалось найти вакансии по вашему запросу');
+			}
 		})();
 
 	}, [getVacancies, page, setPage]);
+
+	if (error) {
+		return (
+			<p className={styles.error}>
+				{error}
+			</p>
+		)
+	}
 
 	return (
 		<div className={styles.list}>
@@ -51,9 +65,13 @@ export const VacancyList = () => {
 					))
 				)
 			}
-			<div className={styles.pagination__wrapper}>
-				<Pagination totalPages={totalPages} currentPage={page} setPage={setPage} />
-			</div>
+			{
+				!error && (
+					<div className={styles.pagination__wrapper}>
+						<Pagination totalPages={totalPages} currentPage={page} setPage={setPage} />
+					</div>
+				)
+			}
 		</div>
 	)
 }

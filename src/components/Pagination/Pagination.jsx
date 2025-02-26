@@ -19,17 +19,17 @@ function returnPaginationRange(totalPages, currentPage, siblings) {
 	const leftSiblingsIndex = Math.max(currentPage - siblings, 1);
 	const rightSiblingsIndex = Math.min(currentPage + siblings, totalPages);
 
-	const showLeftDots = leftSiblingsIndex > 3;
-	const showRightDots = rightSiblingsIndex < totalPages - 2;
+	const showLeftDots = leftSiblingsIndex > 2;
+	const showRightDots = rightSiblingsIndex < totalPages - 1;
 
 	if (!showLeftDots && showRightDots) {
-		const leftItemsCount = 3 + 2 * siblings;
+		const leftItemsCount = 2 + 2 * siblings;
 		const leftRange = range(1, leftItemsCount + 1);
 		return [...leftRange, "...", totalPages];
 	}
 
 	if (showLeftDots && !showRightDots) {
-		const rightItemsCount = 3 + 2 * siblings;
+		const rightItemsCount = 2 + 2 * siblings;
 		const rightRange = range(totalPages - rightItemsCount + 1, totalPages + 1);
 		return [1, '...', ...rightRange];
 	}
