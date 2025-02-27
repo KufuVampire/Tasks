@@ -52,6 +52,8 @@ export const Pagination = (props) => {
 	const changePage = (e) => {
 		const btn = e.target.closest('button');
 
+		if (!btn) return;
+
 		const isPage = btn.dataset.page !== '...';
 		const pageNumber = isPage ? Number(btn.dataset.page) : currentPage;
 		setPage(pageNumber);
@@ -65,7 +67,7 @@ export const Pagination = (props) => {
 				{
 					pagination.map((page, i) => (
 						<li key={i} className={styles.page}>
-							<button data-page={page} disabled={disabled || page === '...'} className={`${styles.btn} ${page === currentPage ? styles.active : ''} ${page === '...' ? styles.dots : ''}`}>
+							<button data-page={page} disabled={disabled || page === '...'} className={`${page === currentPage ? styles.active : ''} ${page === '...' ? styles.dots : styles.btn}`}>
 								{page}
 							</button>
 						</li>

@@ -13,9 +13,10 @@
 	max-width: 419px;
 }
 
-.btn {
-	min-width: 53px;
-	min-height: 44px;
+.btn,
+.dots {
+	width: 53px;
+	height: 44px;
 	padding: 12px;
 	border: 0;
 	border-radius: 16px;
@@ -33,9 +34,12 @@
 	display: flex;
 	align-items: start;
 	justify-content: center;
+	width: 0;
 	font-size: 20px;
 	font-weight: 600;
 	cursor: auto;
+	background-color: transparent;
+	animation: expanding 0.3s forwards;
 }
 
 .btn:hover {
@@ -48,15 +52,12 @@
 	background-color: var(--primary);
 }
 
-.dots {
-	display: flex;
-	align-items: flex-end;
-}
+@keyframes expanding {
+	from {
+		width: 0;
+	}
 
-.dots:disabled {
-	background-color: transparent;
-}
-
-.dots:disabled:hover {
-	color: inherit;
+	to {
+		width: 53px;
+	}
 }
