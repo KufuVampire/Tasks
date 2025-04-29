@@ -1,4 +1,4 @@
-import { Skeleton } from './Skeleton/Skeleton';
+import { Skeleton } from '@/components';
 import styles from './styles.module.css';
 
 export const SkeletonBlock = () => {

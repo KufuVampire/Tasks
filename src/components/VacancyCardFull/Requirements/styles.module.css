@@ -1,0 +1,26 @@
+.title {
+	margin-bottom: 16px;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 24px;
+	color: var(--black);
+}
+
+.requirements__list {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: 32px;
+	margin-bottom: 32px;
+}
+
+.requirements__item {
+	display: flex;
+	align-items: center;
+	column-gap: 16px;
+	width: 100%;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 20px;
+	color: var(--black);
+	white-space: nowrap;
+}

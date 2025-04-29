@@ -1,0 +1,30 @@
+.btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-self: flex-start;
+	column-gap: 16px;
+	margin-bottom: 32px;
+	padding: 16px 24px;
+	border: 2px solid var(--primary);
+	border-radius: 16px;
+	outline: 0;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 20px;
+	color: var(--primary);
+	background-color: transparent;
+	cursor: pointer;
+	transition: background-color .3s ease;
+}
+
+.btn:hover {
+	background-color: var(--hover-item);
+}
+
+.icon {
+	width: 20px;
+	height: 20px;
+	fill: var(--primary);
+	stroke: var(--primary);
+}

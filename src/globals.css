@@ -25,6 +25,7 @@ html {
 	--gray: #E1E1E1;
 	--dark-gray: #747474;
 	--black: #202020;
+	--light-blue: #CFDDF2;
 
 	--hover-item: #EBF1FA;
 
@@ -61,7 +62,6 @@ body {
 }
 
 @media (max-width: 1024px) {
-
 	body {
 		overflow-x: scroll;
 	}

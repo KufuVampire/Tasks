@@ -1,2 +1,5 @@
 export { useClickOutside } from './useClickOutside'
 export { useVacancies } from './useVacancies'
+export { useVacancy } from './useVacancy'
+export { useHiddenVacancies } from './useHiddenVacancies'
+export { useFilterOptions } from './useFilterOptions'

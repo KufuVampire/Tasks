@@ -1,0 +1,33 @@
+.company {
+	position: sticky;
+	top: 104px;
+	display: flex;
+	flex-direction: column;
+	align-self: flex-start;
+	padding: 32px;
+	border-radius: 16px;
+	background-color: var(--bg);
+	box-shadow: var(--shadow);
+}
+
+.logo {
+	width: 50%;
+	height: max-content;
+	object-fit: cover;
+	margin-bottom: 16px;
+}
+
+.company__name {
+	margin-bottom: 8px;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 28px;
+	color: var(--black);
+}
+
+.company__address {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 24px;
+	color: var(--black);
+}

@@ -22,3 +22,7 @@ export const FITLER_SETTINGS = [
 	{ iconName: 'briefcase', text: 'Тип занятости', type: PropTypes.dropdownSingle, additionalFilters: DROPDOWN_SINGLE_FILTERS },
 	{ iconName: 'filter-solid', text: 'Дополнительные фильтры', type: PropTypes.dropdownMany, additionalFilters: DROPDOWN_MANY_FILTERS },
 ];
+
+export const API_URL = {
+	vacancies: 'https://api.hh.ru/vacancies'
+}

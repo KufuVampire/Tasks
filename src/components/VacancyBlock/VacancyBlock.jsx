@@ -8,7 +8,7 @@ export const VacancyBlock = ({ block }) => {
 	const formattedDate = formatDate(date);
 
 	return (
-		<div className={styles.block}>
+		<li className={styles.block}>
 			<h2 className={styles.heading}>
 				<time dateTime={formattedDate}>
 					{formattedDate}
@@ -21,6 +21,6 @@ export const VacancyBlock = ({ block }) => {
 					))
 				}
 			</ul>
-		</div>
+		</li>
 	)
 }

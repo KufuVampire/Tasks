@@ -11,8 +11,15 @@
 	padding-bottom: 0;
 }
 
-.search__section {
+.section:first-child {
 	padding-top: 120px;
+}
+
+.section__hidden {
+	position: absolute;
+	left: -1000px;
+	z-index: -1000;
+	visibility: hidden;
 }
 
 .search__container {

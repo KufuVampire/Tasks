@@ -1,4 +1,4 @@
-import { ArrowDownIcon, ArrowRightIcon, BriefcaseIcon, CalendarIcon, CheckmarkIcon, ClockIcon, CrossIcon, ExperienceIcon, EyeSlashSolidIcon, FilterSolidIcon, GraduationIcon, LocationIcon, Logo, MoreFiltersIcon, SalaryIcon, StackIcon, TomeJobIcon } from "./icons"
+import { ArrowDownIcon, ArrowRightIcon, BriefcaseIcon, CalendarIcon, CheckmarkIcon, ClockIcon, CrossIcon, ExperienceIcon, EyeSlashSolidIcon, EyeSolidIcon, FilterSolidIcon, GraduationIcon, LocationIcon, Logo, MoreFiltersIcon, SalaryIcon, StackIcon, TomeJobIcon } from "./icons"
 
 export const Icon = ({ name, ...props }) => {
 	const iconConfig = {
@@ -11,6 +11,7 @@ export const Icon = ({ name, ...props }) => {
 		['cross']: <CrossIcon {...props} />,
 		['experience']: <ExperienceIcon {...props} />,
 		['eye-slash-solid']: <EyeSlashSolidIcon {...props} />,
+		['eye-solid']: <EyeSolidIcon {...props} />,
 		['filter-solid']: <FilterSolidIcon {...props} />,
 		['graduation']: <GraduationIcon {...props} />,
 		['location']: <LocationIcon {...props} />,

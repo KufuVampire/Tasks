@@ -13,3 +13,16 @@ export function formatDate(date) {
 
 	return `${unFormattedDate.getFullYear()}, ${formattedDate}`;
 }
+
+export function formatExperience({ name }) {
+	return name === 'Нет опыта' ? 'Без опыта' : `Опыт ${name.toLowerCase()}`;
+}
+
+export function formatSalary(salary) {
+	if (!salary) return 'Доход не указан';
+
+	if (!salary.from) return `до ${salary.to}`;
+	if (!salary.to) return `от ${salary.from}`;
+
+	return `от ${salary.from} - до ${salary.to}`;
+}

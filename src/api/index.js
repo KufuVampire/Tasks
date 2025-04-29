@@ -1,1 +1,1 @@
-export { getVacancies } from './api'
+export { getVacancies, getVacancyById, getRelatedVacancies } from './api'

@@ -1,0 +1,25 @@
+.title {
+	margin-bottom: 24px;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 28px;
+	color: var(--black);
+}
+
+.key__skills {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 16px;
+	margin-bottom: 32px;
+}
+
+.skill {
+	padding: 4px 8px;
+	border-radius: 16px;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 20px;
+	color: var(--black);
+	background-color: var(--light-blue);
+}

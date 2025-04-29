@@ -1,0 +1,52 @@
+.vacancy__section {
+	padding-top: 32px;
+	padding-bottom: 32px;
+	background-color: var(--main-bg);
+}
+
+.vacancy__container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	row-gap: 32px;
+}
+
+.wrapper {
+	position: relative;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	column-gap: 32px;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	padding: 32px;
+	border-radius: 16px;
+	background-color: var(--bg);
+	box-shadow: var(--shadow);
+}
+
+.title {
+	margin: 0;
+	margin-bottom: 16px;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 32px;
+	color: var(--black);
+}
+
+.salary {
+	margin-bottom: 24px;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 28px;
+	color: var(--black);
+}
+
+.published_at {
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 20px;
+	color: var(--dark-gray);
+}
