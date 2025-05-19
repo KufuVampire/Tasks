@@ -1,12 +1,10 @@
 .item {
 	position: relative;
 	width: 100%;
-	padding: 32px;
-	border-radius: 16px;
+	border-radius: var(--border-radius);
 	background-color: var(--bg);
 	box-shadow: var(--shadow);
 	transition: box-shadow .3s ease;
-	cursor: pointer;
 }
 
 .item:hover {
@@ -17,57 +15,83 @@
 	opacity: 1;
 }
 
+.btn {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: var(--spacing-3xl);
+	border: 0;
+	outline: 0;
+	background-color: transparent;
+	cursor: pointer;
+}
+
 .heading {
 	width: 80%;
-	margin-bottom: 4px;
+	margin-bottom: var(--spacing-xs);
 	font-size: 16px;
 	font-weight: 700;
-	line-height: 24px;
+	line-height: var(--spacing-2xl);
+	text-align: left;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
 .salary {
-	margin-bottom: 16px;
+	margin-bottom: var(--spacing-md);
 	font-size: 16px;
 	font-weight: 500;
-	line-height: 24px;
+	line-height: var(--spacing-2xl);
+	text-align: start;
 }
 
 .company {
-	margin-bottom: 8px;
+	margin-bottom: var(--spacing-xs);
 	font-size: 12px;
 	font-weight: 500;
-	line-height: 16px;
+	line-height: var(--spacing-md);
+	text-align: start;
 }
 
 .city {
-	margin-bottom: 16px;
+	margin-bottom: var(--spacing-md);
 	font-size: 12px;
 	font-weight: 500;
-	line-height: 16px;
+	line-height: var(--spacing-md);
+	text-align: start;
 }
 
 .wrapper {
 	display: flex;
 	align-items: center;
-	column-gap: 8px;
+	column-gap: var(--spacing-xs);
 }
 
 .experience {
 	font-size: 12px;
 	font-weight: 500;
-	line-height: 16px;
+	line-height: var(--spacing-md);
 }
 
 .icon__eye {
+	--icon-fill-color: #C5C5C5;
+	--icon-stroke-color: var(--icon-fill-color);
+
 	position: absolute;
 	top: 32px;
 	right: 32px;
 	opacity: 0;
-	fill: var(--light-gray);
-	stroke: var(--light-gray);
+	fill: var(--icon-fill-color);
+	stroke: var(--icon-stroke-color);
 	transition: opacity .3s ease;
 	cursor: pointer;
+}
+
+.active {
+	--icon-fill-color: var(--accent);
+	--icon-stroke-color: var(--icon-fill-color);
+
+	fill: var(--icon-fill-color);
+	stroke: var(--icon-stroke-color);
 }

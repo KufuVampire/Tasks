@@ -5,7 +5,7 @@ const App = () => {
 
   useEffect(() => {
     document.title = "Career App";
-  }, [])
+  }, []);
 
   return (
     <div>

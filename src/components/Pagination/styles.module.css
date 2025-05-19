@@ -8,7 +8,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 8px;
+	gap: var(--spacing-xs);
 	width: 100%;
 	max-width: 419px;
 }
@@ -19,13 +19,13 @@
 	height: 44px;
 	padding: 12px;
 	border: 0;
-	border-radius: 16px;
+	border-radius: var(--border-radius);
 	outline: none;
-	color: var(--black);
+	color: var(--pagination-color-primary);
 	font-size: 14px;
-	line-height: 20px;
+	line-height: var(--spacing-lg);
 	font-weight: 500;
-	background-color: var(--hover-item);
+	background-color: var(--pagination-hover-btn);
 	transition: background-color .3s ease, color .3s ease;
 	cursor: pointer;
 }
@@ -43,13 +43,13 @@
 }
 
 .btn:hover {
-	color: var(--bg);
-	background-color: var(--primary-light);
+	color: var(--pagination-color-secondary);
+	background-color: var(--accent-light);
 }
 
 .active {
-	color: var(--bg);
-	background-color: var(--primary);
+	color: var(--pagination-color-secondary);
+	background-color: var(--accent);
 }
 
 @keyframes expanding {

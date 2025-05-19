@@ -1,12 +1,17 @@
-import { defineConfig } from '@rsbuild/core';
+import { defineConfig, loadEnv } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
-import path from 'path'
+import path from 'path';
+
+const { publicVars } = loadEnv();
 
 export default defineConfig({
-  plugins: [pluginReact()],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    }
-  }
+	plugins: [pluginReact()],
+	source: {
+		define: publicVars,
+	},
+	resolve: {
+		alias: {
+			'@': path.resolve(__dirname, './src'),
+		},
+	},
 });

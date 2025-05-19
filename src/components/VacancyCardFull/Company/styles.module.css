@@ -1,0 +1,33 @@
+.company {
+	position: sticky;
+	top: 104px;
+	display: flex;
+	flex-direction: column;
+	align-self: flex-start;
+	padding: var(--spacing-3xl);
+	border-radius: var(--border-radius);
+	background-color: var(--bg);
+	box-shadow: var(--shadow);
+}
+
+.logo {
+	width: 50%;
+	height: max-content;
+	object-fit: cover;
+	margin-bottom: var(--spacing-md);
+}
+
+.company__name {
+	margin-bottom: var(--spacing-xs);
+	font-size: 20px;
+	font-weight: 700;
+	line-height: var(--spacing-2xl);
+	color: var(--text-color-primary);
+}
+
+.company__address {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: var(--spacing-2xl);
+	color: var(--text-color-primary);
+}

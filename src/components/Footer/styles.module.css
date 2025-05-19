@@ -1,6 +1,7 @@
 .footer {
-	padding-top: 32px;
-	padding-bottom: 32px;
+	width: 100%;
+	padding-top: var(--spacing-3xl);
+	padding-bottom: var(--spacing-3xl);
 }
 
 .footer__container {
@@ -11,8 +12,8 @@
 .footer__text {
 	font-size: 14px;
 	font-weight: 500;
-	line-height: 16px;
-	color: var(--dark-gray);
+	line-height: var(--spacing-md);
+	color: var(--text-color-secondary);
 }
 
 .footer__link {
