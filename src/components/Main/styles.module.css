@@ -1,4 +1,6 @@
 .main {
+	display: flex;
+	flex-direction: column;
 	min-height: calc(100vh - 80px);
 }
 
@@ -19,9 +21,12 @@
 	padding-top: 120px;
 }
 
-/* .vacancies__section {
-	min-height: 100dvh;
-} */
+.vacancies__section {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex-grow: 1;
+}
 
 .section__hidden {
 	position: absolute;
@@ -40,8 +45,7 @@
 .vacancies__container {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
-	min-height: calc(50vh - 44px - 80px);
+	flex-grow: 1;
 }
 
 .visually_hidden {

@@ -145,3 +145,6 @@ export const SEARCH_PARAMS = {
 	order_by: 'order_by',
 	text: 'text',
 };
+
+export const PER_PAGE_VACANCIES = 18;
+export const PER_PAGE_RELATED_VACANCIES = 6;

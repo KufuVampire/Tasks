@@ -3,6 +3,7 @@
 	flex-direction: column;
 	row-gap: var(--spacing-3xl);
 	width: 100%;
+	margin-bottom: auto;
 }
 
 .pagination__wrapper {
@@ -17,4 +18,5 @@
 .error {
 	display: flex;
 	justify-content: center;
+	vertical-align: top;
 }

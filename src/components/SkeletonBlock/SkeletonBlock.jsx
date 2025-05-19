@@ -1,8 +1,9 @@
 import { Skeleton } from '@/components';
 import styles from './styles.module.css';
+import { PER_PAGE_VACANCIES } from '@/constants';
 
 export const SkeletonBlock = () => {
-	const arr = new Array(18).fill(0);
+	const arr = new Array(PER_PAGE_VACANCIES).fill(0);
 
 	return (
 		<div className={styles.block}>
