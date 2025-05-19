@@ -1,0 +1,27 @@
+.title {
+	margin-bottom: var(--spacing-xl);
+	font-size: 20px;
+	font-weight: 700;
+	line-height: var(--spacing-2xl);
+	color: var(--text-color-primary);
+}
+
+.key__skills {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--spacing-md);
+	margin-bottom: var(--spacing-3xl);
+}
+
+.skill {
+	--skill-bg: #CFDDF2;
+
+	padding: var(--spacing-2xs) var(--spacing-xs);
+	border-radius: var(--border-radius);
+	font-size: 14px;
+	font-weight: 500;
+	line-height: var(--spacing-lg);
+	color: var(--text-color-primary);
+	background-color: var(--skill-bg);
+}

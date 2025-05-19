@@ -1,0 +1,68 @@
+.item {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	padding: var(--spacing-md) var(--spacing-xl);
+	border-radius: 16px;
+	background-color: var(--bg);
+	box-shadow: var(--shadow);
+	transition: box-shadow .3s ease, background-color .3s ease;
+	cursor: pointer;
+}
+
+.item:hover {
+	background-color: var(--hover-item);
+	box-shadow: var(--shadow-hover);
+}
+
+.active {
+	background-color: var(--hover-item);
+}
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	column-gap: var(--spacing-md);
+	width: 100%;
+}
+
+.input {
+	width: 100%;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: var(--spacing-md);
+	color: var(--text-color-primary);
+	background-color: transparent;
+}
+
+.input::placeholder {
+	font-size: 12px;
+	font-weight: 700;
+	line-height: var(--spacing-md);
+	color: var(--text-color-secondary);
+}
+
+.text {
+	font-size: 12px;
+	font-weight: 700;
+	line-height: var(--spacing-md);
+	color: var(--text-color-secondary);
+}
+
+.icon {
+	fill: var(--icon-fill-color);
+	transition: fill .3s ease;
+}
+
+.cross__icon {
+	cursor: pointer;
+}
+
+.cross__icon:hover {
+	fill: var(--accent);
+}
