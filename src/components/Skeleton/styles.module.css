@@ -1,8 +1,8 @@
 .item {
 	display: flex;
 	flex-direction: column;
-	padding: 32px;
-	border-radius: 16px;
+	padding: var(--spacing-3xl);
+	border-radius: var(--border-radius);
 	background-color: var(--bg);
 	box-shadow: var(--shadow);
 }
@@ -11,54 +11,54 @@
 	width: 100%;
 	max-width: 225px;
 	min-height: 24px;
-	margin-bottom: 4px;
-	border-radius: 16px;
-	background-color: var(--gray);
+	margin-bottom: var(--spacing-2xs);
+	border-radius: var(--border-radius);
+	background-color: var(--skeleton-bg);
 }
 
 .salary {
 	width: 100%;
 	max-width: 131px;
 	min-height: 24px;
-	margin-bottom: 16px;
-	border-radius: 16px;
-	background-color: var(--gray);
+	margin-bottom: var(--spacing-md);
+	border-radius: var(--border-radius);
+	background-color: var(--skeleton-bg);
 }
 
 .company {
 	width: 100%;
 	max-width: 96px;
 	min-height: 16px;
-	margin-bottom: 8px;
-	border-radius: 16px;
-	background-color: var(--gray);
+	margin-bottom: var(--spacing-xs);
+	border-radius: var(--border-radius);
+	background-color: var(--skeleton-bg);
 }
 
 .city {
 	width: 100%;
 	max-width: 55px;
 	min-height: 16px;
-	margin-bottom: 16px;
-	border-radius: 16px;
-	background-color: var(--gray);
+	margin-bottom: var(--spacing-md);
+	border-radius: var(--border-radius);
+	background-color: var(--skeleton-bg);
 }
 
 .wrapper {
 	display: flex;
-	column-gap: 8px;
+	column-gap: var(--spacing-xs);
 }
 
 .icon {
 	width: 16px;
 	height: 16px;
-	border-radius: 16px;
-	background-color: var(--gray);
+	border-radius: var(--border-radius);
+	background-color: var(--skeleton-bg);
 }
 
 .experience {
 	width: 100%;
 	max-width: 148px;
 	min-height: 16px;
-	border-radius: 16px;
-	background-color: var(--gray);
+	border-radius: var(--border-radius);
+	background-color: var(--skeleton-bg);
 }

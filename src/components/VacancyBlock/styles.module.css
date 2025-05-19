@@ -1,20 +1,20 @@
 .block {
 	display: flex;
 	flex-direction: column;
-	row-gap: 32px;
+	row-gap: var(--spacing-3xl);
 	width: 100%;
 }
 
 .heading {
 	font-size: 24px;
 	font-weight: 700;
-	line-height: 32px;
-	color: var(--black);
+	line-height: var(--line-height-3xl);
+	color: var(--text-color-primary);
 }
 
 .list {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0%, 1fr));
-	gap: 32px;
+	gap: var(--spacing-3xl);
 	width: 100%;
 }

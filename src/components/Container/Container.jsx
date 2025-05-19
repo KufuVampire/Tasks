@@ -1,8 +1,9 @@
+import { cn } from '@/utils'
 import styles from './styles.module.css'
 
-export const Container = ({ children, className, style }) => {
+export const Container = ({ children, className, props }) => {
 	return (
-		<div className={`${styles.container} ${className}`} style={style}>
+		<div className={cn([styles.container, className])} {...props}>
 			{children}
 		</div>
 	)

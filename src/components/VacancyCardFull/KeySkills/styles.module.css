@@ -1,25 +1,27 @@
 .title {
-	margin-bottom: 24px;
+	margin-bottom: var(--spacing-xl);
 	font-size: 20px;
 	font-weight: 700;
-	line-height: 28px;
-	color: var(--black);
+	line-height: var(--spacing-2xl);
+	color: var(--text-color-primary);
 }
 
 .key__skills {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
-	gap: 16px;
-	margin-bottom: 32px;
+	gap: var(--spacing-md);
+	margin-bottom: var(--spacing-3xl);
 }
 
 .skill {
-	padding: 4px 8px;
-	border-radius: 16px;
+	--skill-bg: #CFDDF2;
+
+	padding: var(--spacing-2xs) var(--spacing-xs);
+	border-radius: var(--border-radius);
 	font-size: 14px;
 	font-weight: 500;
-	line-height: 20px;
-	color: var(--black);
-	background-color: var(--light-blue);
+	line-height: var(--spacing-lg);
+	color: var(--text-color-primary);
+	background-color: var(--skill-bg);
 }

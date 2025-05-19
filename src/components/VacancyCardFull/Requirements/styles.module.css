@@ -1,26 +1,27 @@
 .title {
-	margin-bottom: 16px;
+	margin: 0;
+	margin-bottom: var(--spacing-md);
 	font-size: 16px;
 	font-weight: 700;
-	line-height: 24px;
-	color: var(--black);
+	line-height: var(--spacing-2xl);
+	color: var(--text-color-primary);
 }
 
 .requirements__list {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	column-gap: 32px;
-	margin-bottom: 32px;
+	column-gap: var(--spacing-3xl);
+	margin-bottom: var(--spacing-3xl);
 }
 
 .requirements__item {
 	display: flex;
 	align-items: center;
-	column-gap: 16px;
+	column-gap: var(--spacing-md);
 	width: 100%;
 	font-size: 14px;
 	font-weight: 500;
-	line-height: 20px;
-	color: var(--black);
+	line-height: var(--spacing-lg);
+	color: var(--text-color-primary);
 	white-space: nowrap;
 }

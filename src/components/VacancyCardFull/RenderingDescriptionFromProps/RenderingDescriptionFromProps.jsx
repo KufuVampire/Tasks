@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
 
-export const Description = ({description}) => {
+export const RenderingDescriptionFromProps = ({description}) => {
 	return (
 		<>
 			<h3 className={styles.title}>Описание</h3>

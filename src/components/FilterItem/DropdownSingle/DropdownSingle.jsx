@@ -1,8 +1,9 @@
 import { useRef, useState } from 'react';
-import { Icon, Checkbox } from '@/components'
-import { useClickOutside } from '@/hooks'
+import { Icon, Checkbox } from '@/components';
+import { useClickOutside } from '@/hooks';
+import { cn } from '@/utils';
 
-import styles from './styles.module.css'
+import styles from './styles.module.css';
 
 export const DropdownSingle = ({ iconName, text, filters, className }) => {
 	const [isOpen, setOpen] = useState(false);
@@ -10,28 +11,38 @@ export const DropdownSingle = ({ iconName, text, filters, className }) => {
 
 	const { items } = filters;
 
-	const liClasses = [styles.dropdown, isOpen ? styles.active : '', className].join(' ');
-
 	useClickOutside(dropdownRef, setOpen);
 
 	return (
-		<li ref={dropdownRef} className={liClasses}>
-			<button className={styles.btn} onClick={() => setOpen(prev => !prev)}>
+		<li
+			ref={dropdownRef}
+			className={cn([styles.dropdown, className], {
+				[styles.active]: isOpen,
+			})}>
+			<button
+				className={styles.btn}
+				onClick={() => setOpen((prev) => !prev)}>
 				<div className={styles.wrapper}>
 					<Icon name={iconName} />
 					<p className={styles.text}>{text}</p>
 				</div>
-				<Icon name='arrow-right' className={styles.icon} />
+				<Icon
+					name="arrow-right"
+					className={styles.icon}
+				/>
 			</button>
-			<ul className={`${styles.dropdown__list} ${isOpen ? styles.active__list : ''}`}>
-				{
-					items.map((el, i) => (
-						<li key={i} className={styles.dropdown__item}>
-							<Checkbox text={el} />
-						</li>
-					))
-				}
+			<ul
+				className={cn([styles.dropdown__list], {
+					[styles.active__list]: isOpen,
+				})}>
+				{items.map((el, i) => (
+					<li
+						key={i}
+						className={styles.dropdown__item}>
+						<Checkbox text={el} />
+					</li>
+				))}
 			</ul>
 		</li>
-	)
-}
+	);
+};

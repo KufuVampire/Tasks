@@ -1,7 +1,7 @@
 .link__goback {
 	display: flex;
 	align-items: center;
-	column-gap: 16px;
+	column-gap: var(--spacing-md);
 	border: 0;
 	outline: 0;
 	background-color: transparent;
@@ -12,12 +12,12 @@
 	width: 16px;
 	height: 16px;
 	transform: rotate(180deg);
-	fill: var(--primary);
+	fill: var(--accent);
 }
 
 .link__text {
 	font-size: 14px;
 	font-weight: 700;
-	line-height: 20px;
-	color: var(--primary);
+	line-height: var(--spacing-lg);
+	color: var(--accent);
 }

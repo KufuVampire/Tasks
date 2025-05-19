@@ -3,16 +3,16 @@
 	align-items: center;
 	justify-content: center;
 	align-self: flex-start;
-	column-gap: 16px;
-	margin-bottom: 32px;
-	padding: 16px 24px;
-	border: 2px solid var(--primary);
-	border-radius: 16px;
+	column-gap: var(--spacing-md);
+	margin-bottom: var(--spacing-3xl);
+	padding: var(--spacing-md) var(--spacing-xl);
+	border: 2px solid var(--accent);
+	border-radius: var(--border-radius);
 	outline: 0;
 	font-size: 14px;
 	font-weight: 700;
-	line-height: 20px;
-	color: var(--primary);
+	line-height: var(--spacing-lg);
+	color: var(--accent);
 	background-color: transparent;
 	cursor: pointer;
 	transition: background-color .3s ease;
@@ -25,6 +25,6 @@
 .icon {
 	width: 20px;
 	height: 20px;
-	fill: var(--primary);
-	stroke: var(--primary);
+	fill: var(--accent);
+	stroke: var(--accent);
 }

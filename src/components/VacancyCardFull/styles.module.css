@@ -1,52 +1,52 @@
 .vacancy__section {
-	padding-top: 32px;
-	padding-bottom: 32px;
-	background-color: var(--main-bg);
+	padding-top: 120px;
+	padding-bottom: var(--spacing-3xl);
+	background-color: transparent;
 }
 
 .vacancy__container {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	row-gap: 32px;
+	row-gap: var(--spacing-3xl);
 }
 
 .wrapper {
 	position: relative;
 	display: grid;
 	grid-template-columns: 2fr 1fr;
-	column-gap: 32px;
+	column-gap: var(--spacing-3xl);
 }
 
 .card {
 	display: flex;
 	flex-direction: column;
-	padding: 32px;
-	border-radius: 16px;
+	padding: var(--spacing-3xl);
+	border-radius: var(--border-radius);
 	background-color: var(--bg);
 	box-shadow: var(--shadow);
 }
 
 .title {
 	margin: 0;
-	margin-bottom: 16px;
+	margin-bottom: var(--spacing-md);
 	font-size: 24px;
 	font-weight: 700;
 	line-height: 32px;
-	color: var(--black);
+	color: var(--text-color-primary);
 }
 
 .salary {
-	margin-bottom: 24px;
+	margin-bottom: var(--spacing-xl);
 	font-size: 20px;
 	font-weight: 500;
-	line-height: 28px;
-	color: var(--black);
+	line-height: var(--spacing-2xl);
+	color: var(--text-color-primary);
 }
 
 .published_at {
 	font-size: 14px;
 	font-weight: 700;
-	line-height: 20px;
+	line-height: var(--spacing-lg);
 	color: var(--dark-gray);
 }

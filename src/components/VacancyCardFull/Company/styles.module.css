@@ -4,8 +4,8 @@
 	display: flex;
 	flex-direction: column;
 	align-self: flex-start;
-	padding: 32px;
-	border-radius: 16px;
+	padding: var(--spacing-3xl);
+	border-radius: var(--border-radius);
 	background-color: var(--bg);
 	box-shadow: var(--shadow);
 }
@@ -14,20 +14,20 @@
 	width: 50%;
 	height: max-content;
 	object-fit: cover;
-	margin-bottom: 16px;
+	margin-bottom: var(--spacing-md);
 }
 
 .company__name {
-	margin-bottom: 8px;
+	margin-bottom: var(--spacing-xs);
 	font-size: 20px;
 	font-weight: 700;
-	line-height: 28px;
-	color: var(--black);
+	line-height: var(--spacing-2xl);
+	color: var(--text-color-primary);
 }
 
 .company__address {
 	font-size: 16px;
 	font-weight: 500;
-	line-height: 24px;
-	color: var(--black);
+	line-height: var(--spacing-2xl);
+	color: var(--text-color-primary);
 }

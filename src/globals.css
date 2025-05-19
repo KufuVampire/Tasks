@@ -19,15 +19,43 @@ html {
 	--main-bg: #f6f6f6;
 	--bg: #f9f9f9;
 
-	--primary: #5C89CE;
-	--primary-light: #8CAEE0;
-	--light-gray: #C5C5C5;
-	--gray: #E1E1E1;
-	--dark-gray: #747474;
-	--black: #202020;
-	--light-blue: #CFDDF2;
-
+	--accent: #5C89CE;
+	--accent-light: #8CAEE0;
+	
 	--hover-item: #EBF1FA;
+
+	--text-color-primary: #202020;
+	--text-color-secondary: #747474;
+
+	--icon-fill-color: #747474;
+	--icon-stroke-color: var(--icon-fill-color);
+	--icon-fill-active-color: #202020;
+
+	--skeleton-bg: #E1E1E1;
+
+	--menu-link-color: #C5C5C5;
+
+	--checkbox-border-color: #C5C5C5;
+	--radio-border-color: #C5C5C5;
+
+	--pagination-color-primary: #202020;
+	--pagination-color-secondary: #f9f9f9;
+	--pagination-hover-btn: #EBF1FA;
+
+	--border-radius: 1rem;
+
+	--line-height-md: 1rem; /* 16px */
+	--line-height-lg: 1.25rem; /* 20px */
+	--line-height-xl: 1.5rem; /* 24px */
+	--line-height-2xl: 1.75rem; /* 28px */
+	--line-height-3xl: 2rem; /* 32px */
+
+	--spacing-2xs: 0.25rem; /* 4px */
+	--spacing-xs: 0.5rem; /* 8px */
+	--spacing-md: 1rem; /* 16px */
+	--spacing-lg: 1.25rem; /* 20px */
+	--spacing-xl: 1.5rem; /* 24px */
+	--spacing-3xl: 2rem; /* 32px */
 
 	--shadow: 0 3px 15px 0 rgba(0, 0, 0, .03);
 	--shadow-hover: 4px 4px 15px 0 rgba(0, 0, 0, .08);

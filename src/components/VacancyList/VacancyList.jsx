@@ -72,19 +72,22 @@ export const VacancyList = () => {
 	return (
 		<>
 			{
-				vacancies.length > 0 ? (
+				!isLoading ? (
 					<ul className={styles.list} onClick={handleClickVacancy}>
 						{
-							isLoading ? (
-								<SkeletonBlock />
-							) : (
-								vacancies.map((block, i) => (
-									<VacancyBlock key={i} block={block} />
-								))
-							)
+							vacancies.map((block, i) => (
+								<VacancyBlock key={i} block={block} />
+							))
 						}
 					</ul>
 				) : (
+					<ul className={styles.list}>
+						<SkeletonBlock />
+					</ul>
+				)
+			}
+			{
+				vacancies.length < 1 && (
 					<p className={styles.error}>Вы скрыли все вакансии</p>
 				)
 			}

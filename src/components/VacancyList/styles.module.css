@@ -1,7 +1,7 @@
 .list {
 	display: flex;
 	flex-direction: column;
-	row-gap: 32px;
+	row-gap: var(--spacing-3xl);
 	width: 100%;
 }
 
@@ -9,8 +9,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding-top: 32px;
-	padding-bottom: 32px;
+	padding-top: var(--spacing-3xl);
+	padding-bottom: var(--spacing-3xl);
 	width: 100%;
 }
 

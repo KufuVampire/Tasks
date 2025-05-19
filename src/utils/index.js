@@ -1,1 +1,1 @@
-export { formatDate, formatExperience, formatSalary } from './utils'
+export { formatDate, formatExperience, formatSalary, cn } from './utils'

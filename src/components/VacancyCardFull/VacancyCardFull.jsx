@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react"
-import { getVacancyById } from "@/api";
-import { Container } from "@/components";
-import { useVacancy } from '@/hooks'
+import { getVacancyById } from '@/api';
+import { Container } from '@/components';
+import { useVacancy } from '@/hooks';
+import { useEffect, useState } from 'react';
 
-import { formatSalary } from "@/utils";
+import { formatSalary } from '@/utils';
 
-import { GobackLink } from "./GobackLink/GobackLink";
-import { Company } from "./Company/Company";
-import { Requirements } from "./Requirements/Requirements";
-import { KeySkills } from "./KeySkills/KeySkills";
-import { ToggleVacancyVisibilityButton } from "./ToggleVacancyVisibilityButton/ToggleVacancyVisibilityButton";
-import { Description } from "./Description/Description";
+import { Company } from './Company/Company';
+import { GobackLink } from './GobackLink/GobackLink';
+import { KeySkills } from './KeySkills/KeySkills';
+import { Requirements } from './Requirements/Requirements';
+import { RenderingDescriptionFromProps } from './RenderingDescriptionFromProps/RenderingDescriptionFromProps';
+import { ToggleVacancyVisibilityButton } from './ToggleVacancyVisibilityButton/ToggleVacancyVisibilityButton';
 
 import styles from './styles.module.css';
 
@@ -41,15 +41,25 @@ export const VacancyCardFull = () => {
 	if (error) {
 		return (
 			<section className={styles.vacancy__section}>
-				<Container className={styles.vacancy__container}>{error}</Container>
+				<Container className={styles.vacancy__container}>
+					<GobackLink setOpen={setOpen} />
+					<div className={styles.wrapper}>
+						<div className={styles.card}>{error}</div>
+					</div>
+				</Container>
 			</section>
-		)
+		);
 	}
 
 	return (
 		<section className={styles.vacancy__section}>
 			{isLoading ? (
-				<Container className={styles.vacancy__container}>Загрузка</Container>
+				<Container className={styles.vacancy__container}>
+					<GobackLink setOpen={setOpen} />
+					<div className={styles.wrapper}>
+						<div className={styles.card}>Загрузка...</div>
+					</div>
+				</Container>
 			) : (
 				<Container className={styles.vacancy__container}>
 					<GobackLink setOpen={setOpen} />
@@ -59,14 +69,25 @@ export const VacancyCardFull = () => {
 							<p className={styles.salary}>{formatSalary(data.salary)}</p>
 							<Requirements data={data} />
 							<ToggleVacancyVisibilityButton id={vacancyId} />
-							<Description description={data.description} />
+							<RenderingDescriptionFromProps description={data.description} />
 							<KeySkills keySkills={data.key_skills} />
-							<p className={styles.published_at}>{`Вакансия опубликована ${new Date(data.published_at).toLocaleString("ru", { day: "numeric", month: "long", year: "numeric" }).slice(0, -3)} в г. ${data.area.name}`}</p>
+							<p className={styles.published_at}>
+								{`Вакансия опубликована ${new Date(data.published_at)
+									.toLocaleString('ru', {
+										day: 'numeric',
+										month: 'long',
+										year: 'numeric',
+									})
+									.slice(0, -3)} в г. ${data.area.name}`}
+							</p>
 						</div>
-						<Company employer={data.employer} address={data.address} />
+						<Company
+							employer={data.employer}
+							address={data.address}
+						/>
 					</div>
 				</Container>
 			)}
 		</section>
-	)
-}
+	);
+};
