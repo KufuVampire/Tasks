@@ -15,7 +15,7 @@
 	color: var(--accent);
 	background-color: transparent;
 	cursor: pointer;
-	transition: background-color .3s ease;
+	transition: background-color var(--transition-duration) var(--transition-timing-function);
 }
 
 .btn:hover {

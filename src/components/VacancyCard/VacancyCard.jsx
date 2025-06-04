@@ -7,10 +7,13 @@ import styles from './styles.module.css';
 export const VacancyCard = ({ item }) => {
 	const { hiddenVacanciesIds, setVacancyHidden, removeVacancyFromHidden } =
 		useHiddenVacancies();
+
 	const isVacancyHidden = hiddenVacanciesIds.includes(item.id);
 
 	const handleToggleVacancyVisibility = (id) => {
-		if (isVacancyHidden) removeVacancyFromHidden(id);
+		if (isVacancyHidden) {
+			removeVacancyFromHidden(id);
+		}
 
 		setVacancyHidden(id);
 	};
@@ -36,21 +39,13 @@ export const VacancyCard = ({ item }) => {
 					</p>
 				</div>
 			</button>
-			{isVacancyHidden ? (
-				<Icon
-					name="eye-solid"
-					className={styles.icon__eye}
-					onClick={() => handleToggleVacancyVisibility(item.id)}
-				/>
-			) : (
-				<Icon
-					name="eye-slash-solid"
-					className={cn([styles.icon__eye], {
-						[styles.active]: isVacancyHidden,
-					})}
-					onClick={() => handleToggleVacancyVisibility(item.id)}
-				/>
-			)}
+			<Icon
+				name="eye-slash-solid"
+				className={cn([styles.icon__eye], {
+					[styles.active]: isVacancyHidden,
+				})}
+				onClick={() => handleToggleVacancyVisibility(item.id)}
+			/>
 		</li>
 	);
 };

@@ -4,7 +4,7 @@
 	border-radius: var(--border-radius);
 	background-color: var(--bg);
 	box-shadow: var(--shadow);
-	transition: box-shadow .3s ease;
+	transition: box-shadow var(--transition-duration) var(--transition-timing-function);
 }
 
 .item:hover {
@@ -84,6 +84,6 @@
 	opacity: 0;
 	fill: var(--icon-fill-color);
 	stroke: var(--icon-stroke-color);
-	transition: opacity .3s ease;
+	transition: opacity var(--transition-duration) var(--transition-timing-function);
 	cursor: pointer;
 }

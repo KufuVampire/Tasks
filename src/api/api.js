@@ -1,8 +1,13 @@
-import { API_URL, PER_PAGE_VACANCIES, SEARCH_PARAMS } from '@/constants';
+import {
+	API_URL,
+	PER_PAGE_RELATED_VACANCIES,
+	PER_PAGE_VACANCIES,
+	SEARCH_PARAMS,
+} from '@/constants';
 
-export async function getVacancies(city, page) {
+export async function getVacancies(page, query) {
 	const res = await fetch(
-		`${API_URL.vacancies}?${SEARCH_PARAMS.text}=frontend&city=${city}&${SEARCH_PARAMS.per_page}=${PER_PAGE_VACANCIES}&${SEARCH_PARAMS.page}=${page}&${SEARCH_PARAMS.order_by}=publication_time`,
+		`${API_URL.vacancies}?${SEARCH_PARAMS.per_page}=${PER_PAGE_VACANCIES}&${SEARCH_PARAMS.page}=${page}&${SEARCH_PARAMS.order_by}=publication_time&${query}`,
 	);
 	const data = await res.json();
 
@@ -16,10 +21,24 @@ export async function getVacancyById(id) {
 	return data;
 }
 
-export async function getRelatedVacancies(id, perPage) {
+export async function getRelatedVacancies(id, page) {
 	const res = await fetch(
-		`${API_URL.vacancies}/${id}/related_vacancies?${SEARCH_PARAMS.per_page}=${perPage}`,
+		`${API_URL.vacancies}/${id}/related_vacancies?${SEARCH_PARAMS.per_page}=${PER_PAGE_RELATED_VACANCIES}&${SEARCH_PARAMS.page}=${page}`,
 	);
+	const data = await res.json();
+
+	return data;
+}
+
+export async function getAreas() {
+	const res = await fetch(API_URL.areas);
+	const data = await res.json();
+
+	return data;
+}
+
+export async function getAreaById(id) {
+	const res = await fetch(`${API_URL.areas}/${id}`);
 	const data = await res.json();
 
 	return data;

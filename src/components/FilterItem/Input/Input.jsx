@@ -1,25 +1,62 @@
-import { useRef, useState } from 'react'
-import { Icon } from '@/components'
-import { useClickOutside } from '@/hooks'
-import { cn } from '@/utils'
+import { Icon } from '@/components';
+import { SEARCH_PARAMS } from '@/constants';
+import { useClickOutside, useDebounce, useSearchParams } from '@/hooks';
+import { cn } from '@/utils';
+import { useEffect, useRef, useState } from 'react';
 
-import styles from './styles.module.css'
+import { InputDrowdown } from './InputDrowdown/InputDrowdown';
+import styles from './styles.module.css';
 
-export const Input = ({ iconName, text, value, setValue }) => {
+export const Input = () => {
 	const [isActive, setActive] = useState(false);
+	const [areasCount, setAreasCount] = useState(0);
+	const [value, setValue] = useState('');
+
 	const inputRef = useRef(null);
 
-	useClickOutside(inputRef, setActive)
+	const { searchParams, searchParamsString } = useSearchParams();
+	const debounceValue = useDebounce(value.trim(), 1000);
+
+	useClickOutside(inputRef, setActive);
+
+	useEffect(() => {
+		const areas = searchParams.getAll(SEARCH_PARAMS.area);
+		setAreasCount(areas);
+	}, [searchParamsString]);
 
 	return (
-		<li className={cn([styles.item], {
-			[styles.active]: isActive || value.trim()
-		})} ref={inputRef} onClick={() => setActive(true)}>
+		<li
+			className={cn([styles.item], {
+				[styles.active]: isActive,
+			})}
+			ref={inputRef}
+			onClick={() => setActive(true)}>
 			<div className={styles.wrapper}>
-				<Icon name={iconName} className={styles.icon} />
-				<input className={styles.input} type="text" placeholder={text} value={value} onChange={(e) => setValue(e.target.value)} />
+				<Icon
+					name="location"
+					className={styles.icon}
+				/>
+				<input
+					className={styles.input}
+					type="text"
+					placeholder="Город"
+					value={value}
+					onChange={(e) => setValue(e.target.value)}
+				/>
 			</div>
-			{value && <Icon name='cross' className={cn([styles.icon, styles.cross__icon])} onClick={() => setValue('')} />}
+			<div className={styles.wrapper__right}>
+				{areasCount.length != 0 && (
+					<span className={styles.count}>{areasCount.length}</span>
+				)}
+				{value && (
+					<Icon
+						name="cross"
+						className={cn([styles.icon, styles.cross__icon])}
+						onClick={() => setValue('')}
+					/>
+				)}
+			</div>
+			{isActive && <InputDrowdown value={debounceValue} />}
 		</li>
-	)
-}
+	);
+};

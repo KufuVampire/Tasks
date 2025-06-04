@@ -16,7 +16,7 @@
 	appearance: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	transition: border-color .3s ease, background-color .3s ease;
+	transition: border-color var(--transition-duration) var(--transition-timing-function), background-color var(--transition-duration) var(--transition-timing-function);
 }
 
 .radio:hover {
@@ -44,7 +44,7 @@
 	width: 6px;
 	height: 6px;
 	background-color: var(--accent);
-	transition: opacity .3s ease, background-color .3s ease;
+	transition: opacity var(--transition-duration) var(--transition-timing-function), background-color var(--transition-duration) var(--transition-timing-function);
 }
 
 .radio:checked::before {

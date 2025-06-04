@@ -9,46 +9,46 @@ import styles from './styles.module.css';
 
 export const RelatedVacanciesList = () => {
 	const { vacancyId } = useVacancy();
-	const [data, setData] = useState(null);
+	const [data, setData] = useState([]);
 	const [isLoading, setLoading] = useState(true);
-	const [perPage, setPerPage] = useState(PER_PAGE_RELATED_VACANCIES);
+	const [page, setPage] = useState(0);
 	const [isHasMore, setHasMore] = useState(true);
 
-	const skeletonArr = new Array(perPage).fill(0);
+	const skeletonArr = new Array(PER_PAGE_RELATED_VACANCIES).fill(0);
 
 	useEffect(() => {
 		(async () => {
 			try {
-				const data = await getRelatedVacancies(vacancyId, perPage);
+				const data = await getRelatedVacancies(vacancyId, page);
+				
 				if (data.items.length % 6 != 0) {
 					setHasMore(false);
 				}
 
-				setData(data);
+				setData((prev) => [...prev, ...data.items]);
 				setLoading(false);
 			} catch (error) {
 				console.error(error);
 			}
 		})();
-	}, [perPage]);
+	}, [page]);
 
 	return (
 		<section
 			className={cn([styles.section], {
-				[styles.section__hidden]:
-					!isLoading && (data.items === null || data.items.length < 1),
+				[styles.section__hidden]: !isLoading && data.length < 1,
 			})}>
 			<Container className={styles.container}>
 				<h2 className={styles.title}>Похожие вакансии</h2>
 				{isLoading ? (
-					<ul>
+					<ul className={styles.list}>
 						{skeletonArr.map((_, i) => (
 							<Skeleton key={i} />
 						))}
 					</ul>
 				) : (
 					<ul className={styles.list}>
-						{data.items.map((item) => {
+						{data.map((item) => {
 							return (
 								<RelatedVacancyCard
 									key={item.id}
@@ -61,7 +61,7 @@ export const RelatedVacanciesList = () => {
 				{isHasMore && (
 					<button
 						className={styles.btn}
-						onClick={() => setPerPage((prev) => prev + 6)}>
+						onClick={() => setPage((prev) => prev + 1)}>
 						Показать ещё
 					</button>
 				)}

@@ -46,19 +46,24 @@ export function formatSalary(salary) {
 	return `от ${salary.from} - до ${salary.to} ${currencySymbol}`;
 }
 
-export const cn = (classnames, obj) => {
+export const cn = (classNames, obj) => {
 	if (!obj) {
-		return classnames.filter((className) => className != undefined).join(' ');
+		return classNames.filter((className) => className != undefined).join(' ');
 	}
 
 	const entries = Object.entries(obj);
 
-	let classes = [...classnames];
-	for (let i = 0; i < entries.length; i++) {
-		if (entries[i][1]) {
-			classes.push(entries[i][0]);
-		}
-	}
+	return entries
+		.reduce(
+			(acc, [key, value]) => {
+				if (value) {
+					return [...acc, key];
+				}
 
-	return classes.filter((className) => className != undefined).join(' ');
+				return acc;
+			},
+			[...classNames],
+		)
+		.filter((className) => className != undefined)
+		.join(' ');
 };

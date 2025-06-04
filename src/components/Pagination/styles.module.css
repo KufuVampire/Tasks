@@ -26,7 +26,7 @@
 	line-height: var(--spacing-lg);
 	font-weight: 500;
 	background-color: var(--pagination-hover-btn);
-	transition: background-color .3s ease, color .3s ease;
+	transition: background-color var(--transition-duration) var(--transition-timing-function), color var(--transition-duration) var(--transition-timing-function);
 	cursor: pointer;
 }
 

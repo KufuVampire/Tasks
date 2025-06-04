@@ -24,6 +24,8 @@ html {
 	
 	--hover-item: #EBF1FA;
 
+	--filters-count-bg: #CFDDF2;
+
 	--text-color-primary: #202020;
 	--text-color-secondary: #747474;
 
@@ -59,6 +61,9 @@ html {
 
 	--shadow: 0 3px 15px 0 rgba(0, 0, 0, .03);
 	--shadow-hover: 4px 4px 15px 0 rgba(0, 0, 0, .08);
+
+	--transition-duration: .3s;
+	--transition-timing-function: ease;
 }
 
 a {

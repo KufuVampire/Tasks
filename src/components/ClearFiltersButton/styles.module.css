@@ -12,10 +12,14 @@
 	line-height: var(--spacing-md);
 	color: var(--accent);
 	background-color: transparent;
-	transition: color .3s ease;
+	transition: color var(--transition-duration) var(--transition-timing-function);
 	cursor: pointer;
 }
 
 .btn:hover {
 	color: var(--accent-light);
+}
+
+.hidden {
+	display: none;
 }

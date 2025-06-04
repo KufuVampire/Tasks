@@ -36,7 +36,7 @@
 	font-weight: 700;
 	line-height: var(--spacing-lg);
 	color: var(--menu-link-color);
-	transition: color .3s ease
+	transition: color var(--transition-duration) var(--transition-timing-function)
 }
 
 .header__item:first-child {

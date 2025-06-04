@@ -8,8 +8,8 @@ import { formatSalary } from '@/utils';
 import { Company } from './Company/Company';
 import { GobackLink } from './GobackLink/GobackLink';
 import { KeySkills } from './KeySkills/KeySkills';
-import { Requirements } from './Requirements/Requirements';
 import { RenderingDescriptionFromProps } from './RenderingDescriptionFromProps/RenderingDescriptionFromProps';
+import { Requirements } from './Requirements/Requirements';
 import { ToggleVacancyVisibilityButton } from './ToggleVacancyVisibilityButton/ToggleVacancyVisibilityButton';
 
 import styles from './styles.module.css';

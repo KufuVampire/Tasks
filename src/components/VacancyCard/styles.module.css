@@ -4,7 +4,7 @@
 	border-radius: var(--border-radius);
 	background-color: var(--bg);
 	box-shadow: var(--shadow);
-	transition: box-shadow .3s ease;
+	transition: box-shadow var(--transition-duration) var(--transition-timing-function);
 }
 
 .item:hover {
@@ -84,12 +84,21 @@
 	opacity: 0;
 	fill: var(--icon-fill-color);
 	stroke: var(--icon-stroke-color);
-	transition: opacity .3s ease;
+	transition: opacity var(--transition-duration) var(--transition-timing-function), fill var(--transition-duration) var(--transition-timing-function), stroke var(--transition-duration) var(--transition-timing-function);
 	cursor: pointer;
 }
 
 .active {
 	--icon-fill-color: var(--accent);
+	--icon-stroke-color: var(--icon-fill-color);
+
+	opacity: 1;
+	fill: var(--icon-fill-color);
+	stroke: var(--icon-stroke-color);
+}
+
+.item:hover .active {
+	--icon-fill-color: var(--accent-light);
 	--icon-stroke-color: var(--icon-fill-color);
 
 	fill: var(--icon-fill-color);
