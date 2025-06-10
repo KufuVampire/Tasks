@@ -13,6 +13,7 @@ export const VacancyCard = ({ item }) => {
 	const handleToggleVacancyVisibility = (id) => {
 		if (isVacancyHidden) {
 			removeVacancyFromHidden(id);
+			return;
 		}
 
 		setVacancyHidden(id);

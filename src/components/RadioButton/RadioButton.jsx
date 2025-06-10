@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import styles from './styles.module.css';
 
 export const RadioButton = ({ text, ...props }) => {
-	const { searchParams, searchParamsString } = useSearchParams();
 	const [selected, setSelected] = useState('');
+	const { searchParams, searchParamsString } = useSearchParams();
 
 	const filterKey = props['data-searchkey'];
 	const filterValue = props['data-value'];

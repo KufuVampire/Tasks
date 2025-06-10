@@ -9,7 +9,7 @@ export const useHiddenVacancies = create((set) => ({
 	removeVacancyFromHidden: (vacancyId) =>
 		set((state) => ({
 			hiddenVacanciesIds: state.hiddenVacanciesIds.filter(
-				(id) => !id.includes(vacancyId),
+				(id) => id !== vacancyId,
 			),
 		})),
 }));
