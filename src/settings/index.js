@@ -1,1 +1,1 @@
-export { searchParams } from './searchParams';
+export { additionalFiltersTypes, filtersTypes } from './settings';

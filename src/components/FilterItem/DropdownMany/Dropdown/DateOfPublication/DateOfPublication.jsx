@@ -1,20 +1,20 @@
 import { Icon, RadioButton } from '@/components';
-import { dateOfPublication } from '@/data';
-import { useSearchParams } from '@/hooks';
+import { dateOfPublication } from '@/config';
+import { useSearchParamsStore } from '@/store';
 import { cn } from '@/utils';
 import { useState } from 'react';
 import styles from '../styles.module.css';
 
-export const DateOfPublication = () => {
+export const DateOfPublication = (props) => {
 	const [isOpen, setOpen] = useState(false);
-	const { searchParams, setSearchParamsString } = useSearchParams();
+	const { searchParams, setSearchParamsString } = useSearchParamsStore();
 
 	const handleClick = (e) => {
 		const radio = e.target.closest('input');
 
 		if (!radio) return;
 
-		const key = radio.dataset.searchkey ? radio.dataset.searchkey : '';
+		const key = radio.dataset.name ? radio.dataset.name : '';
 		const value = radio.dataset.value ? radio.dataset.value : '';
 
 		if (value.length < 1) {
@@ -28,16 +28,18 @@ export const DateOfPublication = () => {
 	};
 
 	return (
-		<li className={cn([styles.item], { [styles.active]: isOpen })}>
+		<li
+			{...props}
+			className={cn([styles.item], { [styles.active]: isOpen })}>
 			<button
 				className={styles.btn}
 				onClick={() => setOpen((prev) => !prev)}>
 				<div className={styles.wrapper}>
-					<Icon name="calendar" />
+					<Icon name='calendar' />
 					<p className={styles.title}>Дата публикации вакансий</p>
 				</div>
 				<Icon
-					name="arrow-right"
+					name='arrow-right'
 					className={styles.icon}
 				/>
 			</button>
@@ -51,7 +53,7 @@ export const DateOfPublication = () => {
 						className={styles.dropdown__item}
 						key={i}>
 						<RadioButton
-							data-searchkey={item.dataSearchKey}
+							data-name={item.dataName}
 							data-value={item.dataValue}
 							text={item.text}
 							name={item.name}

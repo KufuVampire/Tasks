@@ -1,7 +1,8 @@
 import { Checkbox, Icon } from '@/components';
+import { employment } from '@/config';
 import { SEARCH_PARAMS } from '@/constants';
-import { employment } from '@/data';
-import { useClickOutside, useSearchParams } from '@/hooks';
+import { useClickOutside } from '@/hooks';
+import { useSearchParamsStore } from '@/store';
 import { cn } from '@/utils';
 import { useEffect, useRef, useState } from 'react';
 
@@ -14,7 +15,7 @@ export const DropdownSingle = () => {
 	const dropdownRef = useRef(null);
 
 	const { searchParams, searchParamsString, setSearchParamsString } =
-		useSearchParams();
+		useSearchParamsStore();
 
 	useClickOutside(dropdownRef, setOpen);
 
@@ -27,7 +28,7 @@ export const DropdownSingle = () => {
 		const checkbox = e.target.closest('input');
 		if (!checkbox) return;
 
-		const key = checkbox.dataset.searchkey ? checkbox.dataset.searchkey : '';
+		const key = checkbox.dataset.name ? checkbox.dataset.name : '';
 
 		if (!checkbox.checked && !searchParams.has(key)) return;
 
@@ -45,6 +46,7 @@ export const DropdownSingle = () => {
 
 	return (
 		<li
+			aria-label='Выпадающий список'
 			ref={dropdownRef}
 			className={cn([styles.dropdown], {
 				[styles.active]: isOpen,
@@ -76,7 +78,7 @@ export const DropdownSingle = () => {
 						className={styles.dropdown__item}
 						key={i}>
 						<Checkbox
-							data-searchkey={item.dataSearchKey}
+							data-name={item.dataName}
 							data-value={item.dataValue}
 							text={item.text}
 							name={item.name}

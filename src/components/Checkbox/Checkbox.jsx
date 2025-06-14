@@ -1,17 +1,19 @@
 import { Icon } from '@/components';
 import { SEARCH_PARAMS } from '@/constants';
-import { useSearchParams } from '@/hooks';
+import { useSearchParamsStore } from '@/store';
 import { useEffect, useRef, useState } from 'react';
 import styles from './styles.module.css';
 
 export const Checkbox = ({ text, ...props }) => {
 	const [isChecked, setChecked] = useState(false);
-	const { searchParams, searchParamsString } = useSearchParams();
+	const { searchParams, searchParamsString } = useSearchParamsStore();
 	const inputRef = useRef(null);
 
 	useEffect(() => {
+		if (!inputRef.current) return;
+
 		const { dataset } = inputRef.current;
-		const key = dataset.searchkey ? dataset.searchkey : '';
+		const key = dataset.name ? dataset.name : '';
 		const value = dataset.value ? dataset.value : '';
 
 		if (searchParams.has(key, value)) {

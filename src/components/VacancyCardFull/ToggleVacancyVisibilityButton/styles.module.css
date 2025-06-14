@@ -6,13 +6,13 @@
 	column-gap: var(--spacing-md);
 	margin-bottom: var(--spacing-3xl);
 	padding: var(--spacing-md) var(--spacing-xl);
-	border: 2px solid var(--accent);
-	border-radius: var(--border-radius);
+	border: 2px solid var(--accent-color);
+	border-radius: var(--border-radius-md);
 	outline: 0;
-	font-size: 14px;
+	font-size: 0.875rem;
 	font-weight: 700;
 	line-height: var(--spacing-lg);
-	color: var(--accent);
+	color: var(--accent-color);
 	background-color: transparent;
 	cursor: pointer;
 	transition: background-color var(--transition-duration) var(--transition-timing-function);
@@ -22,9 +22,14 @@
 	background-color: var(--hover-item);
 }
 
+.btn:focus-visible {
+	outline: 2px solid black;
+	outline-offset: 3px;
+}
+
 .icon {
-	width: 20px;
-	height: 20px;
-	fill: var(--accent);
-	stroke: var(--accent);
+	width: var(--size-lg);
+	height: var(--size-lg);
+	fill: var(--accent-color);
+	stroke: var(--accent-color);
 }

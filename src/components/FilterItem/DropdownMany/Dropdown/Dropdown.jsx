@@ -1,5 +1,3 @@
-import { AdditionalFiltersTypes } from '@/constants';
-
 import { DateOfPublication } from './DateOfPublication/DateOfPublication';
 import { Education } from './Education/Education';
 import { Experience } from './Experience/Experience';
@@ -9,23 +7,18 @@ import { PartTimeWork } from './PartTimeWork/PartTimeWork';
 import { TechnologyTags } from './TechnologyTags/TechnologyTags';
 import { WorkSchedule } from './WorkSchedule/WorkSchedule';
 
+const filtersDropdownConfig = {
+	dateOfPublication: DateOfPublication,
+	experience: Experience,
+	workSchedule: WorkSchedule,
+	technologyTags: TechnologyTags,
+	education: Education,
+	incomeLevel: IncomeLevel,
+	partTimeWork: PartTimeWork,
+	otherParameters: OtherParameters,
+};
+
 export const Dropdown = ({ type }) => {
-	switch (type) {
-		case AdditionalFiltersTypes.dateOfPublication:
-			return <DateOfPublication />;
-		case AdditionalFiltersTypes.experience:
-			return <Experience />;
-		case AdditionalFiltersTypes.workSchedule:
-			return <WorkSchedule />;
-		case AdditionalFiltersTypes.technologyTags:
-			return <TechnologyTags />;
-		case AdditionalFiltersTypes.education:
-			return <Education />;
-		case AdditionalFiltersTypes.incomeLevel:
-			return <IncomeLevel />;
-		case AdditionalFiltersTypes.partTimeWork:
-			return <PartTimeWork />;
-		case AdditionalFiltersTypes.otherParameters:
-			return <OtherParameters />;
-	}
+	const FilterDropdown = filtersDropdownConfig[type];
+	return <FilterDropdown aria-label="Выпадающий список" />;
 };

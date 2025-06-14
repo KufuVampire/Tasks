@@ -1,19 +1,19 @@
 import { Checkbox, Icon } from '@/components';
+import { partTimeWork } from '@/config';
 import { SEARCH_PARAMS } from '@/constants';
-import { partTimeWork } from '@/data';
-import { useSearchParams } from '@/hooks';
+import { useSearchParamsStore } from '@/store';
 import { cn } from '@/utils';
 import { useEffect, useState } from 'react';
 import styles from '../styles.module.css';
 
 const eveningValue = 'вечерний';
 
-export const PartTimeWork = () => {
+export const PartTimeWork = (props) => {
 	const [isOpen, setOpen] = useState(false);
 	const [filtersCount, setFiltersCount] = useState(0);
 
 	const { searchParams, searchParamsString, setSearchParamsString } =
-		useSearchParams();
+		useSearchParamsStore();
 
 	useEffect(() => {
 		const isEvening = searchParams
@@ -30,7 +30,7 @@ export const PartTimeWork = () => {
 		const checkbox = e.target.closest('input');
 		if (!checkbox) return;
 
-		const key = checkbox.dataset.searchkey ? checkbox.dataset.searchkey : '';
+		const key = checkbox.dataset.name ? checkbox.dataset.name : '';
 		const value = checkbox.dataset.value ? checkbox.dataset.value : '';
 
 		if (!checkbox.checked && !searchParams.has(key)) return;
@@ -72,12 +72,14 @@ export const PartTimeWork = () => {
 	};
 
 	return (
-		<li className={cn([styles.item], { [styles.active]: isOpen })}>
+		<li
+			{...props}
+			className={cn([styles.item], { [styles.active]: isOpen })}>
 			<button
 				className={styles.btn}
 				onClick={() => setOpen((prev) => !prev)}>
 				<div className={styles.wrapper}>
-					<Icon name="tome-job" />
+					<Icon name='tome-job' />
 					<p className={styles.title}>Подработка</p>
 				</div>
 				<div className={styles.wrapper__right}>
@@ -85,7 +87,7 @@ export const PartTimeWork = () => {
 						<span className={styles.count}>{filtersCount}</span>
 					)}
 					<Icon
-						name="arrow-right"
+						name='arrow-right'
 						className={styles.icon}
 					/>
 				</div>
@@ -100,7 +102,7 @@ export const PartTimeWork = () => {
 						className={styles.dropdown__item}
 						key={i}>
 						<Checkbox
-							data-searchkey={item.dataSearchKey}
+							data-name={item.dataName}
 							data-value={item.dataValue}
 							text={item.text}
 							name={item.name}

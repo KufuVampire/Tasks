@@ -2,11 +2,11 @@ import { getVacancies } from '@/api';
 import { Pagination, SkeletonBlock } from '@/components';
 import { SEARCH_PARAMS } from '@/constants';
 import {
-	useHiddenVacancies,
-	useSearchParams,
-	useVacancies,
-	useVacancy,
-} from '@/hooks';
+	useHiddenVacanciesStore,
+	useSearchParamsStore,
+	useVacanciesStore,
+	useVacancyStore,
+} from '@/store';
 import { useEffect, useState } from 'react';
 
 import { VacancyBlock } from '../VacancyBlock/VacancyBlock';
@@ -19,12 +19,12 @@ export const VacancyList = () => {
 	const [page, setPage] = useState(1);
 	const [totalPages, setTotalPages] = useState(0);
 
-	const { vacancies, setVacancies } = useVacancies();
-	const { setOpen, setVacancyId } = useVacancy();
-	const { hiddenVacanciesIds } = useHiddenVacancies();
+	const { vacancies, setVacancies } = useVacanciesStore();
+	const { setOpen, setVacancyId } = useVacancyStore();
+	const { hiddenVacanciesIds } = useHiddenVacanciesStore();
 
 	const { searchParams, searchParamsString, setSearchParamsString } =
-		useSearchParams();
+		useSearchParamsStore();
 
 	const handleClickVacancy = (e) => {
 		const btn = e.target.closest('button');
@@ -37,12 +37,16 @@ export const VacancyList = () => {
 	};
 
 	useEffect(() => {
+		setPage(1);
+	}, [searchParamsString]);
+
+	useEffect(() => {
 		setSearchParamsString(searchParams.toString());
 		if (searchParamsString.length > 0) {
 			window.history.pushState(
 				{},
 				'',
-				`${window.location.origin}?${decodeURIComponent(searchParamsString)}`,
+				`${window.location.origin}?${decodeURIComponent(searchParamsString)}`
 			);
 		} else {
 			window.history.replaceState({}, '', '/');
@@ -52,7 +56,7 @@ export const VacancyList = () => {
 			try {
 				const data = await getVacancies(
 					page - 1,
-					decodeURIComponent(searchParamsString),
+					decodeURIComponent(searchParamsString)
 				);
 
 				if (!data) return;
@@ -60,7 +64,7 @@ export const VacancyList = () => {
 				const items = data.items.filter(
 					({ id }) =>
 						!!searchParams.get(SEARCH_PARAMS.hidden) ||
-						!hiddenVacanciesIds.includes(id),
+						!hiddenVacanciesIds.includes(id)
 				);
 				const vacanciesArr = [];
 
@@ -68,7 +72,7 @@ export const VacancyList = () => {
 					const date = new Date(item.published_at).toISOString().slice(0, 10);
 
 					const vacancyObj = vacanciesArr.find(
-						(el) => Object.keys(el)[0] === date,
+						(el) => Object.keys(el)[0] === date
 					);
 					if (vacancyObj) {
 						const index = vacanciesArr.indexOf(vacancyObj);
@@ -93,12 +97,13 @@ export const VacancyList = () => {
 
 	if (
 		!isLoading &&
-		(error || vacancies.length) < 1 &&
+		(error || vacancies.length < 1) &&
 		searchParamsString.length > 0
 	) {
 		return (
 			<p className={styles.not_found}>
-				Не удалось найти вакансии с выбранными параметрами. Попробуйте другие.
+				Не&nbsp;удалось найти вакансии с&nbsp;выбранными параметрами. Попробуйте
+				другие.
 			</p>
 		);
 	}
@@ -110,7 +115,7 @@ export const VacancyList = () => {
 	return (
 		<>
 			{!isLoading && vacancies.length < 1 && (
-				<p className={styles.error}>Вы скрыли все вакансии</p>
+				<p className={styles.error}>Вы&nbsp;скрыли все вакансии</p>
 			)}
 			{!isLoading ? (
 				<ul

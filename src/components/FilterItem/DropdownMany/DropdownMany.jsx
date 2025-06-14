@@ -1,6 +1,8 @@
 import { Icon } from '@/components';
-import { AdditionalFiltersTypes, SEARCH_PARAMS } from '@/constants';
-import { useClickOutside, useSearchParams } from '@/hooks';
+import { SEARCH_PARAMS } from '@/constants';
+import { useClickOutside } from '@/hooks';
+import { additionalFiltersTypes } from '@/settings';
+import { useSearchParamsStore } from '@/store';
 import { cn } from '@/utils';
 import { useRef, useState } from 'react';
 
@@ -11,10 +13,11 @@ export const DropdownMany = () => {
 	const [isOpen, setOpen] = useState(false);
 	const dropdownRef = useRef(null);
 
-	const { searchParams } = useSearchParams();
+	const { searchParams } = useSearchParamsStore();
+
 	const countFilters = [...searchParams.keys()]
 		.filter(
-			(key) => key != SEARCH_PARAMS.employment && key != SEARCH_PARAMS.area,
+			(key) => key != SEARCH_PARAMS.employment && key != SEARCH_PARAMS.area
 		)
 		.map((key) => {
 			if (key === SEARCH_PARAMS.text) {
@@ -28,6 +31,7 @@ export const DropdownMany = () => {
 
 	return (
 		<li
+			aria-label='Выпадающий список с несколькими выпадающими списками'
 			ref={dropdownRef}
 			className={cn([styles.dropdown], {
 				[styles.active]: isOpen,
@@ -36,7 +40,7 @@ export const DropdownMany = () => {
 				className={styles.btn}
 				onClick={() => setOpen((prev) => !prev)}>
 				<div className={styles.wrapper}>
-					<Icon name="filter-solid" />
+					<Icon name='filter-solid' />
 					<p className={styles.title}>Дополнительные фильтры</p>
 				</div>
 				<div className={styles.wrapper__right}>
@@ -44,7 +48,7 @@ export const DropdownMany = () => {
 						<span className={styles.count}>{countFilters}</span>
 					)}
 					<Icon
-						name="arrow-right"
+						name='arrow-right'
 						className={styles.icon}
 					/>
 				</div>
@@ -53,14 +57,12 @@ export const DropdownMany = () => {
 				className={cn([styles.dropdown__list], {
 					[styles.active__list]: isOpen,
 				})}>
-				<Dropdown type={AdditionalFiltersTypes.dateOfPublication} />
-				<Dropdown type={AdditionalFiltersTypes.experience} />
-				<Dropdown type={AdditionalFiltersTypes.workSchedule} />
-				<Dropdown type={AdditionalFiltersTypes.technologyTags} />
-				<Dropdown type={AdditionalFiltersTypes.education} />
-				<Dropdown type={AdditionalFiltersTypes.incomeLevel} />
-				<Dropdown type={AdditionalFiltersTypes.partTimeWork} />
-				<Dropdown type={AdditionalFiltersTypes.otherParameters} />
+				{additionalFiltersTypes.map((type, i) => (
+					<Dropdown
+						type={type}
+						key={i}
+					/>
+				))}
 			</ul>
 		</li>
 	);

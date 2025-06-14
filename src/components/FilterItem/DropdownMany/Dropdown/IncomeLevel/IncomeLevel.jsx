@@ -1,21 +1,21 @@
 import { Checkbox, Icon, RadioButton } from '@/components';
+import { incomeLevel } from '@/config';
 import { SEARCH_PARAMS } from '@/constants';
-import { incomeLevel } from '@/data';
-import { useSearchParams } from '@/hooks';
+import { useSearchParamsStore } from '@/store';
 import { cn } from '@/utils';
 import { useEffect, useState } from 'react';
 import styles from '../styles.module.css';
 
-export const IncomeLevel = () => {
+export const IncomeLevel = (props) => {
 	const [isOpen, setOpen] = useState(false);
 	const [filtersCount, setFiltersCount] = useState(0);
 	const { searchParams, searchParamsString, setSearchParamsString } =
-		useSearchParams();
+		useSearchParamsStore();
 
 	useEffect(() => {
 		const salaryCount = searchParams.getAll(SEARCH_PARAMS.salary).length;
 		const onlyWithSalaryCount = searchParams.getAll(
-			SEARCH_PARAMS.only_with_salary,
+			SEARCH_PARAMS.only_with_salary
 		).length;
 		const count = salaryCount + onlyWithSalaryCount;
 
@@ -28,7 +28,7 @@ export const IncomeLevel = () => {
 			input instanceof HTMLInputElement && input.type === 'checkbox';
 		if (!input) return;
 
-		const key = input.dataset.searchkey ? input.dataset.searchkey : '';
+		const key = input.dataset.name ? input.dataset.name : '';
 		const value = input.dataset.value ? input.dataset.value : '';
 
 		if (isCheckbox && !input.checked && !searchParams.has(key)) return;
@@ -56,12 +56,14 @@ export const IncomeLevel = () => {
 	};
 
 	return (
-		<li className={cn([styles.item], { [styles.active]: isOpen })}>
+		<li
+			{...props}
+			className={cn([styles.item], { [styles.active]: isOpen })}>
 			<button
 				className={styles.btn}
 				onClick={() => setOpen((prev) => !prev)}>
 				<div className={styles.wrapper}>
-					<Icon name="salary" />
+					<Icon name='salary' />
 					<p className={styles.title}>Уровень дохода</p>
 				</div>
 				<div className={styles.wrapper__right}>
@@ -69,7 +71,7 @@ export const IncomeLevel = () => {
 						<span className={styles.count}>{filtersCount}</span>
 					)}
 					<Icon
-						name="arrow-right"
+						name='arrow-right'
 						className={styles.icon}
 					/>
 				</div>
@@ -86,7 +88,7 @@ export const IncomeLevel = () => {
 								className={styles.dropdown__item}
 								key={i}>
 								<Checkbox
-									data-searchkey={item.dataSearchKey}
+									data-name={item.dataName}
 									data-value={item.dataValue}
 									text={item.text}
 									name={item.name}
@@ -100,7 +102,7 @@ export const IncomeLevel = () => {
 							className={styles.dropdown__item}
 							key={i}>
 							<RadioButton
-								data-searchkey={item.dataSearchKey}
+								data-name={item.dataName}
 								data-value={item.dataValue}
 								text={item.text}
 								name={item.name}

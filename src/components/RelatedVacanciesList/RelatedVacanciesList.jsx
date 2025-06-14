@@ -1,14 +1,14 @@
 import { getRelatedVacancies } from '@/api';
 import { Container, Skeleton } from '@/components';
-import { PER_PAGE_RELATED_VACANCIES } from '@/constants';
-import { useVacancy } from '@/hooks';
+import { PER_PAGE_RELATED_VACANCIES } from '@/config';
+import { useVacancyStore } from '@/store';
 import { cn } from '@/utils';
 import { useEffect, useState } from 'react';
 import { RelatedVacancyCard } from './RelatedVacancyCard/RelatedVacancyCard';
 import styles from './styles.module.css';
 
 export const RelatedVacanciesList = () => {
-	const { vacancyId } = useVacancy();
+	const { vacancyId } = useVacancyStore();
 	const [data, setData] = useState([]);
 	const [isLoading, setLoading] = useState(true);
 	const [page, setPage] = useState(0);
@@ -20,7 +20,7 @@ export const RelatedVacanciesList = () => {
 		(async () => {
 			try {
 				const data = await getRelatedVacancies(vacancyId, page);
-				
+
 				if (data.items.length % 6 != 0) {
 					setHasMore(false);
 				}

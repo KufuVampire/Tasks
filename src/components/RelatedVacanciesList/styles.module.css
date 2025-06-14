@@ -10,7 +10,7 @@
 }
 
 .title {
-	font-size: 24px;
+	font-size: var(--font-size-xl);
 	font-weight: 700;
 	line-height: var(--spacing-3xl);
 	color: var(--text-color-primary);
@@ -31,23 +31,27 @@
 	padding: var(--spacing-md) var(--spacing-xl);
 	border: 0;
 	outline: 0;
-	border-radius: var(--border-radius);
-	font-size: 14px;
+	border-radius: var(--border-radius-md);
+	font-size: 0.875rem;
 	font-weight: 700;
 	line-height: var(--spacing-lg);
 	color: var(--btn-text-color);
-	background-color: var(--accent);
+	background-color: var(--accent-color);
 	cursor: pointer;
 	transition: background-color var(--transition-duration) var(--transition-timing-function);
 }
 
 .btn:hover {
-	background-color: var(--accent-light);
+	background-color: var(--accent-color-light);
+}
+
+.btn:focus-visible {
+	outline: 2px solid black;
 }
 
 .section__hidden {
 	position: absolute;
 	left: -10000px;
-	z-index: -1000;
+	z-index: var(--layer-hidden);
 	visibility: hidden;
 }

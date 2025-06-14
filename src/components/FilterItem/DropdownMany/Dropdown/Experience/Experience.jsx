@@ -1,19 +1,19 @@
 import { Icon, RadioButton } from '@/components';
-import { experience } from '@/data';
-import { useSearchParams } from '@/hooks';
+import { experience } from '@/config';
+import { useSearchParamsStore } from '@/store';
 import { cn } from '@/utils';
 import { useState } from 'react';
 import styles from '../styles.module.css';
 
-export const Experience = () => {
+export const Experience = (props) => {
 	const [isOpen, setOpen] = useState(false);
-	const { searchParams, setSearchParamsString } = useSearchParams();
+	const { searchParams, setSearchParamsString } = useSearchParamsStore();
 
 	const handleClick = (e) => {
 		const radio = e.target.closest('input');
 		if (!radio) return;
 
-		const key = radio.dataset.searchkey ? radio.dataset.searchkey : '';
+		const key = radio.dataset.name ? radio.dataset.name : '';
 		const value = radio.dataset.value ? radio.dataset.value : '';
 
 		if (value.length < 1) {
@@ -27,16 +27,18 @@ export const Experience = () => {
 	};
 
 	return (
-		<li className={cn([styles.item], { [styles.active]: isOpen })}>
+		<li
+			{...props}
+			className={cn([styles.item], { [styles.active]: isOpen })}>
 			<button
 				className={styles.btn}
 				onClick={() => setOpen((prev) => !prev)}>
 				<div className={styles.wrapper}>
-					<Icon name="experience" />
+					<Icon name='experience' />
 					<p className={styles.title}>Опыт работы</p>
 				</div>
 				<Icon
-					name="arrow-right"
+					name='arrow-right'
 					className={styles.icon}
 				/>
 			</button>
@@ -50,7 +52,7 @@ export const Experience = () => {
 						className={styles.dropdown__item}
 						key={i}>
 						<RadioButton
-							data-searchkey={item.dataSearchKey}
+							data-name={item.dataName}
 							data-value={item.dataValue}
 							text={item.text}
 							name={item.name}

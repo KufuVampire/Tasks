@@ -1,13 +1,13 @@
-import { useSearchParams } from '@/hooks';
+import { useSearchParamsStore } from '@/store';
 import { cn } from '@/utils';
 import styles from './styles.module.css';
 
 export const ClearFiltersButton = () => {
-	const { searchParams, setSearchParamsString } = useSearchParams();
+	const { searchParams, setSearchParamsString } = useSearchParamsStore();
 
 	const handleClear = () => {
 		const allKeys = new Set(searchParams.keys());
-		allKeys.forEach((key) => searchParams.delete(key))
+		allKeys.forEach((key) => searchParams.delete(key));
 
 		setSearchParamsString(searchParams.toString());
 	};

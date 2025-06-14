@@ -6,7 +6,7 @@
 }
 
 .heading {
-	font-size: 24px;
+	font-size: var(--font-size-xl);
 	font-weight: 700;
 	line-height: var(--line-height-3xl);
 	color: var(--text-color-primary);
