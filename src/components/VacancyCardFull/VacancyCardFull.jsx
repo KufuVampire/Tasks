@@ -1,6 +1,6 @@
 import { getVacancyById } from '@/api';
 import { Container } from '@/components';
-import { useVacancy } from '@/hooks';
+import { useVacancyStore } from '@/store';
 import { useEffect, useState } from 'react';
 
 import { formatSalary } from '@/utils';
@@ -8,17 +8,18 @@ import { formatSalary } from '@/utils';
 import { Company } from './Company/Company';
 import { GobackLink } from './GobackLink/GobackLink';
 import { KeySkills } from './KeySkills/KeySkills';
-import { Requirements } from './Requirements/Requirements';
 import { RenderingDescriptionFromProps } from './RenderingDescriptionFromProps/RenderingDescriptionFromProps';
+import { Requirements } from './Requirements/Requirements';
 import { ToggleVacancyVisibilityButton } from './ToggleVacancyVisibilityButton/ToggleVacancyVisibilityButton';
 
 import styles from './styles.module.css';
 
 export const VacancyCardFull = () => {
-	const { vacancyId, setOpen } = useVacancy();
 	const [isLoading, setLoading] = useState(true);
 	const [data, setData] = useState(null);
 	const [error, setError] = useState('');
+
+	const { vacancyId, setOpen } = useVacancyStore();
 
 	useEffect(() => {
 		window.scrollTo(0, 0);

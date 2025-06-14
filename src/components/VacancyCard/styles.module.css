@@ -1,10 +1,10 @@
 .item {
 	position: relative;
 	width: 100%;
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-md);
 	background-color: var(--bg);
 	box-shadow: var(--shadow);
-	transition: box-shadow .3s ease;
+	transition: box-shadow var(--transition-duration) var(--transition-timing-function);
 }
 
 .item:hover {
@@ -26,10 +26,14 @@
 	cursor: pointer;
 }
 
+.item:has(.btn:focus-visible) {
+	outline: 2px solid black;
+}
+
 .heading {
 	width: 80%;
 	margin-bottom: var(--spacing-xs);
-	font-size: 16px;
+	font-size: var(--font-size-md);
 	font-weight: 700;
 	line-height: var(--spacing-2xl);
 	text-align: left;
@@ -40,7 +44,7 @@
 
 .salary {
 	margin-bottom: var(--spacing-md);
-	font-size: 16px;
+	font-size: var(--font-size-md);
 	font-weight: 500;
 	line-height: var(--spacing-2xl);
 	text-align: start;
@@ -48,7 +52,7 @@
 
 .company {
 	margin-bottom: var(--spacing-xs);
-	font-size: 12px;
+	font-size: var(--font-size-sm);
 	font-weight: 500;
 	line-height: var(--spacing-md);
 	text-align: start;
@@ -56,7 +60,7 @@
 
 .city {
 	margin-bottom: var(--spacing-md);
-	font-size: 12px;
+	font-size: var(--font-size-sm);
 	font-weight: 500;
 	line-height: var(--spacing-md);
 	text-align: start;
@@ -69,7 +73,7 @@
 }
 
 .experience {
-	font-size: 12px;
+	font-size: var(--font-size-sm);
 	font-weight: 500;
 	line-height: var(--spacing-md);
 }
@@ -79,17 +83,26 @@
 	--icon-stroke-color: var(--icon-fill-color);
 
 	position: absolute;
-	top: 32px;
-	right: 32px;
+	top: 2rem;
+	right: 2rem;
 	opacity: 0;
 	fill: var(--icon-fill-color);
 	stroke: var(--icon-stroke-color);
-	transition: opacity .3s ease;
+	transition: opacity var(--transition-duration) var(--transition-timing-function), fill var(--transition-duration) var(--transition-timing-function), stroke var(--transition-duration) var(--transition-timing-function);
 	cursor: pointer;
 }
 
 .active {
-	--icon-fill-color: var(--accent);
+	--icon-fill-color: var(--accent-color);
+	--icon-stroke-color: var(--icon-fill-color);
+
+	opacity: 1;
+	fill: var(--icon-fill-color);
+	stroke: var(--icon-stroke-color);
+}
+
+.item:hover .active {
+	--icon-fill-color: var(--accent-color-light);
 	--icon-stroke-color: var(--icon-fill-color);
 
 	fill: var(--icon-fill-color);

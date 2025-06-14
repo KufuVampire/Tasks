@@ -6,6 +6,9 @@ const { publicVars } = loadEnv();
 
 export default defineConfig({
 	plugins: [pluginReact()],
+	html: {
+		title: 'Career App'
+	},
 	source: {
 		define: publicVars,
 	},

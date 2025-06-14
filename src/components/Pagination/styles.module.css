@@ -10,23 +10,23 @@
 	justify-content: center;
 	gap: var(--spacing-xs);
 	width: 100%;
-	max-width: 419px;
+	max-width: 26.188rem;
 }
 
 .btn,
 .dots {
-	width: 53px;
-	height: 44px;
-	padding: 12px;
+	width: 3.313rem;
+	height: 2.75rem;
+	padding: var(--spacing-sm);
 	border: 0;
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-md);
 	outline: none;
 	color: var(--pagination-color-primary);
-	font-size: 14px;
+	font-size: 0.875rem;
 	line-height: var(--spacing-lg);
 	font-weight: 500;
 	background-color: var(--pagination-hover-btn);
-	transition: background-color .3s ease, color .3s ease;
+	transition: background-color var(--transition-duration) var(--transition-timing-function), color var(--transition-duration) var(--transition-timing-function);
 	cursor: pointer;
 }
 
@@ -35,7 +35,7 @@
 	align-items: start;
 	justify-content: center;
 	width: 0;
-	font-size: 20px;
+	font-size: var(--font-size-lg);
 	font-weight: 600;
 	cursor: auto;
 	background-color: transparent;
@@ -44,12 +44,16 @@
 
 .btn:hover {
 	color: var(--pagination-color-secondary);
-	background-color: var(--accent-light);
+	background-color: var(--accent-color-light);
+}
+
+.btn:focus {
+	outline: 2px solid black;
 }
 
 .active {
 	color: var(--pagination-color-secondary);
-	background-color: var(--accent);
+	background-color: var(--accent-color);
 }
 
 @keyframes expanding {
@@ -58,6 +62,6 @@
 	}
 
 	to {
-		width: 53px;
+		width: 3.313rem;
 	}
 }

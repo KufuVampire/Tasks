@@ -63,7 +63,7 @@ export const Pagination = (props) => {
 	if (totalPages <= 1) return null;
 
 	return (
-		<div className={styles.pagination}>
+		<div className={styles.pagination} aria-label='Пагинация'>
 			<ul onClick={changePage} className={styles.pagination__list}>
 				{
 					pagination.map((page, i) => (

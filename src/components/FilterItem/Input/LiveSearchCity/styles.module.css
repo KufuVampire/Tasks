@@ -1,0 +1,48 @@
+.list {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: var(--layer-dropdown);
+	display: flex;
+	flex-direction: column;
+	row-gap: var(--spacing-2xs);
+	width: 100%;
+	max-height: 0;
+	padding: var(--spacing-xs) var(--spacing-xl);
+	border-bottom-left-radius: var(--border-radius-md);
+	border-bottom-right-radius: var(--border-radius-md);
+	opacity: 0;
+	background-color: var(--bg);
+	box-shadow: var(--shadow);
+	transition: max-height var(--transition-duration) var(--transition-timing-function), opacity var(--transition-duration) var(--transition-timing-function);
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+.list::-webkit-scrollbar {
+	width: var(--scrollbar-width);
+}
+
+.list::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+.list::-webkit-scrollbar-thumb {
+	background-color: var(--accent-color);
+	border-radius: 0.438rem;
+}
+
+.item {
+	column-gap: var(--spacing-md);
+	padding-top: var(--spacing-xs);
+	padding-bottom: var(--spacing-xs);
+	font-size: var(--font-size-sm);
+	font-weight: 500;
+	line-height: var(--line-height-md);
+	color: var(--text-color-primary);
+}
+
+.active {
+	opacity: 1;
+	max-height: 36.75rem;
+}

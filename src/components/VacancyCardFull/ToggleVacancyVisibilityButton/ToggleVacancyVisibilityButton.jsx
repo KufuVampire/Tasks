@@ -1,10 +1,10 @@
 import { Icon } from '@/components';
-import { useHiddenVacancies } from '@/hooks';
+import { useHiddenVacanciesStore } from '@/store';
 import styles from './styles.module.css';
 
 export const ToggleVacancyVisibilityButton = ({ id }) => {
 	const { hiddenVacanciesIds, setVacancyHidden, removeVacancyFromHidden } =
-		useHiddenVacancies();
+		useHiddenVacanciesStore();
 	const isVacancyHidden = hiddenVacanciesIds.includes(id);
 
 	const handleToggleVacancyVisibility = (id) => {

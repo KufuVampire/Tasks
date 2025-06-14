@@ -1,5 +1,5 @@
 .vacancy__section {
-	padding-top: 120px;
+	padding-top: 7.5rem;
 	padding-bottom: var(--spacing-3xl);
 	background-color: transparent;
 }
@@ -22,7 +22,7 @@
 	display: flex;
 	flex-direction: column;
 	padding: var(--spacing-3xl);
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-md);
 	background-color: var(--bg);
 	box-shadow: var(--shadow);
 }
@@ -30,22 +30,22 @@
 .title {
 	margin: 0;
 	margin-bottom: var(--spacing-md);
-	font-size: 24px;
+	font-size: var(--font-size-xl);
 	font-weight: 700;
-	line-height: 32px;
+	line-height: var(--line-height-3xl);
 	color: var(--text-color-primary);
 }
 
 .salary {
 	margin-bottom: var(--spacing-xl);
-	font-size: 20px;
+	font-size: var(--font-size-lg);
 	font-weight: 500;
 	line-height: var(--spacing-2xl);
 	color: var(--text-color-primary);
 }
 
 .published_at {
-	font-size: 14px;
+	font-size: 0.875rem;
 	font-weight: 700;
 	line-height: var(--spacing-lg);
 	color: var(--dark-gray);

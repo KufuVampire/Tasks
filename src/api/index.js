@@ -1,1 +1,7 @@
-export { getVacancies, getVacancyById, getRelatedVacancies } from './api'
+export {
+	getAreaById,
+	getAreas,
+	getRelatedVacancies,
+	getVacancies,
+	getVacancyById,
+} from './api';

@@ -1,6 +1,6 @@
 .title {
 	margin-bottom: var(--spacing-xl);
-	font-size: 20px;
+	font-size: var(--font-size-xl);
 	font-weight: 700;
 	line-height: var(--spacing-2xl);
 	color: var(--text-color-primary);
@@ -14,7 +14,7 @@
 
 .description p {
 	margin-bottom: var(--spacing-3xl);
-	font-size: 16px;
+	font-size: var(--font-size-md);
 	font-weight: 400;
 	line-height: var(--spacing-2xl);
 	color: var(--text-color-primary);
@@ -26,7 +26,7 @@
 }
 
 .description ul li {
-	font-size: 16px;
+	font-size: var(--font-size-md);
 	font-weight: 400;
 	line-height: var(--spacing-2xl);
 	color: var(--text-color-primary);

@@ -14,11 +14,11 @@
 }
 
 .section:first-child {
-	padding-top: 120px;
+	padding-top: 7.5rem;
 }
 
 .search__section {
-	padding-top: 120px;
+	padding-top: 7.5rem;
 }
 
 .vacancies__section {
@@ -31,7 +31,7 @@
 .section__hidden {
 	position: absolute;
 	left: -10000px;
-	z-index: -1000;
+	z-index: var(--layer-hidden);
 	visibility: hidden;
 }
 

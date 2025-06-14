@@ -6,9 +6,9 @@
 
 .heading {
 	width: 100%;
-	max-width: 256px;
-	min-height: 32px;
-	border-radius: var(--border-radius);
+	max-width: 16rem;
+	min-height: var(--size-3xl);
+	border-radius: var(--border-radius-md);
 	background-color: var(--skeleton-bg);
 }
 

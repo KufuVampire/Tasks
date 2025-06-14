@@ -6,12 +6,12 @@ import {
 	VacancyCardFull,
 	VacancyList,
 } from '@/components';
-import { useVacancy } from '@/hooks';
+import { useVacancyStore } from '@/store';
 import { cn } from '@/utils';
 import styles from './styles.module.css';
 
 export const Main = () => {
-	const { isOpen } = useVacancy();
+	const { isOpen } = useVacancyStore();
 
 	return (
 		<main className={styles.main}>
