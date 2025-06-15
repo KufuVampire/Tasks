@@ -1,16 +1,20 @@
 import { Icon } from '@/components';
-import { useHiddenVacancies } from '@/hooks';
+import { useHiddenVacanciesStore } from '@/store';
 import { cn, formatExperience, formatSalary } from '@/utils';
 
 import styles from './styles.module.css';
 
 export const VacancyCard = ({ item }) => {
 	const { hiddenVacanciesIds, setVacancyHidden, removeVacancyFromHidden } =
-		useHiddenVacancies();
+		useHiddenVacanciesStore();
+
 	const isVacancyHidden = hiddenVacanciesIds.includes(item.id);
 
 	const handleToggleVacancyVisibility = (id) => {
-		if (isVacancyHidden) removeVacancyFromHidden(id);
+		if (isVacancyHidden) {
+			removeVacancyFromHidden(id);
+			return;
+		}
 
 		setVacancyHidden(id);
 	};
@@ -26,9 +30,9 @@ export const VacancyCard = ({ item }) => {
 				<p className={styles.city}>{item.area.name}</p>
 				<div className={styles.wrapper}>
 					<Icon
-						name="experience"
+						name='experience'
 						width={12}
-						heigth={12}
+						height={12}
 						className={styles.icon__star}
 					/>
 					<p className={styles.experience}>
@@ -36,21 +40,13 @@ export const VacancyCard = ({ item }) => {
 					</p>
 				</div>
 			</button>
-			{isVacancyHidden ? (
-				<Icon
-					name="eye-solid"
-					className={styles.icon__eye}
-					onClick={() => handleToggleVacancyVisibility(item.id)}
-				/>
-			) : (
-				<Icon
-					name="eye-slash-solid"
-					className={cn([styles.icon__eye], {
-						[styles.active]: isVacancyHidden,
-					})}
-					onClick={() => handleToggleVacancyVisibility(item.id)}
-				/>
-			)}
+			<Icon
+				name='eye-slash-solid'
+				className={cn([styles.icon__eye], {
+					[styles.active]: isVacancyHidden,
+				})}
+				onClick={() => handleToggleVacancyVisibility(item.id)}
+			/>
 		</li>
 	);
 };

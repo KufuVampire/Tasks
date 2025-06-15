@@ -1,21 +1,24 @@
 .btn {
 	position: absolute;
 	right: 0;
-	bottom: -32px;
-	z-index: 777;
+	bottom: -2rem;
 	align-self: flex-end;
 	outline: 0;
 	border: 0;
 	padding: 0;
-	font-size: 12px;
+	font-size: var(--font-size-sm);
 	font-weight: 700;
 	line-height: var(--spacing-md);
-	color: var(--accent);
+	color: var(--accent-color);
 	background-color: transparent;
-	transition: color .3s ease;
+	transition: color var(--transition-duration) var(--transition-timing-function);
 	cursor: pointer;
 }
 
 .btn:hover {
-	color: var(--accent-light);
+	color: var(--accent-color-light);
+}
+
+.hidden {
+	display: none;
 }

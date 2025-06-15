@@ -1,11 +1,11 @@
 .company {
 	position: sticky;
-	top: 104px;
+	top: 6.5rem;
 	display: flex;
 	flex-direction: column;
 	align-self: flex-start;
 	padding: var(--spacing-3xl);
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-md);
 	background-color: var(--bg);
 	box-shadow: var(--shadow);
 }
@@ -19,14 +19,14 @@
 
 .company__name {
 	margin-bottom: var(--spacing-xs);
-	font-size: 20px;
+	font-size: var(--font-size-lg);
 	font-weight: 700;
 	line-height: var(--spacing-2xl);
 	color: var(--text-color-primary);
 }
 
 .company__address {
-	font-size: 16px;
+	font-size: var(--font-size-md);
 	font-weight: 500;
 	line-height: var(--spacing-2xl);
 	color: var(--text-color-primary);

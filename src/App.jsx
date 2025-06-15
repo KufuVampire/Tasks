@@ -3,10 +3,6 @@ import { Footer, Header, Main } from './components';
 
 const App = () => {
 
-  useEffect(() => {
-    document.title = "Career App";
-  }, []);
-
   return (
     <div>
       <Header />

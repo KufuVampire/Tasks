@@ -5,7 +5,7 @@ export const Header = () => {
 	return (
 		<header className={styles.header}>
 			<Container className={styles.header__container}>
-				<a className={styles.header__link} href="/">
+				<a className={styles.header__link} href="/" aria-label='Ссылка логотип ведущая на главную страницу'>
 					<Icon name='logo' />
 				</a>
 				<nav className={styles.header__nav}>

@@ -2,44 +2,44 @@
 	display: flex;
 	flex-direction: column;
 	padding: var(--spacing-3xl);
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-md);
 	background-color: var(--bg);
 	box-shadow: var(--shadow);
 }
 
 .heading {
 	width: 100%;
-	max-width: 225px;
-	min-height: 24px;
+	max-width: 14.063rem;
+	min-height: var(--size-xl);
 	margin-bottom: var(--spacing-2xs);
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-md);
 	background-color: var(--skeleton-bg);
 }
 
 .salary {
 	width: 100%;
-	max-width: 131px;
-	min-height: 24px;
+	max-width: 8.188rem;
+	min-height: var(--size-xl);
 	margin-bottom: var(--spacing-md);
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-md);
 	background-color: var(--skeleton-bg);
 }
 
 .company {
 	width: 100%;
-	max-width: 96px;
-	min-height: 16px;
+	max-width: 6rem;
+	min-height: var(--size-md);
 	margin-bottom: var(--spacing-xs);
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-md);
 	background-color: var(--skeleton-bg);
 }
 
 .city {
 	width: 100%;
-	max-width: 55px;
-	min-height: 16px;
+	max-width: 3.438rem;
+	min-height: var(--size-md);
 	margin-bottom: var(--spacing-md);
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-md);
 	background-color: var(--skeleton-bg);
 }
 
@@ -49,16 +49,16 @@
 }
 
 .icon {
-	width: 16px;
-	height: 16px;
-	border-radius: var(--border-radius);
+	width: var(--size-md);
+	height: var(--size-md);
+	border-radius: var(--border-radius-md);
 	background-color: var(--skeleton-bg);
 }
 
 .experience {
 	width: 100%;
-	max-width: 148px;
-	min-height: 16px;
-	border-radius: var(--border-radius);
+	max-width: 9.25rem;
+	min-height: var(--size-md);
+	border-radius: var(--border-radius-md);
 	background-color: var(--skeleton-bg);
 }

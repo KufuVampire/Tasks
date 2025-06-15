@@ -1,7 +1,7 @@
 .title {
 	margin: 0;
 	margin-bottom: var(--spacing-md);
-	font-size: 16px;
+	font-size: var(--font-size-md);
 	font-weight: 700;
 	line-height: var(--spacing-2xl);
 	color: var(--text-color-primary);
@@ -19,7 +19,7 @@
 	align-items: center;
 	column-gap: var(--spacing-md);
 	width: 100%;
-	font-size: 14px;
+	font-size: 0.875rem;
 	font-weight: 500;
 	line-height: var(--spacing-lg);
 	color: var(--text-color-primary);

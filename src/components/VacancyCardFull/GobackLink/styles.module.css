@@ -8,16 +8,20 @@
 	cursor: pointer;
 }
 
+.link__goback:focus-visible {
+	outline: 2px solid black;
+}
+
 .arrow__left {
-	width: 16px;
-	height: 16px;
+	width: var(--size-md);
+	height: var(--size-md);
 	transform: rotate(180deg);
-	fill: var(--accent);
+	fill: var(--accent-color);
 }
 
 .link__text {
-	font-size: 14px;
+	font-size: 0.875rem;
 	font-weight: 700;
 	line-height: var(--spacing-lg);
-	color: var(--accent);
+	color: var(--accent-color);
 }

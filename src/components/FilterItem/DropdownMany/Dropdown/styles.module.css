@@ -7,9 +7,8 @@
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	height: 1px;
+	height: 0.063rem;
 	background-image: linear-gradient(to right, rgba(239, 239, 239, 0) 0%, #EFEFEF 19.5%, #EFEFEF 83%, rgba(239, 239, 239, 0) 100%);
-	z-index: 2;
 }
 
 .btn {
@@ -17,6 +16,8 @@
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
+	min-height: 100%;
+	max-height: 3rem;
 	padding: var(--spacing-md) var(--spacing-xl);
 	padding-right: var(--spacing-lg);
 	border: 0;
@@ -25,23 +26,47 @@
 	cursor: pointer;
 }
 
+.item:has(.btn:focus-visible) {
+	outline: 2px solid black;
+}
+
 .wrapper {
 	display: flex;
 	align-items: center;
 	column-gap: var(--spacing-md);
 }
 
-.text {
-	font-size: 12px;
+.wrapper__right {
+	display: flex;
+	align-items: center;
+	column-gap: var(--spacing-xl);
+	transition: width var(--transition-duration) var(--transition-timing-function);
+}
+
+.title {
+	font-size: var(--font-size-sm);
 	font-weight: 700;
 	line-height: var(--spacing-md);
 	color: var(--text-color-secondary);
-	transition: color .3s ease;
+	transition: color var(--transition-duration) var(--transition-timing-function);
 }
 
 .icon {
 	fill: var(--icon-fill-color);
-	transition: fill .3s ease, transform .3s ease;
+	transition: fill var(--transition-duration) var(--transition-timing-function), transform var(--transition-duration) var(--transition-timing-function);
+}
+
+.count {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 2.063rem;
+	padding: var(--spacing-2xs) var(--spacing-xs);
+	border-radius: var(--spacing-xs);
+	font-size: var(--font-size-sm);
+	font-weight: 500;
+	line-height: var(--line-height-md);
+	background-color: var(--filters-count-bg);
 }
 
 .dropdown__list {
@@ -49,22 +74,21 @@
 	flex-direction: column;
 	width: 100%;
 	max-height: 0;
-	padding: 0 24px;
+	padding: 0 var(--spacing-xl);
 	opacity: 0;
 	background-color: transparent;
-	transition: max-height .3s ease, opacity .3s ease;
+	transition: max-height var(--transition-duration) var(--transition-timing-function), opacity var(--transition-duration) var(--transition-timing-function);
 	overflow: hidden;
 }
 
 .dropdown__item {
-	padding-top: 8px;
-	padding-bottom: 8px;
+	padding-top: var(--spacing-xs);
+	padding-bottom: var(--spacing-xs);
 }
 
 .active__list {
-	max-height: 1000px;
+	max-height: 62.5rem;
 	opacity: 1;
-
 }
 
 .active .text {
