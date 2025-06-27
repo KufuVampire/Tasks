@@ -1,0 +1,19 @@
+.item {
+	font-size: 0.875rem;
+	font-weight: 700;
+	line-height: var(--spacing-lg);
+	color: var(--menu-link-color);
+	transition: color var(--transition-duration) var(--transition-timing-function)
+}
+
+.item:first-child {
+	color: var(--accent-color);
+}
+
+.item:hover {
+	color: var(--accent-color-light);
+}
+
+.item:active {
+	color: var(--accent-color);
+}

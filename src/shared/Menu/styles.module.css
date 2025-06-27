@@ -1,0 +1,10 @@
+.nav {
+	margin-right: 17.688rem;
+}
+
+.list {
+	display: flex;
+	align-items: center;
+	column-gap: 4.5rem;
+}
+

@@ -1,0 +1,28 @@
+.block {
+	display: flex;
+	flex-direction: column;
+	row-gap: var(--spacing-3xl);
+	width: 100%;
+}
+
+.heading {
+	font-size: var(--font-size-xl);
+	font-weight: 700;
+	line-height: var(--line-height-3xl);
+	color: var(--text-color-primary);
+}
+
+.list {
+	--columns: 3;
+
+	display: grid;
+	grid-template-columns: repeat(var(--columns), minmax(0%, 1fr));
+	gap: var(--spacing-3xl);
+	width: 100%;
+}
+
+@media (max-width: 1050px) {
+	.list {
+		--columns: 2;
+	}
+}
