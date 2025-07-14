@@ -1,5 +1,5 @@
-import { MainPage, VacancyFullPage } from '@/pages';
-import { Footer, Header } from './modules';
+import { MainPage, VacancyFullPage } from './pages';
+import { Footer, Header } from './shared';
 import { useVacancyStore } from './store';
 
 const App = () => {
