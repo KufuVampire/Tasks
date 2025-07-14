@@ -1,15 +1,17 @@
-import { useEffect } from 'react';
-import { Footer, Header, Main } from './components';
+import { MainPage, VacancyFullPage } from './pages';
+import { Footer, Header } from './shared';
+import { useVacancyStore } from './store';
 
 const App = () => {
-
-  return (
-    <div>
-      <Header />
-      <Main />
-      <Footer />
-    </div>
-  );
+	const { isOpen } = useVacancyStore();
+	return (
+		<>
+			<Header />
+			<MainPage isOpen={isOpen} />
+			{isOpen && <VacancyFullPage />}
+			<Footer />
+		</>
+	);
 };
 
 export default App;
