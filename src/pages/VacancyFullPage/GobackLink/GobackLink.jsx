@@ -7,7 +7,7 @@ export const GobackLink = ({ setOpen }) => {
 			onClick={() => setOpen(false)}
 			className={styles.link__goback}>
 			<Icon
-				name='arrow-right'
+				name='arrowRight'
 				className={styles.arrow__left}
 			/>
 			<span className={styles.link__text}>К&nbsp;результатам поиска</span>

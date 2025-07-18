@@ -1,31 +1,52 @@
-import { ArrowDownIcon, ArrowRightIcon, BriefcaseIcon, CalendarIcon, CheckmarkIcon, ClockIcon, CrossIcon, ExperienceIcon, EyeSlashSolidIcon, EyeSolidIcon, FilterSolidIcon, GraduationIcon, LocationIcon, Logo, MoreFiltersIcon, SalaryIcon, StackIcon, TomeJobIcon } from "./icons"
+import {
+	ArrowDownIcon,
+	ArrowRightIcon,
+	BriefcaseIcon,
+	BurgerIcon,
+	CalendarIcon,
+	CheckmarkIcon,
+	ClockIcon,
+	CrossIcon,
+	ExperienceIcon,
+	EyeSlashSolidIcon,
+	EyeSolidIcon,
+	FilterSolidIcon,
+	GraduationIcon,
+	LocationIcon,
+	Logo,
+	MoreFiltersIcon,
+	SalaryIcon,
+	StackIcon,
+	TomeJobIcon,
+} from './icons';
 
 const iconConfig = {
-	['arrow-down']: ArrowDownIcon,
-	['arrow-right']: ArrowRightIcon,
-	['briefcase']: BriefcaseIcon,
-	['calendar']: CalendarIcon,
-	['checkmark']: CheckmarkIcon,
-	['clock']: ClockIcon,
-	['cross']: CrossIcon,
-	['experience']: ExperienceIcon,
-	['eye-slash-solid']: EyeSlashSolidIcon,
-	['eye-solid']: EyeSolidIcon,
-	['filter-solid']: FilterSolidIcon,
-	['graduation']: GraduationIcon,
-	['location']: LocationIcon,
-	['logo']: Logo,
-	['more-filters']: MoreFiltersIcon,
-	['salary']: SalaryIcon,
-	['stack']: StackIcon,
-	['tome-job']: TomeJobIcon,
-}
+	arrowDown: ArrowDownIcon,
+	arrowRight: ArrowRightIcon,
+	briefcase: BriefcaseIcon,
+	burger: BurgerIcon,
+	calendar: CalendarIcon,
+	checkmark: CheckmarkIcon,
+	clock: ClockIcon,
+	cross: CrossIcon,
+	experience: ExperienceIcon,
+	eyeSlashSolid: EyeSlashSolidIcon,
+	eyeSolid: EyeSolidIcon,
+	filterSolid: FilterSolidIcon,
+	graduation: GraduationIcon,
+	location: LocationIcon,
+	logo: Logo,
+	moreFilters: MoreFiltersIcon,
+	salary: SalaryIcon,
+	stack: StackIcon,
+	tomeJob: TomeJobIcon,
+};
 
 /**
- * 
- * @property {'arrow-down' | 'arrow-right' | 'briefcase' | 'calendar' | 'checkmark' | 'clock' | 'cross' | 'experience' | 'eye-slash-solid' | 'eye-solid' | 'filter-solid' | 'graduation' | 'location' | 'logo' | 'more-filters' | 'salary' | 'stack' | 'tome-job'} name - Имя иконки
+ *
+ * @property {'arrow-down' | 'arrowRight' | 'briefcase' | 'burger' | 'calendar' | 'checkmark' | 'clock' | 'cross' | 'experience' | 'eyeSlashSolid' | 'eyeSolid' | 'filterSolid' | 'graduation' | 'location' | 'logo' | 'moreFilters' | 'salary' | 'stack' | 'tomeJob'} name - Имя иконки
  */
 export const Icon = ({ name, ...props }) => {
 	const SVGIcon = iconConfig[name];
-	return <SVGIcon {...props} />
-}
+	return <SVGIcon {...props} />;
+};

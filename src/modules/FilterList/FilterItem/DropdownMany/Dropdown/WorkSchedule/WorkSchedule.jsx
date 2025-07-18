@@ -53,7 +53,7 @@ export const WorkSchedule = (props) => {
 						<span className={styles.count}>{filtersCount}</span>
 					)}
 					<Icon
-						name='arrow-right'
+						name='arrowRight'
 						className={styles.icon}
 					/>
 				</div>

@@ -38,7 +38,7 @@ export const Experience = (props) => {
 					<p className={styles.title}>Опыт работы</p>
 				</div>
 				<Icon
-					name='arrow-right'
+					name='arrowRight'
 					className={styles.icon}
 				/>
 			</button>

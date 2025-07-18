@@ -1,13 +1,12 @@
 .container {
-	min-width: var(--min-width);
 	max-width: var(--max-width);
 	width: 100%;
-	margin: 0 auto;
+	margin-inline: auto;
+	padding-inline: 2.5rem;
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 48rem) {
 	.container {
-		padding-left: 2.5rem;
-		padding-right: 2.5rem;
+		padding-inline: var(--spacing-lg);
 	}
 }

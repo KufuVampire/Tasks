@@ -41,7 +41,7 @@ export const VacancyCard = ({ item }) => {
 				</div>
 			</button>
 			<Icon
-				name='eye-slash-solid'
+				name='eyeSlashSolid'
 				className={cn([styles.icon__eye], {
 					[styles.active]: isVacancyHidden,
 				})}

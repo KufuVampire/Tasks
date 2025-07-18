@@ -1,5 +1,5 @@
-import { Checkbox, Icon, RadioButton } from '@/shared';
 import { SEARCH_PARAMS } from '@/constants';
+import { Checkbox, Icon, RadioButton } from '@/shared';
 import { useSearchParamsStore } from '@/store';
 import { cn } from '@/utils';
 import { useEffect, useState } from 'react';
@@ -71,7 +71,7 @@ export const IncomeLevel = (props) => {
 						<span className={styles.count}>{filtersCount}</span>
 					)}
 					<Icon
-						name='arrow-right'
+						name='arrowRight'
 						className={styles.icon}
 					/>
 				</div>

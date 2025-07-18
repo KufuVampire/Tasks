@@ -114,3 +114,9 @@
 	fill: var(--icon-fill-active-color);
 	transform: rotate(90deg);
 }
+
+@media (max-width: 64rem) {
+	.dropdown {
+		display: none;
+	}
+}

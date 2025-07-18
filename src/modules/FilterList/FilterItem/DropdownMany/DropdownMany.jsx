@@ -1,7 +1,7 @@
-import { Icon } from '@/shared';
 import { SEARCH_PARAMS } from '@/constants';
 import { useClickOutside } from '@/hooks';
 import { additionalFiltersTypes } from '@/settings';
+import { Icon } from '@/shared';
 import { useSearchParamsStore } from '@/store';
 import { cn } from '@/utils';
 import { useRef, useState } from 'react';
@@ -15,10 +15,21 @@ export const DropdownMany = () => {
 
 	const { searchParams } = useSearchParamsStore();
 
+	console.log(window.screen.width);
+
 	const countFilters = [...searchParams.keys()]
-		.filter(
-			(key) => key != SEARCH_PARAMS.employment && key != SEARCH_PARAMS.area
-		)
+		.filter((key) => {
+			const isEmployment = key === SEARCH_PARAMS.employment;
+
+			if (
+				(window.screen.width <= 1024 && isEmployment) ||
+				(!isEmployment && key != SEARCH_PARAMS.area)
+			) {
+				return true;
+			}
+
+			return false;
+		})
 		.map((key) => {
 			if (key === SEARCH_PARAMS.text) {
 				const values = searchParams.get(key).split('+');
@@ -40,18 +51,24 @@ export const DropdownMany = () => {
 				className={styles.btn}
 				onClick={() => setOpen((prev) => !prev)}>
 				<div className={styles.wrapper}>
-					<Icon name='filter-solid' />
+					<Icon name='filterSolid' />
 					<p className={styles.title}>Дополнительные фильтры</p>
 				</div>
-				<div className={styles.wrapper__right}>
-					{countFilters != 0 && (
+				{countFilters != 0 && (
+					<div className={styles.wrapper__right}>
 						<span className={styles.count}>{countFilters}</span>
-					)}
+						<Icon
+							name='arrowRight'
+							className={styles.icon}
+						/>
+					</div>
+				)}
+				{countFilters == 0 && (
 					<Icon
-						name='arrow-right'
+						name='arrowRight'
 						className={styles.icon}
 					/>
-				</div>
+				)}
 			</button>
 			<ul
 				className={cn([styles.dropdown__list], {

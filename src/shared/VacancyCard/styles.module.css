@@ -108,3 +108,9 @@
 	fill: var(--icon-fill-color);
 	stroke: var(--icon-stroke-color);
 }
+
+@media (max-width: 64rem) {
+	.icon__eye {
+		opacity: 1;
+	}
+}

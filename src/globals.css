@@ -12,9 +12,9 @@ html {
 	box-sizing: inherit;
 }
 
+
 :root {
-	--max-width: 70rem;
-	--min-width: 64rem;
+	--max-width: 75rem;
 
 	--main-bg: #f6f6f6;
 	--bg: #f9f9f9;
@@ -81,6 +81,8 @@ html {
 	/* 4px */
 	--size-xs: 0.5rem;
 	/* 8px */
+	--size-sm: 0.75rem;
+	/* 12px */
 	--size-md: 1rem;
 	/* 16px */
 	--size-lg: 1.25rem;
@@ -91,7 +93,7 @@ html {
 	/* 32px */
 
 	--font-size-sm: 0.75rem;
-	/* var(--font-size-sm) */
+	/* 12px */
 	--font-size-md: 1rem;
 	/* 16px */
 	--font-size-lg: 1.25rem;
@@ -102,7 +104,11 @@ html {
 	--layer-hidden: -1000;
 	--layer-base: 0;
 	--layer-dropdown: 10;
+	--layer-menu: 99;
 	--layer-header: 100;
+
+	--header-max-height: 4.5rem;
+	--footer-max-height: 5rem;
 
 	--shadow: 0 3px 15px 0 rgba(0, 0, 0, .03);
 	--shadow-hover: 4px 4px 15px 0 rgba(0, 0, 0, .08);

@@ -4,6 +4,7 @@
 	display: flex;
 	flex-direction: column;
 	align-self: flex-start;
+	width: 100%;
 	padding: var(--spacing-3xl);
 	border-radius: var(--border-radius-md);
 	background-color: var(--bg);
@@ -11,10 +12,9 @@
 }
 
 .logo {
-	width: 50%;
-	height: max-content;
-	object-fit: cover;
+	max-width: 100%;
 	margin-bottom: var(--spacing-md);
+	border-radius: var(--border-radius-md);
 }
 
 .company__name {
@@ -30,4 +30,29 @@
 	font-weight: 500;
 	line-height: var(--spacing-2xl);
 	color: var(--text-color-primary);
+}
+
+@media (max-width: 64rem) {
+	.company {
+		flex-direction: row-reverse;
+		align-items: center;
+		column-gap: var(--spacing-xs);
+		padding: var(--spacing-md);
+	}
+
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		row-gap: var(--spacing-xs);
+		width: 100%;
+	}
+
+	.company__name {
+		margin: 0;
+	}
+
+	.logo {
+		height: 3.75rem;
+		margin: 0;
+	}
 }

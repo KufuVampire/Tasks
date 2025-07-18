@@ -39,7 +39,7 @@ export const DateOfPublication = (props) => {
 					<p className={styles.title}>Дата публикации вакансий</p>
 				</div>
 				<Icon
-					name='arrow-right'
+					name='arrowRight'
 					className={styles.icon}
 				/>
 			</button>

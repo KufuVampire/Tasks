@@ -1,5 +1,5 @@
-import { Checkbox, Icon } from '@/shared';
 import { SEARCH_PARAMS } from '@/constants';
+import { Checkbox, Icon } from '@/shared';
 import { useSearchParamsStore } from '@/store';
 import { cn } from '@/utils';
 import { useEffect, useState } from 'react';
@@ -53,7 +53,7 @@ export const Education = (props) => {
 						<span className={styles.count}>{filtersCount}</span>
 					)}
 					<Icon
-						name='arrow-right'
+						name='arrowRight'
 						className={styles.icon}
 					/>
 				</div>

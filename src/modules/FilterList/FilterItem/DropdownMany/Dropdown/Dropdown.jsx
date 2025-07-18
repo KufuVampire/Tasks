@@ -1,5 +1,6 @@
 import { DateOfPublication } from './DateOfPublication/DateOfPublication';
 import { Education } from './Education/Education';
+import { Employments } from './Employments/Employments';
 import { Experience } from './Experience/Experience';
 import { IncomeLevel } from './IncomeLevel/IncomeLevel';
 import { OtherParameters } from './OtherParameters/OtherParameters';
@@ -8,6 +9,7 @@ import { TechnologyTags } from './TechnologyTags/TechnologyTags';
 import { WorkSchedule } from './WorkSchedule/WorkSchedule';
 
 const filtersDropdownConfig = {
+	employments: Employments,
 	dateOfPublication: DateOfPublication,
 	experience: Experience,
 	workSchedule: WorkSchedule,

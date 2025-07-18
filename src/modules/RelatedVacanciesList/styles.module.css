@@ -1,6 +1,5 @@
 .section {
-	padding-top: var(--spacing-3xl);
-	padding-bottom: var(--spacing-3xl);
+	padding-block: var(--spacing-3xl);
 }
 
 .container {
@@ -17,8 +16,9 @@
 }
 
 .list {
+	--columns: 3;
 	display: grid;
-	grid-template-columns: repeat(3, minmax(0%, 1fr));
+	grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
 	gap: var(--spacing-3xl);
 	width: 100%;
 	margin-bottom: var(--spacing-3xl);
@@ -54,4 +54,28 @@
 	left: -10000px;
 	z-index: var(--layer-hidden);
 	visibility: hidden;
+}
+
+@media (max-width: 64rem) {
+	.section {
+		padding-block: var(--spacing-xl);
+	}
+
+	.container {
+		row-gap: var(--spacing-md);
+	}
+
+	.list {
+		--columns: 2;
+		margin-bottom: 0;
+	}
+
+
+}
+
+@media (max-width: 48rem) {
+	.list {
+		--columns: 1;
+		gap: var(--spacing-md);
+	}
 }

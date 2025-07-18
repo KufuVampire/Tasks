@@ -23,7 +23,7 @@ export const ToggleVacancyVisibilityButton = ({ id }) => {
 			{isVacancyHidden ? (
 				<>
 					<Icon
-						name="eye-solid"
+						name='eyeSolid'
 						className={styles.icon}
 					/>
 					<span>Показать</span>
@@ -31,7 +31,7 @@ export const ToggleVacancyVisibilityButton = ({ id }) => {
 			) : (
 				<>
 					<Icon
-						name="eye-slash-solid"
+						name='eyeSlashSolid'
 						className={styles.icon}
 					/>
 					<span>Скрыть</span>

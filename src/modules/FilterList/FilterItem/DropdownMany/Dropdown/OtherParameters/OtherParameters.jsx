@@ -1,5 +1,5 @@
-import { Checkbox, Icon } from '@/shared';
 import { SEARCH_PARAMS } from '@/constants';
+import { Checkbox, Icon } from '@/shared';
 import { useSearchParamsStore } from '@/store';
 import { cn } from '@/utils';
 import { useEffect, useState } from 'react';
@@ -55,7 +55,7 @@ export const OtherParameters = (props) => {
 				className={styles.btn}
 				onClick={() => setOpen((prev) => !prev)}>
 				<div className={styles.wrapper}>
-					<Icon name='more-filters' />
+					<Icon name='moreFilters' />
 					<p className={styles.title}>Другие параметры</p>
 				</div>
 				<div className={styles.wrapper__right}>
@@ -63,7 +63,7 @@ export const OtherParameters = (props) => {
 						<span className={styles.count}>{filtersCount}</span>
 					)}
 					<Icon
-						name='arrow-right'
+						name='arrowRight'
 						className={styles.icon}
 					/>
 				</div>

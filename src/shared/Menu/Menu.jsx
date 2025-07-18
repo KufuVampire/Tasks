@@ -1,4 +1,5 @@
 import { MenuItem } from './MenuItem/MenuItem';
+import { cn } from '@/utils';
 import styles from './styles.module.css';
 
 const menuItems = [
@@ -12,9 +13,9 @@ const menuItems = [
 	},
 ];
 
-export const Menu = () => {
+export const Menu = ({ className }) => {
 	return (
-		<nav className={styles.nav}>
+		<nav className={cn([className])}>
 			<ul className={styles.list}>
 				{menuItems.map((item, i) => (
 					<MenuItem

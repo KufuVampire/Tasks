@@ -63,6 +63,7 @@
 	font-weight: 700;
 	line-height: var(--spacing-md);
 	color: var(--text-color-secondary);
+	white-space: nowrap;
 	transition: color var(--transition-duration) var(--transition-timing-function);
 }
 
@@ -123,4 +124,33 @@
 .active .icon {
 	fill: var(--icon-fill-active-color);
 	transform: rotate(90deg);
+}
+
+@media (max-width: 48rem) {
+	.btn {
+		gap: var(--spacing-md);
+	}
+
+	.title {
+		display: none;
+	}
+
+	.icon {
+		display: none;
+	}
+
+	.active {
+		position: absolute;
+		top: 0;
+		left: 0;
+		max-width: 100%;
+	}
+
+	.active .title {
+		display: block;
+	}
+
+	.dropdown:not(.active) {
+		width: auto;
+	}
 }

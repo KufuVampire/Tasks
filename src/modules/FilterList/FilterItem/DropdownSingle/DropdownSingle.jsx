@@ -1,10 +1,10 @@
-import { Checkbox, Icon } from '@/shared';
 import { SEARCH_PARAMS } from '@/constants';
 import { useClickOutside } from '@/hooks';
+import { Checkbox, Icon } from '@/shared';
 import { useSearchParamsStore } from '@/store';
 import { cn } from '@/utils';
 import { useEffect, useRef, useState } from 'react';
-import { EMPLOYMENTS } from './employment';
+import { EMPLOYMENTS } from './employments';
 
 import styles from './styles.module.css';
 
@@ -63,7 +63,7 @@ export const DropdownSingle = () => {
 						<span className={styles.count}>{filtersCount}</span>
 					)}
 					<Icon
-						name='arrow-right'
+						name='arrowRight'
 						className={styles.icon}
 					/>
 				</div>

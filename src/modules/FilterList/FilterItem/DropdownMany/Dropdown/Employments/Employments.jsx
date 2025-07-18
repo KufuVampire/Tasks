@@ -1,12 +1,13 @@
+import { Icon, Checkbox } from '@/shared';
 import { SEARCH_PARAMS } from '@/constants';
-import { Checkbox, Icon } from '@/shared';
 import { useSearchParamsStore } from '@/store';
 import { cn } from '@/utils';
 import { useEffect, useState } from 'react';
 import styles from '../styles.module.css';
-import { TECHNOLOGY_TAGS } from './technologyTagsData';
+import mediaStyles from './styles.module.css'
+import { EMPLOYMENTS } from '../../../DropdownSingle/employments';
 
-export const TechnologyTags = (props) => {
+export const Employments = (props) => {
 	const [isOpen, setOpen] = useState(false);
 	const [filtersCount, setFiltersCount] = useState(0);
 
@@ -14,17 +15,8 @@ export const TechnologyTags = (props) => {
 		useSearchParamsStore();
 
 	useEffect(() => {
-		if (!searchParams.has(SEARCH_PARAMS.text)) {
-			setFiltersCount(0)
-			return;
-		}
-
-		const filters = searchParams.get(SEARCH_PARAMS.text).split('+');
-
-		setFiltersCount(filters.length);
-		if (filters.includes('вечерний')) {
-			setFiltersCount((prev) => prev - 1);
-		}
+		const count = searchParams.getAll(SEARCH_PARAMS.employment).length;
+		setFiltersCount(count);
 	}, [searchParamsString]);
 
 	const handleClick = (e) => {
@@ -32,44 +24,31 @@ export const TechnologyTags = (props) => {
 		if (!checkbox) return;
 
 		const key = checkbox.dataset.name ? checkbox.dataset.name : '';
-		const value = checkbox.dataset.value ? checkbox.dataset.value : '';
 
 		if (!checkbox.checked && !searchParams.has(key)) return;
 
-		if (!searchParams.has(key)) {
-			searchParams.set(key, value);
+		const value = checkbox.dataset.value ? checkbox.dataset.value : '';
+
+		if (!checkbox.checked && searchParams.has(key, value)) {
+			searchParams.delete(key, value);
 			setSearchParamsString(searchParams.toString());
 			return;
 		}
 
-		if (!searchParams.get(key).includes(value)) {
-			const values = [...searchParams.get(key).split('+'), value].join('+');
-			searchParams.set(key, values);
-			setSearchParamsString(searchParams.toString());
-			return;
-		}
-
-		const textValue = searchParams.get(key).split('+');
-		const filteredTextValue = textValue
-			.filter((item) => !item.includes(value))
-			.join('+');
-
-		filteredTextValue.length != 0
-			? searchParams.set(key, filteredTextValue)
-			: searchParams.delete(key);
+		searchParams.append(key, value);
 		setSearchParamsString(searchParams.toString());
 	};
 
 	return (
 		<li
 			{...props}
-			className={cn([styles.item], { [styles.active]: isOpen })}>
+			className={cn([styles.item, mediaStyles.item], { [styles.active]: isOpen })}>
 			<button
 				className={styles.btn}
 				onClick={() => setOpen((prev) => !prev)}>
 				<div className={styles.wrapper}>
-					<Icon name='stack' />
-					<p className={styles.title}>Теги технологий</p>
+					<Icon name='briefcase' />
+					<p className={styles.title}>Тип занятости</p>
 				</div>
 				<div className={styles.wrapper__right}>
 					{filtersCount != 0 && (
@@ -86,7 +65,7 @@ export const TechnologyTags = (props) => {
 				className={cn([styles.dropdown__list], {
 					[styles.active__list]: isOpen,
 				})}>
-				{TECHNOLOGY_TAGS.map((item, i) => (
+				{EMPLOYMENTS.map((item, i) => (
 					<li
 						className={styles.dropdown__item}
 						key={i}>

@@ -50,3 +50,47 @@
 	line-height: var(--spacing-lg);
 	color: var(--dark-gray);
 }
+
+@media (max-width: 64rem) {
+	.vacancy__section {
+		padding-bottom: var(--spacing-md);
+	}
+
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		row-gap: var(--spacing-xl);
+	}
+
+	.title {
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.salary {
+		margin-bottom: var(--spacing-sm);
+	}
+}
+
+@media (max-width: 48rem) {
+	.vacancy__section {
+		padding-top: 6rem;
+	}
+
+	.vacancy__container {
+		row-gap: var(--spacing-md);
+	}
+
+	.card {
+		padding: var(--spacing-md);
+	}
+
+	.title {
+		font-size: var(--font-size-lg);
+		line-height: var(--line-height-2xl);
+	}
+
+	.salary {
+		font-size: var(--font-size-md);
+		line-height: var(--line-height-xl);
+	}
+}

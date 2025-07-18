@@ -1,12 +1,5 @@
-.main {
-	display: flex;
-	flex-direction: column;
-	min-height: calc(100vh - 80px);
-}
-
 .section {
-	padding-top: var(--spacing-3xl);
-	padding-bottom: var(--spacing-3xl);
+	padding-block: var(--spacing-3xl);
 }
 
 .section:last-child {
@@ -59,4 +52,10 @@
 	left: -10000px;
 	z-index: var(--layer-hidden);
 	visibility: hidden;
+}
+
+@media (max-width: 48rem) {
+	.search__section {
+		padding-top: 6rem;
+	}
 }
