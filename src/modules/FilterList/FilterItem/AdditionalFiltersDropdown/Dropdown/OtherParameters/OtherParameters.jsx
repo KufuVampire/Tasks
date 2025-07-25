@@ -2,14 +2,16 @@ import { SEARCH_PARAMS } from '@/constants';
 import { Checkbox, Icon } from '@/shared';
 import { useSearchParamsStore } from '@/store';
 import { cn } from '@/utils';
-import { useEffect, useId, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import styles from '../styles.module.css';
 import { OTHER_PARAMETERS } from './otherParametersData';
 
-export const OtherParameters = (props) => {
+export const OtherParameters = props => {
 	const [isOpen, setOpen] = useState(false);
 	const [filtersCount, setFiltersCount] = useState(0);
+
 	const dropdownId = useId();
+	const buttonRef = useRef(null);
 
 	const { searchParams, searchParamsString, setSearchParamsString } =
 		useSearchParamsStore();
@@ -22,7 +24,12 @@ export const OtherParameters = (props) => {
 		setFiltersCount(count);
 	}, [searchParamsString]);
 
-	const handleClick = (e) => {
+	const handleOpenAndScroll = e => {
+		setOpen(prev => !prev);
+		buttonRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+	};
+
+	const handleClick = e => {
 		const checkbox = e.target.closest('input');
 
 		if (!checkbox) return;
@@ -53,10 +60,11 @@ export const OtherParameters = (props) => {
 			{...props}
 			className={cn(styles.item, { [styles.active]: isOpen })}>
 			<button
+				ref={buttonRef}
 				aria-expanded={isOpen}
 				aria-controls={dropdownId}
 				className={styles.btn}
-				onClick={() => setOpen(prev => !prev)}>
+				onClick={handleOpenAndScroll}>
 				<div className={styles.wrapper}>
 					<Icon name='moreFilters' />
 					<p className={styles.title}>Другие параметры</p>

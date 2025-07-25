@@ -92,6 +92,7 @@
 	scroll-behavior: smooth;
 	scrollbar-gutter: stable;
 	transition: max-height var(--transition-duration) var(--transition-timing-function), opacity var(--transition-duration) var(--transition-timing-function);
+	scroll-snap-type: y mandatory;
 }
 
 .dropdown__list::-webkit-scrollbar {
