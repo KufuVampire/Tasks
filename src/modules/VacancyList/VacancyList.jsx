@@ -73,11 +73,11 @@ export const VacancyList = () => {
 
 				setTotalPages(data.pages);
 				setVacancies([...vacanciesMap.entries()]);
+				setLoading(false);
 			} catch (error) {
 				console.error(error);
 				setError('Не удалось найти вакансии по вашему запросу');
 			}
-			setLoading(false);
 		})();
 	}, [page, hiddenVacanciesIds, searchParamsString]);
 
@@ -115,9 +115,7 @@ export const VacancyList = () => {
 					))}
 				</ul>
 			) : (
-				<ul className={styles.list}>
-					<SkeletonBlock />
-				</ul>
+				<SkeletonBlock />
 			)}
 			{vacancies.length > 0 && (
 				<div className={styles.pagination__wrapper}>

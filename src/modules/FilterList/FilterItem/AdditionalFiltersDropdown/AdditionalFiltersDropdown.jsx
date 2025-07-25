@@ -4,12 +4,12 @@ import { additionalFiltersTypes } from '@/settings';
 import { Icon } from '@/shared';
 import { useSearchParamsStore } from '@/store';
 import { cn } from '@/utils';
-import { useId, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 
 import { Dropdown } from './Dropdown/Dropdown';
 import styles from './styles.module.css';
 
-function getDropdownManyFiltersCount(searchParams) {
+function getAdditionalFiltersCount(searchParams) {
 	return [...searchParams.keys()]
 		.filter(key => {
 			const isEmployment = key === SEARCH_PARAMS.employment;
@@ -28,12 +28,25 @@ function getDropdownManyFiltersCount(searchParams) {
 
 export const AdditionalFiltersDropdown = () => {
 	const [isOpen, setOpen] = useState(false);
+	const [count, setCount] = useState(0);
+	
 	const dropdownRef = useRef(null);
 	const dropdownId = useId();
 
 	const { searchParams } = useSearchParamsStore();
 
-	const countFilters = useDebounce(getDropdownManyFiltersCount(searchParams));
+	const filtersCount = getAdditionalFiltersCount(searchParams);
+
+	useEffect(() => {
+		setCount(filtersCount)
+		const handleResize = () => {
+			setCount(getAdditionalFiltersCount(searchParams));
+		};
+
+		window.addEventListener('resize', handleResize);
+
+		return () => window.removeEventListener('resize', handleResize);
+	}, [window.screen.width, filtersCount]);
 
 	const handleClose = () => {
 		setOpen(false);
@@ -57,16 +70,16 @@ export const AdditionalFiltersDropdown = () => {
 					<Icon name='filterSolid' />
 					<p className={styles.title}>Дополнительные фильтры</p>
 				</div>
-				{countFilters > 0 && (
+				{count > 0 && (
 					<div className={styles.wrapper__right}>
-						<span className={styles.count}>{countFilters}</span>
+						<span className={styles.count}>{count}</span>
 						<Icon
 							name='arrowRight'
 							className={styles.icon}
 						/>
 					</div>
 				)}
-				{countFilters < 1 && (
+				{count < 1 && (
 					<Icon
 						name='arrowRight'
 						className={styles.icon}

@@ -29,12 +29,12 @@ export const Header = () => {
 					aria-controls={adaptiveMenuId}
 					className={styles.btn}>
 					<div
-						class={cn(styles.burger, {
+						className={cn(styles.burger, {
 							[styles.active__burger]: isMenuOpen,
 						})}>
-						<span class={styles.burger__line} />
-						<span class={styles.burger__line} />
-						<span class={styles.burger__line} />
+						<span className={styles.burger__line} />
+						<span className={styles.burger__line} />
+						<span className={styles.burger__line} />
 					</div>
 				</button>
 				<div
