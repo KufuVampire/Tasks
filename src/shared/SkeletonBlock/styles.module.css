@@ -13,7 +13,20 @@
 }
 
 .list {
+	--columns: 3;
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(var(--columns), 1fr);
 	gap: var(--spacing-3xl);
+}
+
+@media (max-width: 64rem) {
+	.list {
+		--columns: 2;
+	}
+}
+
+@media (max-width: 48rem) {
+	.list {
+		--columns: 1;
+	}
 }

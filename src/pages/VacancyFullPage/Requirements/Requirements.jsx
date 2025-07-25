@@ -1,7 +1,7 @@
 import { Icon } from '@/shared';
-import { formatExperience } from '@/utils'
+import { formatExperience } from '@/utils';
 
-import styles from './styles.module.css'
+import styles from './styles.module.css';
 
 export const Requirements = ({ data }) => {
 	return (
@@ -9,17 +9,18 @@ export const Requirements = ({ data }) => {
 			<h4 className={styles.title}>Требования к вакансии</h4>
 			<ul className={styles.requirements__list}>
 				<li className={styles.requirements__item}>
-					<Icon name="experience" />
+					<Icon name='experience' />
 					{formatExperience(data.experience)}
 				</li>
 				<li className={styles.requirements__item}>
-					<Icon name="briefcase" />
+					<Icon name='briefcase' />
 					{data.employment.name}
 				</li>
 				<li className={styles.requirements__item}>
-					<Icon name="clock" />
+					<Icon name='clock' />
 					{data.schedule.name}
 				</li>
-			</ul></>
-	)
-}
+			</ul>
+		</>
+	);
+};

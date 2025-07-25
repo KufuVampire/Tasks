@@ -1,24 +1,48 @@
 export function formatDate(date) {
+	const publishedAtDate = new Date(date);
 	const currentDate = new Date();
-	const unFormattedDate = new Date(date);
-	const formattedDate = unFormattedDate.toLocaleString('ru', {
-		month: 'long',
-		day: 'numeric',
+
+	const formatForCompare = new Intl.DateTimeFormat('ru-RU', {
+		day: '2-digit',
+		month: '2-digit',
+		year: 'numeric',
 	});
 
-	if (currentDate.toDateString() === unFormattedDate.toDateString()) {
-		return `Сегодня, ${formattedDate}`;
+	const getFormattedDate = d => formatForCompare.format(d);
+
+	const publishedAtDateStr = getFormattedDate(publishedAtDate);
+	const currentDateStr = getFormattedDate(currentDate);
+
+	const yesterdayDate = new Date(currentDate);
+	yesterdayDate.setDate(currentDate.getDate() - 1);
+	const yesterdayDateStr = getFormattedDate(yesterdayDate);
+
+	const dayMonthFormatter = new Intl.DateTimeFormat('ru-RU', {
+		day: 'numeric',
+		month: 'long',
+	});
+
+	const fullFormatter = new Intl.DateTimeFormat('ru-RU', {
+		year: 'numeric',
+		day: 'numeric',
+		month: 'long',
+	});
+
+	if (publishedAtDateStr === currentDateStr) {
+		return `Сегодня, ${dayMonthFormatter.format(publishedAtDate)}`;
 	}
 
-	if (
-		currentDate.getFullYear() === unFormattedDate.getFullYear() &&
-		currentDate.getDate() != unFormattedDate.getDate()
-	) {
-		return formattedDate;
+	if (publishedAtDateStr === yesterdayDateStr) {
+		return `Вчера, ${dayMonthFormatter.format(publishedAtDate)}`;
 	}
 
-	return `${unFormattedDate.getFullYear()}, ${formattedDate}`;
+	if (publishedAtDate.getFullYear() === currentDate.getFullYear()) {
+		return dayMonthFormatter.format(publishedAtDate);
+	}
+
+	return fullFormatter.format(publishedAtDate);
 }
+
 
 export function formatExperience({ name }) {
 	return name === 'Нет опыта' ? 'Без опыта' : `Опыт ${name.toLowerCase()}`;
@@ -46,24 +70,41 @@ export function formatSalary(salary) {
 	return `от ${salary.from} - до ${salary.to} ${currencySymbol}`;
 }
 
-export const cn = (classNames, obj) => {
-	if (!obj) {
-		return classNames.filter((className) => className != undefined).join(' ');
-	}
+export function cn(...classNames) {
+	const classes = classNames.flatMap(className => {
+		if (Array.isArray(className)) {
+			const classesArr = className.map(className => {
+				if (typeof className === 'object' && className) {
+					const objEntries = Object.entries(className);
+					const classesArr = objEntries.map(([key, value]) => {
+						if (value && key !== 'undefined') {
+							return key;
+						}
+					});
 
-	const entries = Object.entries(obj);
-
-	return entries
-		.reduce(
-			(acc, [key, value]) => {
-				if (value) {
-					return [...acc, key];
+					return classesArr;
 				}
 
-				return acc;
-			},
-			[...classNames],
-		)
-		.filter((className) => className != undefined)
-		.join(' ');
-};
+				return className;
+			});
+
+			return classesArr;
+		}
+
+		if (typeof className === 'object' && className) {
+			const objEntries = Object.entries(className);
+			const classesArr = objEntries.map(([key, value]) => {
+				if (value && key !== 'undefined') {
+					return key;
+				}
+			});
+			return classesArr;
+		}
+
+		if (typeof className === 'string') {
+			return className;
+		}
+	});
+
+	return classes.filter(className => className).join(' ');
+}

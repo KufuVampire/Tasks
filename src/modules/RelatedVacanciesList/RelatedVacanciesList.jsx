@@ -1,41 +1,71 @@
-import { getRelatedVacancies } from '@/api';
-import { Container, Skeleton, VacancyCard } from '@/shared';
-import { PER_PAGE_RELATED_VACANCIES } from '@/config';
-import { useVacancyStore } from '@/store';
-import { cn } from '@/utils';
 import { useEffect, useState } from 'react';
+
+import { getRelatedVacancies } from '@/api';
+import { PER_PAGE_RELATED_VACANCIES } from '@/config';
+import { useClickVacancy } from '@/hooks';
+import { Container, Skeleton, VacancyCard } from '@/shared';
+import { useHiddenVacanciesStore, useVacancyStore } from '@/store';
+import { cn } from '@/utils';
+
 import styles from './styles.module.css';
 
 const skeletonArr = new Array(PER_PAGE_RELATED_VACANCIES).fill(0);
 
 export const RelatedVacanciesList = () => {
-	const { vacancyId } = useVacancyStore();
-	const [data, setData] = useState([]);
+	const [vacancies, setVacancies] = useState([]);
 	const [isLoading, setLoading] = useState(true);
-	const [page, setPage] = useState(0);
+	const [perPage, setPerPage] = useState(PER_PAGE_RELATED_VACANCIES);
 	const [isHasMore, setHasMore] = useState(true);
+
+	const { vacancyId } = useVacancyStore();
+	const { handleClickVacancy } = useClickVacancy();
+	const { hiddenVacanciesIds } = useHiddenVacanciesStore();
+
+	const handleShowMoreVacancies = () => {
+		setPerPage(prev => prev + 6);
+	};
 
 	useEffect(() => {
 		(async () => {
 			try {
-				const data = await getRelatedVacancies(vacancyId, page);
+				const data = await getRelatedVacancies(vacancyId, perPage);
 
-				if (data.items.length % 6 != 0) {
+				if (data.found <= perPage) {
 					setHasMore(false);
 				}
 
-				setData((prev) => [...prev, ...data.items]);
+				const filteredVacancies = data.items.filter(
+					({ id }) => !hiddenVacanciesIds.includes(id)
+				);
+
+				const countVacancies = vacancies.length;
+				const lackOfVacancies = perPage - countVacancies;
+				if (
+					isHasMore &&
+					countVacancies % PER_PAGE_RELATED_VACANCIES !== 0 &&
+					lackOfVacancies > 0
+				) {
+					setPerPage(countVacancies + lackOfVacancies);
+				}
+
+				if (isHasMore && filteredVacancies.length < 1) {
+					handleShowMoreVacancies();
+					return;
+				}
+
+				setVacancies(filteredVacancies);
 				setLoading(false);
 			} catch (error) {
 				console.error(error);
 			}
 		})();
-	}, [page]);
+	}, [perPage, isHasMore, hiddenVacanciesIds]);
 
 	return (
 		<section
-			className={cn([styles.section], {
-				[styles.section__hidden]: !isLoading && data.length < 1,
+			className={cn(styles.section, {
+				[styles.section__hidden]:
+					!isLoading && vacancies.length < 1 && !isHasMore,
 			})}>
 			<Container className={styles.container}>
 				<h2 className={styles.title}>Похожие вакансии</h2>
@@ -46,21 +76,21 @@ export const RelatedVacanciesList = () => {
 						))}
 					</ul>
 				) : (
-					<ul className={styles.list}>
-						{data.map((item) => {
-							return (
-								<VacancyCard
-									key={item.id}
-									item={item}
-								/>
-							);
-						})}
+					<ul
+						className={styles.list}
+						onClick={handleClickVacancy}>
+						{vacancies.map(item => (
+							<VacancyCard
+								key={item.id}
+								item={item}
+							/>
+						))}
 					</ul>
 				)}
 				{isHasMore && (
 					<button
 						className={styles.btn}
-						onClick={() => setPage((prev) => prev + 1)}>
+						onClick={handleShowMoreVacancies}>
 						Показать ещё
 					</button>
 				)}

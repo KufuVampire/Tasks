@@ -48,5 +48,6 @@ const iconConfig = {
  */
 export const Icon = ({ name, ...props }) => {
 	const SVGIcon = iconConfig[name];
+	if (!iconConfig[name]) return null;
 	return <SVGIcon {...props} />;
 };

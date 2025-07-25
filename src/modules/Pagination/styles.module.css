@@ -47,7 +47,7 @@
 	background-color: var(--accent-color-light);
 }
 
-.btn:focus {
+.btn:focus-visible {
 	outline: 2px solid black;
 }
 

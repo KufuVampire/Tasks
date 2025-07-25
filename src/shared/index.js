@@ -1,12 +1,11 @@
 export { Checkbox } from './Checkbox/Checkbox';
 export { ClearFiltersButton } from './ClearFiltersButton/ClearFiltersButton';
 export { Container } from './Container/Container';
-export { Footer } from './Footer/Footer';
-export { Header } from './Header/Header';
 export { Icon } from './Icon/Icon';
 export { Main } from './Main/Main';
-export { Menu } from './Menu/Menu';
+export { Navigation } from './Navigation/Navigation';
 export { RadioButton } from './RadioButton/RadioButton';
 export { Skeleton } from './Skeleton/Skeleton';
 export { SkeletonBlock } from './SkeletonBlock/SkeletonBlock';
 export { VacancyCard } from './VacancyCard/VacancyCard';
+export { VacancyFullSkeleton } from './VacancyFullSkeleton/VacancyFullSkeleton';

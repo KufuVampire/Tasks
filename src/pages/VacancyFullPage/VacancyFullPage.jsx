@@ -1,5 +1,5 @@
 import { getVacancyById } from '@/api';
-import { Container, Main } from '@/shared';
+import { Container, Main, VacancyFullSkeleton } from '@/shared';
 import { useVacancyStore } from '@/store';
 import { useEffect, useState } from 'react';
 
@@ -24,9 +24,6 @@ export const VacancyFullPage = () => {
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
-	}, []);
-
-	useEffect(() => {
 		(async () => {
 			try {
 				const data = await getVacancyById(vacancyId);
@@ -38,7 +35,7 @@ export const VacancyFullPage = () => {
 				setError('Не удалось найти данные о вашей вакансии');
 			}
 		})();
-	}, [getVacancyById]);
+	}, [vacancyId]);
 
 	if (error) {
 		return (
@@ -61,9 +58,7 @@ export const VacancyFullPage = () => {
 				{isLoading ? (
 					<Container className={styles.vacancy__container}>
 						<GobackLink setOpen={setOpen} />
-						<div className={styles.wrapper}>
-							<div className={styles.card}>Загрузка...</div>
-						</div>
+						<VacancyFullSkeleton />
 					</Container>
 				) : (
 					<Container className={styles.vacancy__container}>

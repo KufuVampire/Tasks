@@ -12,19 +12,18 @@ html {
 	box-sizing: inherit;
 }
 
-
 :root {
 	--max-width: 75rem;
 
 	--main-bg: #f6f6f6;
 	--bg: #f9f9f9;
 
-	--accent-color: #5C89CE;
-	--accent-color-light: #8CAEE0;
+	--accent-color: #5c89ce;
+	--accent-color-light: #8caee0;
 
-	--hover-item: #EBF1FA;
+	--hover-item: #ebf1fa;
 
-	--filters-count-bg: #CFDDF2;
+	--filters-count-bg: #cfddf2;
 
 	--text-color-primary: #202020;
 	--text-color-secondary: #747474;
@@ -33,75 +32,51 @@ html {
 	--icon-stroke-color: var(--icon-fill-color);
 	--icon-fill-active-color: #202020;
 
-	--skeleton-bg: #E1E1E1;
+	--skeleton-bg: #e1e1e1;
 
-	--menu-link-color: #C5C5C5;
+	--menu-link-color: #c5c5c5;
 
-	--checkbox-border-color: #C5C5C5;
-	--radio-border-color: #C5C5C5;
+	--checkbox-border-color: #c5c5c5;
+	--radio-border-color: #c5c5c5;
 
 	--pagination-color-primary: #202020;
 	--pagination-color-secondary: #f9f9f9;
-	--pagination-hover-btn: #EBF1FA;
+	--pagination-hover-btn: #ebf1fa;
 
-	--border-radius-2xs: 0.25rem;
-	/* 4px */
-	--border-radius-md: 1rem;
-	/* 16px */
+	--border-radius-2xs: 0.25rem; /* 4px */
+	--border-radius-md: 1rem; /* 16px */
 
-	--line-height-md: 1rem;
-	/* 16px */
-	--line-height-lg: 1.25rem;
-	/* 20px */
-	--line-height-xl: 1.5rem;
-	/* 24px */
-	--line-height-2xl: 1.75rem;
-	/* 28px */
-	--line-height-3xl: 2rem;
-	/* 32px */
+	--line-height-md: 1rem; /* 16px */
+	--line-height-lg: 1.25rem; /* 20px */
+	--line-height-xl: 1.5rem; /* 24px */
+	--line-height-2xl: 1.75rem; /* 28px */
+	--line-height-3xl: 2rem; /* 32px */
 
-	--spacing-2xs: 0.25rem;
-	/* 4px */
-	--spacing-xs: 0.5rem;
-	/* 8px */
-	--spacing-sm: 0.75rem;
-	/* 12px */
-	--spacing-md: 1rem;
-	/* 16px */
-	--spacing-lg: 1.25rem;
-	/* 20px */
-	--spacing-xl: 1.5rem;
-	/* 24px */
-	--spacing-3xl: 2rem;
-	/* 32px */
+	--spacing-2xs: 0.25rem; /* 4px */
+	--spacing-xs: 0.5rem; /* 8px */
+	--spacing-sm: 0.75rem; /* 12px */
+	--spacing-md: 1rem; /* 16px */
+	--spacing-lg: 1.25rem; /* 20px */
+	--spacing-xl: 1.5rem; /* 24px */
+	--spacing-3xl: 2rem; /* 32px */
 
 	--scrollbar-width: 4px;
 
-	--size-2xs: 0.25rem;
-	/* 4px */
-	--size-xs: 0.5rem;
-	/* 8px */
-	--size-sm: 0.75rem;
-	/* 12px */
-	--size-md: 1rem;
-	/* 16px */
-	--size-lg: 1.25rem;
-	/* 20px */
-	--size-xl: 1.5rem;
-	/* 24px */
-	--size-3xl: 2rem;
-	/* 32px */
+	--size-2xs: 0.25rem; /* 4px */
+	--size-xs: 0.5rem; /* 8px */
+	--size-sm: 0.75rem; /* 12px */
+	--size-md: 1rem; /* 16px */
+	--size-lg: 1.25rem; /* 20px */
+	--size-xl: 1.5rem; /* 24px */
+	--size-2xl: 1.75rem; /* 28px */
+	--size-3xl: 2rem; /* 32px */
 
-	--font-size-sm: 0.75rem;
-	/* 12px */
-	--font-size-md: 1rem;
-	/* 16px */
-	--font-size-lg: 1.25rem;
-	/* 20px */
-	--font-size-xl: 1.5rem;
-	/* 24px */
+	--font-size-sm: 0.75rem; /* 12px */
+	--font-size-md: 1rem; /* 16px */
+	--font-size-lg: 1.25rem; /* 20px */
+	--font-size-xl: 1.5rem; /* 24px */
 
-	--layer-hidden: -1000;
+	--layer-hidden: -10;
 	--layer-base: 0;
 	--layer-dropdown: 10;
 	--layer-menu: 99;
@@ -110,10 +85,10 @@ html {
 	--header-max-height: 4.5rem;
 	--footer-max-height: 5rem;
 
-	--shadow: 0 3px 15px 0 rgba(0, 0, 0, .03);
-	--shadow-hover: 4px 4px 15px 0 rgba(0, 0, 0, .08);
+	--shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.03);
+	--shadow-hover: 4px 4px 15px 0 rgba(0, 0, 0, 0.08);
 
-	--transition-duration: .3s;
+	--transition-duration: 0.3s;
 	--transition-timing-function: ease;
 }
 
@@ -134,14 +109,15 @@ ul {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
 	margin: 0;
 }
 
 body {
 	margin: 0;
 	color: var(--text-color-primary);
-	font-family: "Montserrat", sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	background-color: var(--main-bg);
 }
 

@@ -1,11 +1,11 @@
-import { Input } from './Input/Input';
-import { DropdownMany } from './DropdownMany/DropdownMany';
-import { DropdownSingle } from './DropdownSingle/DropdownSingle';
+import { SearchFilter } from './SearchFilter/SearchFilter';
+import { AdditionalFiltersDropdown } from './AdditionalFiltersDropdown/AdditionalFiltersDropdown';
+import { EmploymentsFilterDropdown } from './EmploymentsFilterDropdown/EmploymentsFilterDropdown';
 
 const filtersConfig = {
-	input: Input,
-	dropdownSingle: DropdownSingle,
-	dropdownMany: DropdownMany,
+	searchFilter: SearchFilter,
+	employmentsFilterDropdown: EmploymentsFilterDropdown,
+	additionalFiltersDropdown: AdditionalFiltersDropdown,
 };
 
 export const FilterItem = ({ type }) => {

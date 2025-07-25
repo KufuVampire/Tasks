@@ -68,7 +68,7 @@ export const Pagination = (props) => {
 				{
 					pagination.map((page, i) => (
 						<li key={i} className={styles.page}>
-							<button data-page={page} disabled={disabled || page === '...'} className={cn([], {
+							<button data-page={page} disabled={disabled || page === '...'} className={cn({
 								[styles.active]: page === currentPage,
 								[styles.dots]: page === '...',
 								[styles.btn]: page != '...'

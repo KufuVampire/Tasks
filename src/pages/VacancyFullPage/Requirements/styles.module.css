@@ -9,6 +9,7 @@
 
 .requirements__list {
 	display: flex;
+	flex-wrap: wrap;
 	column-gap: var(--spacing-3xl);
 	row-gap: var(--spacing-md);
 	margin-bottom: var(--spacing-3xl);
@@ -26,10 +27,6 @@
 }
 
 @media (max-width: 48rem) {
-	.requirements__list {
-		flex-wrap: wrap;
-	}
-
 	.title {
 		margin-bottom: var(--spacing-sm);
 		font-size: 0.875rem;

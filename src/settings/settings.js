@@ -1,4 +1,8 @@
-export const filtersTypes = ['input', 'dropdownSingle', 'dropdownMany'];
+export const filtersTypes = [
+	'searchFilter',
+	'employmentsFilterDropdown',
+	'additionalFiltersDropdown',
+];
 
 export const additionalFiltersTypes = [
 	'employments',

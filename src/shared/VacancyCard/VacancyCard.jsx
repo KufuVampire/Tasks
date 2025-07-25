@@ -42,7 +42,7 @@ export const VacancyCard = ({ item }) => {
 			</button>
 			<Icon
 				name='eyeSlashSolid'
-				className={cn([styles.icon__eye], {
+				className={cn(styles.icon__eye, {
 					[styles.active]: isVacancyHidden,
 				})}
 				onClick={() => handleToggleVacancyVisibility(item.id)}

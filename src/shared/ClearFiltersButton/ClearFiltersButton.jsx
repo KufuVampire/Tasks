@@ -14,7 +14,7 @@ export const ClearFiltersButton = () => {
 
 	return (
 		<button
-			className={cn([styles.btn], {
+			className={cn(styles.btn, {
 				[styles.hidden]: searchParams.size < 1,
 			})}
 			onClick={handleClear}>

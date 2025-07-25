@@ -1,12 +1,13 @@
 import { getVacancies } from '@/api';
 import { SEARCH_PARAMS } from '@/constants';
+import { useClickVacancy } from '@/hooks';
 import { Pagination } from '@/modules';
+import { formatDate } from '@/utils';
 import { SkeletonBlock } from '@/shared';
 import {
 	useHiddenVacanciesStore,
 	useSearchParamsStore,
 	useVacanciesStore,
-	useVacancyStore,
 } from '@/store';
 import { useEffect, useState } from 'react';
 
@@ -21,21 +22,11 @@ export const VacancyList = () => {
 	const [totalPages, setTotalPages] = useState(0);
 
 	const { vacancies, setVacancies } = useVacanciesStore();
-	const { setOpen, setVacancyId } = useVacancyStore();
+	const { handleClickVacancy } = useClickVacancy();
 	const { hiddenVacanciesIds } = useHiddenVacanciesStore();
 
 	const { searchParams, searchParamsString, setSearchParamsString } =
 		useSearchParamsStore();
-
-	const handleClickVacancy = (e) => {
-		const btn = e.target.closest('button');
-
-		if (!btn) return;
-
-		const id = btn.dataset.id;
-		setVacancyId(id);
-		setOpen(true);
-	};
 
 	useEffect(() => {
 		setPage(1);
@@ -67,27 +58,21 @@ export const VacancyList = () => {
 						!!searchParams.get(SEARCH_PARAMS.hidden) ||
 						!hiddenVacanciesIds.includes(id)
 				);
-				const vacanciesArr = [];
 
-				items.map((item) => {
-					const date = new Date(item.published_at).toISOString().slice(0, 10);
+				const vacanciesMap = new Map();
+				for (const item of items) {
+					const date = formatDate(item.published_at);
 
-					const vacancyObj = vacanciesArr.find(
-						(el) => Object.keys(el)[0] === date
-					);
-					if (vacancyObj) {
-						const index = vacanciesArr.indexOf(vacancyObj);
-						vacanciesArr[index][date].push(item);
+					const foundedItem = vacanciesMap.get(date);
+					if (foundedItem) {
+						vacanciesMap.set(date, [...foundedItem, item]);
 					} else {
-						const newVacancyObj = {
-							[date]: [item],
-						};
-						vacanciesArr.push(newVacancyObj);
+						vacanciesMap.set(date, [item]);
 					}
-				});
+				}
 
 				setTotalPages(data.pages);
-				setVacancies(vacanciesArr);
+				setVacancies([...vacanciesMap.entries()]);
 			} catch (error) {
 				console.error(error);
 				setError('Не удалось найти вакансии по вашему запросу');
