@@ -16,6 +16,7 @@ export const RelatedVacanciesList = () => {
 	const [isLoading, setLoading] = useState(true);
 	const [perPage, setPerPage] = useState(PER_PAGE_RELATED_VACANCIES);
 	const [isHasMore, setHasMore] = useState(true);
+	const [error, setError] = useState(null);
 
 	const { vacancyId } = useVacancyStore();
 	const { handleClickVacancy } = useClickVacancy();
@@ -29,6 +30,10 @@ export const RelatedVacanciesList = () => {
 		(async () => {
 			try {
 				const data = await getRelatedVacancies(vacancyId, perPage);
+
+				if (data.errors) {
+					throw new Error('Не удалось найти похожии вакансии')
+				}
 
 				if (data.found <= perPage) {
 					setHasMore(false);
@@ -57,9 +62,14 @@ export const RelatedVacanciesList = () => {
 				setLoading(false);
 			} catch (error) {
 				console.error(error);
+				setError(error);
 			}
 		})();
 	}, [perPage, isHasMore, hiddenVacanciesIds]);
+
+	if (error) {
+		return;
+	}
 
 	return (
 		<section

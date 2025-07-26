@@ -3,12 +3,9 @@ import { ClearFiltersButton, Container, Main } from '@/shared';
 import { cn } from '@/utils';
 import styles from './styles.module.css';
 
-export const MainPage = ({ isOpen }) => {
+export const MainPage = () => {
 	return (
-		<Main
-			className={cn({
-				[styles.main__hidden]: isOpen,
-			})}>
+		<Main>
 			<h1 className={styles.visually_hidden}>Career App</h1>
 			<section className={cn(styles.section, styles.search__section)}>
 				<Container className={styles.search__container}>

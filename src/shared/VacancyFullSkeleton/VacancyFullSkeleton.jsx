@@ -1,9 +1,9 @@
 import styles from './styles.module.css';
-import {cn} from '@/utils'
+import { cn } from '@/utils';
 
 export const VacancyFullSkeleton = () => {
 	return (
-		<div className={styles.wrapper}>
+		<>
 			<div className={styles.card}>
 				<h1 className={cn(styles.skeleton, styles.title)} />
 				<p className={cn(styles.skeleton, styles.salary)} />
@@ -50,6 +50,6 @@ export const VacancyFullSkeleton = () => {
 					<address className={cn(styles.skeleton, styles.company__address)} />
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };

@@ -1,4 +1,4 @@
-import { Icon } from '@/shared';
+import { Icon, Link } from '@/shared';
 import { useHiddenVacanciesStore } from '@/store';
 import { cn, formatExperience, formatSalary } from '@/utils';
 
@@ -10,7 +10,7 @@ export const VacancyCard = ({ item }) => {
 
 	const isVacancyHidden = hiddenVacanciesIds.includes(item.id);
 
-	const handleToggleVacancyVisibility = (id) => {
+	const handleToggleVacancyVisibility = id => {
 		if (isVacancyHidden) {
 			removeVacancyFromHidden(id);
 			return;
@@ -21,9 +21,9 @@ export const VacancyCard = ({ item }) => {
 
 	return (
 		<li className={styles.item}>
-			<button
-				className={styles.btn}
-				data-id={item.id}>
+			<Link
+				to={`/vacancy/${item.id}`}
+				className={styles.btn}>
 				<h3 className={styles.heading}>{item.name}</h3>
 				<p className={styles.salary}>{formatSalary(item.salary)}</p>
 				<p className={styles.company}>{item.employer.name}</p>
@@ -39,7 +39,7 @@ export const VacancyCard = ({ item }) => {
 						{formatExperience(item.experience)}
 					</p>
 				</div>
-			</button>
+			</Link>
 			<Icon
 				name='eyeSlashSolid'
 				className={cn(styles.icon__eye, {

@@ -1,8 +1,7 @@
-import { create } from "zustand";
+import { create } from 'zustand';
+import { getVacancyIdFromPath } from '@/utils';
 
-export const useVacancyStore = create((set) => ({
-	vacancyId: '',
-	setVacancyId: (vacancyId) => set(() => ({ vacancyId })),
-	isOpen: false,
-	setOpen: (isOpen) => set(() => ({ isOpen })),
+export const useVacancyStore = create(set => ({
+	vacancyId: getVacancyIdFromPath(),
+	setVacancyId: vacancyId => set(() => ({ vacancyId })),
 }));

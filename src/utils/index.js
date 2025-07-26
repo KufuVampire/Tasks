@@ -43,7 +43,6 @@ export function formatDate(date) {
 	return fullFormatter.format(publishedAtDate);
 }
 
-
 export function formatExperience({ name }) {
 	return name === 'Нет опыта' ? 'Без опыта' : `Опыт ${name.toLowerCase()}`;
 }
@@ -107,4 +106,16 @@ export function cn(...classNames) {
 	});
 
 	return classes.filter(className => className).join(' ');
+}
+
+export function navigate(to) {
+	window.history.pushState({}, '', to);
+	const navEvent = new PopStateEvent('popstate');
+	window.dispatchEvent(navEvent);
+}
+
+export function getVacancyIdFromPath() {
+	const path = window.location.pathname;
+	const parts = path.split('/');
+	return parts.at(-1) || null;
 }

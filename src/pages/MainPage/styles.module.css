@@ -47,13 +47,6 @@
 	overflow: hidden;
 }
 
-.main__hidden {
-	position: absolute;
-	left: -10000px;
-	z-index: var(--layer-hidden);
-	visibility: hidden;
-}
-
 @media (max-width: 48rem) {
 	.search__section {
 		padding-top: 6rem;

@@ -1,16 +1,16 @@
 import { useVacancyStore } from '@/store';
+import { getVacancyIdFromPath } from '@/utils';
 
 export const useClickVacancy = () => {
-	const { setVacancyId, setOpen } = useVacancyStore();
+	const { setVacancyId } = useVacancyStore();
 
 	const handleClickVacancy = e => {
-		const btn = e.target.closest('button');
+		const link = e.target.closest('a');
+		const linkUrl = new URL(link.href);
+		const pathname = linkUrl.pathname;
+		const id = getVacancyIdFromPath();
 
-		if (!btn) return;
-
-		const id = btn.dataset.id;
 		setVacancyId(id);
-		setOpen(true);
 	};
 
 	return {

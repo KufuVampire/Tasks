@@ -9,3 +9,4 @@ export { Skeleton } from './Skeleton/Skeleton';
 export { SkeletonBlock } from './SkeletonBlock/SkeletonBlock';
 export { VacancyCard } from './VacancyCard/VacancyCard';
 export { VacancyFullSkeleton } from './VacancyFullSkeleton/VacancyFullSkeleton';
+export { Link } from './Link/Link';

@@ -3,13 +3,6 @@
 	background-color: var(--skeleton-bg);
 }
 
-.wrapper {
-	position: relative;
-	display: grid;
-	grid-template-columns: 2fr 1fr;
-	column-gap: var(--spacing-3xl);
-}
-
 .card {
 	display: flex;
 	flex-direction: column;
@@ -198,12 +191,6 @@
 }
 
 @media (max-width: 64rem) {
-	.wrapper {
-		display: flex;
-		flex-direction: column;
-		row-gap: var(--spacing-xl);
-	}
-
 	.title {
 		margin-bottom: var(--spacing-sm);
 	}

@@ -1,5 +1,4 @@
 import { VacancyCard } from '@/shared';
-import { formatDate } from '@/utils';
 import styles from './styles.module.css';
 
 export const VacancyBlock = ({ block }) => {
@@ -11,7 +10,7 @@ export const VacancyBlock = ({ block }) => {
 				<time dateTime={date}>{date}</time>
 			</h2>
 			<ul className={styles.list}>
-				{items.map((item) => (
+				{items.map(item => (
 					<VacancyCard
 						key={item.id}
 						item={item}
