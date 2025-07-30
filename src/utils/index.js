@@ -72,22 +72,7 @@ export function formatSalary(salary) {
 export function cn(...classNames) {
 	const classes = classNames.flatMap(className => {
 		if (Array.isArray(className)) {
-			const classesArr = className.map(className => {
-				if (typeof className === 'object' && className) {
-					const objEntries = Object.entries(className);
-					const classesArr = objEntries.map(([key, value]) => {
-						if (value && key !== 'undefined') {
-							return key;
-						}
-					});
-
-					return classesArr;
-				}
-
-				return className;
-			});
-
-			return classesArr;
+			return cn(...className);
 		}
 
 		if (typeof className === 'object' && className) {
