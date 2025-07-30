@@ -11,11 +11,9 @@ export function formatDate(date) {
 	const getFormattedDate = d => formatForCompare.format(d);
 
 	const publishedAtDateStr = getFormattedDate(publishedAtDate);
-	const currentDateStr = getFormattedDate(currentDate);
-
-	const yesterdayDate = new Date(currentDate);
-	yesterdayDate.setDate(currentDate.getDate() - 1);
-	const yesterdayDateStr = getFormattedDate(yesterdayDate);
+	const yesterdayDate = new Date(currentDate).setDate(
+		currentDate.getDate() - 1
+	);
 
 	const dayMonthFormatter = new Intl.DateTimeFormat('ru-RU', {
 		day: 'numeric',
@@ -28,11 +26,11 @@ export function formatDate(date) {
 		month: 'long',
 	});
 
-	if (publishedAtDateStr === currentDateStr) {
+	if (publishedAtDateStr === getFormattedDate(currentDate)) {
 		return `Сегодня, ${dayMonthFormatter.format(publishedAtDate)}`;
 	}
 
-	if (publishedAtDateStr === yesterdayDateStr) {
+	if (publishedAtDateStr === getFormattedDate(yesterdayDate)) {
 		return `Вчера, ${dayMonthFormatter.format(publishedAtDate)}`;
 	}
 
@@ -71,23 +69,18 @@ export function formatSalary(salary) {
 
 export function cn(...classNames) {
 	const classes = classNames.flatMap(className => {
-		if (Array.isArray(className)) {
-			return cn(...className);
-		}
+		if (Array.isArray(className)) return cn(...className);
 
 		if (typeof className === 'object' && className) {
 			const objEntries = Object.entries(className);
-			const classesArr = objEntries.map(([key, value]) => {
+			return objEntries.map(([key, value]) => {
 				if (value && key !== 'undefined') {
 					return key;
 				}
 			});
-			return classesArr;
 		}
 
-		if (typeof className === 'string') {
-			return className;
-		}
+		return className;
 	});
 
 	return classes.filter(className => className).join(' ');

@@ -72,6 +72,16 @@ export const VacancyList = () => {
 						!hiddenVacanciesIds.includes(id)
 				);
 
+				if (items.length === 0) {
+					setLoading(true);
+					setPage(prev => prev + 1);
+				}
+
+				if (items.length === 0 && totalPages === page) {
+					setLoading(true);
+					setPage(1);
+				}
+
 				const vacanciesMap = new Map();
 				for (const item of items) {
 					const date = formatDate(item.published_at);
@@ -86,11 +96,11 @@ export const VacancyList = () => {
 
 				setTotalPages(data.pages);
 				setVacancies([...vacanciesMap]);
-				setLoading(false);
 			} catch (error) {
 				console.error(error);
 				setError(error);
 			}
+			setLoading(false);
 		})();
 	}, [page, hiddenVacanciesIds, searchParamsString]);
 

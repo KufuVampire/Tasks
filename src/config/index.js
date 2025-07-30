@@ -1,1 +1,2 @@
-export { PER_PAGE_RELATED_VACANCIES, PER_PAGE_VACANCIES } from './config';
+export const PER_PAGE_VACANCIES = 18;
+export const PER_PAGE_RELATED_VACANCIES = 6;
