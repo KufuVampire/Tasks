@@ -1,0 +1,116 @@
+.item {
+	position: relative;
+	width: 100%;
+	border-radius: var(--border-radius-md);
+	background-color: var(--bg);
+	box-shadow: var(--shadow);
+	transition: box-shadow var(--transition-duration) var(--transition-timing-function);
+}
+
+.item:hover {
+	box-shadow: var(--shadow-hover);
+}
+
+.item:hover .icon__eye {
+	opacity: 1;
+}
+
+.btn {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: var(--spacing-3xl);
+	border: 0;
+	outline: 0;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.item:has(.btn:focus-visible) {
+	outline: 2px solid black;
+}
+
+.heading {
+	width: 80%;
+	margin-bottom: var(--spacing-xs);
+	font-size: var(--font-size-md);
+	font-weight: 700;
+	line-height: var(--spacing-2xl);
+	text-align: left;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.salary {
+	margin-bottom: var(--spacing-md);
+	font-size: var(--font-size-md);
+	font-weight: 500;
+	line-height: var(--spacing-2xl);
+	text-align: start;
+}
+
+.company {
+	margin-bottom: var(--spacing-xs);
+	font-size: var(--font-size-sm);
+	font-weight: 500;
+	line-height: var(--spacing-md);
+	text-align: start;
+}
+
+.city {
+	margin-bottom: var(--spacing-md);
+	font-size: var(--font-size-sm);
+	font-weight: 500;
+	line-height: var(--spacing-md);
+	text-align: start;
+}
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	column-gap: var(--spacing-xs);
+}
+
+.experience {
+	font-size: var(--font-size-sm);
+	font-weight: 500;
+	line-height: var(--spacing-md);
+}
+
+.icon__eye {
+	--icon-fill-color: #C5C5C5;
+	--icon-stroke-color: var(--icon-fill-color);
+
+	position: absolute;
+	top: 2rem;
+	right: 2rem;
+	opacity: 0;
+	fill: var(--icon-fill-color);
+	stroke: var(--icon-stroke-color);
+	transition: opacity var(--transition-duration) var(--transition-timing-function), fill var(--transition-duration) var(--transition-timing-function), stroke var(--transition-duration) var(--transition-timing-function);
+	cursor: pointer;
+}
+
+.active {
+	--icon-fill-color: var(--accent-color);
+	--icon-stroke-color: var(--icon-fill-color);
+
+	opacity: 1;
+	fill: var(--icon-fill-color);
+	stroke: var(--icon-stroke-color);
+}
+
+.item:hover .active {
+	--icon-fill-color: var(--accent-color-light);
+	--icon-stroke-color: var(--icon-fill-color);
+
+	fill: var(--icon-fill-color);
+	stroke: var(--icon-stroke-color);
+}
+
+@media (max-width: 64rem) {
+	.icon__eye {
+		opacity: 1;
+	}
+}

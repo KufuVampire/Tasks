@@ -1,0 +1,23 @@
+.list {
+	--columns: 3;
+
+	position: relative;
+	display: flex;
+	flex-wrap: nowrap;
+	display: grid;
+	grid-template-columns: repeat(var(--columns), 1fr);
+	align-items: center;
+	column-gap: var(--spacing-3xl);
+}
+
+@media (max-width: 64rem) {
+	.list {
+		--columns: 2;
+	}
+}
+
+@media (max-width: 48rem) {
+	.list {
+		display: flex;
+	}
+}

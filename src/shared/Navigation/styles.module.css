@@ -1,0 +1,12 @@
+.list {
+	display: flex;
+	align-items: center;
+	column-gap: 4.5rem;
+}
+
+@media (max-width: 64rem) {
+	.list {
+		flex-direction: column;
+		row-gap: var(--spacing-xl);
+	}
+}
