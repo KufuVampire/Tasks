@@ -29,10 +29,11 @@ export const VacancyList = () => {
 	const { searchParams, searchParamsString, setSearchParamsString } =
 		useSearchParamsStore();
 
-	const prevSearchParamsRef = useRef(searchParamsString);
+	const prevSearchParamsRef = useRef(searchParams.toString());
 
 	useEffect(() => {
 		const currentSearchParams = searchParams.toString();
+		setSearchParamsString(currentSearchParams)
 		if (prevSearchParamsRef.current !== currentSearchParams) {
 			setPage(1);
 			prevSearchParamsRef.current = currentSearchParams;
@@ -41,9 +42,9 @@ export const VacancyList = () => {
 
 	useEffect(() => {
 		setSearchParamsString(searchParams.toString());
-		setFilters(searchParamsString);
+		setFilters(searchParams.toString());
 
-		if (searchParamsString.length > 0) {
+		if (searchParams.size > 0) {
 			window.history.replaceState(
 				{},
 				'',
@@ -52,9 +53,7 @@ export const VacancyList = () => {
 		} else {
 			window.history.replaceState({}, '', '/');
 		}
-	}, [searchParamsString]);
 
-	useEffect(() => {
 		(async () => {
 			try {
 				const data = await getVacancies(
@@ -107,7 +106,8 @@ export const VacancyList = () => {
 	if (
 		!isLoading &&
 		(error || vacancies.length < 1) &&
-		searchParamsString.length > 0
+		searchParams.size > 0 &&
+		hiddenVacanciesIds.length < 1
 	) {
 		return (
 			<p className={styles.not_found}>

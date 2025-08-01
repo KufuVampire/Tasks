@@ -8,8 +8,7 @@ export const ClearFiltersButton = () => {
 	const handleClear = () => {
 		const allKeys = new Set(searchParams.keys());
 		allKeys.forEach((key) => searchParams.delete(key));
-
-		setSearchParamsString(searchParams.toString());
+		setSearchParamsString('');
 	};
 
 	return (

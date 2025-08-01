@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { FILTERS_STORAGE_KEYS } from '@/constants';
 
-const filters = JSON.parse(localStorage.getItem(FILTERS_STORAGE_KEYS.filters));
+const filters = JSON.parse(localStorage.getItem(FILTERS_STORAGE_KEYS.filters)) || '';
 
 export const useSearchParamsStore = create(set => ({
 	searchParams: new URLSearchParams(
